@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taller de Materiales</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<style>
+  :root {
+    --papel: #f4f6f8; --hoja: #ffffff; --tinta: #18202b; --grafito: #5b6573; --linea: #d9dee5;
+    --acento: #2d5b8c; --acento-suave: #e3ecf6; --rotulador: #f5d547; --rotulador-suave: #fdf5cc;
+    --bien: #2f7d5a; --bien-suave: #e2f1e9; --mal: #b4413a; --mal-suave: #f7e3e1; --foco: #2d5b8c;
+    --lectura: "Literata", Georgia, "Times New Roman", serif;
+    --ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --papel: #111519; --hoja: #192027; --tinta: #e4e8ed; --grafito: #9aa5b1; --linea: #2c3540;
+      --acento: #86aedb; --acento-suave: #1f2e3f; --rotulador: #c9a93a; --rotulador-suave: #3a3318;
+      --bien: #6cc39a; --bien-suave: #1a3328; --mal: #e38a83; --mal-suave: #3d2220; --foco: #86aedb;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --papel: #111519; --hoja: #192027; --tinta: #e4e8ed; --grafito: #9aa5b1; --linea: #2c3540;
+    --acento: #86aedb; --acento-suave: #1f2e3f; --rotulador: #c9a93a; --rotulador-suave: #3a3318;
+    --bien: #6cc39a; --bien-suave: #1a3328; --mal: #e38a83; --mal-suave: #3d2220; --foco: #86aedb;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--papel); color: var(--tinta); font: 15px/1.5 var(--ui); padding-inline: 16px; }
+  button, select, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--foco); outline-offset: 2px; }
+  .marco { max-width: 1320px; margin: 0 auto; padding-block: 16px 48px; display: grid; gap: 16px; grid-template-columns: 290px minmax(0, 1fr); align-items: start; }
+  .cabecera { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; border-bottom: 1px solid var(--linea); padding-bottom: 12px; }
+  .cabecera h1 { margin: 0; font: 600 22px/1.2 var(--lectura); letter-spacing: -0.01em; }
+  .cabecera p { margin: 0; color: var(--grafito); font-size: 13px; }
+  .aviso { grid-column: 1 / -1; background: var(--rotulador-suave); border: 1px solid var(--rotulador); border-radius: 6px; padding: 8px 12px; font-size: 13px; }
+  /* Biblioteca */
+  .lateral { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); display: grid; gap: 12px; max-height: calc(100vh - 32px); overflow: auto; }
+  .panel { background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 12px; }
+  .panel h2 { margin: 0 0 8px; font: 600 12px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito); }
+  .arbol, .arbol ul { list-style: none; margin: 0; padding: 0; }
+  .arbol ul { padding-left: 14px; border-left: 1px solid var(--linea); margin-left: 6px; }
+  .arbol button, .unidades button { display: flex; width: 100%; justify-content: space-between; gap: 8px; text-align: left; background: none; border: 0; border-radius: 5px; padding: 4px 6px; cursor: pointer; }
+  .arbol button:hover, .unidades button:hover { background: var(--acento-suave); }
+  .arbol button[aria-current="true"], .unidades button[aria-current="true"] { background: var(--acento); color: var(--hoja); }
+  .arbol .materia > button { font-weight: 600; }
+  .cuenta { font: 12px var(--mono); color: inherit; opacity: 0.7; font-variant-numeric: tabular-nums; }
+  .unidades { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; font-size: 14px; }
+  .tipo { font: 11px var(--mono); color: var(--grafito); }
+  .unidades button[aria-current="true"] .tipo { color: inherit; opacity: 0.85; }
+  /* Zona principal */
+  .principal { display: grid; gap: 12px; min-width: 0; }
+  .pestanas { display: flex; gap: 4px; border-bottom: 1px solid var(--linea); }
+  .pestanas button { background: none; border: 0; border-bottom: 2px solid transparent; padding: 8px 12px; cursor: pointer; color: var(--grafito); font-weight: 500; }
+  .pestanas button[aria-selected="true"] { color: var(--tinta); border-bottom-color: var(--acento); }
+  .barra { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+  .barra label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--grafito); }
+  .barra select { background: var(--hoja); border: 1px solid var(--linea); border-radius: 5px; padding: 4px 6px; }
+  .boton { background: var(--acento); color: var(--hoja); border: 0; border-radius: 6px; padding: 7px 14px; font-weight: 600; cursor: pointer; }
+  .boton.secundario { background: var(--hoja); color: var(--acento); border: 1px solid var(--acento); }
+  .boton:disabled { opacity: 0.5; cursor: default; }
+  .indicadores { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; background: var(--hoja); border: 1px solid var(--linea); border-radius: 999px; padding: 3px 10px; font-size: 13px; font-variant-numeric: tabular-nums; }
+  .chip.bien { background: var(--bien-suave); border-color: var(--bien); color: var(--bien); }
+  .chip.mal { background: var(--mal-suave); border-color: var(--mal); color: var(--mal); cursor: pointer; }
+  .chip.pend { background: var(--rotulador-suave); border-color: var(--rotulador); }
+  .cobertura { flex: 1 1 180px; display: flex; align-items: center; gap: 8px; font-size: 13px; }
+  .cobertura .pista { flex: 1; height: 8px; background: var(--rotulador-suave); border-radius: 4px; overflow: hidden; }
+  .cobertura .relleno { height: 100%; background: var(--bien); }
+  /* Documento */
+  .hoja { background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 28px clamp(16px, 4vw, 48px); }
+  .documento { max-width: 68ch; margin: 0 auto; font: 17px/1.65 var(--lectura); }
+  .documento h2 { font: 600 24px/1.25 var(--lectura); margin: 36px 0 6px; text-wrap: balance; }
+  .documento h2:first-child { margin-top: 0; }
+  .documento h2 .num { color: var(--grafito); font-weight: 400; margin-right: 6px; }
+  .documento h3 { font: 600 12px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito); margin: 20px 0 6px; }
+  .documento p { margin: 0 0 12px; }
+  .etiqueta { display: inline-block; font: 500 11px/1.4 var(--ui); color: var(--grafito); border: 1px dashed var(--linea); border-radius: 4px; padding: 1px 6px; margin-left: 8px; vertical-align: middle; }
+  .objetivos { list-style: none; padding: 0; margin: 0 0 16px; font: 14px/1.5 var(--ui); color: var(--grafito); display: grid; gap: 2px; }
+  .af { cursor: pointer; border-radius: 3px; transition: background 0.15s; }
+  .af:hover { background: var(--acento-suave); }
+  .af.elegida { background: var(--acento-suave); box-shadow: 0 0 0 1px var(--acento); }
+  .af.cambio { text-decoration: underline wavy var(--acento); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  .ejemplo { border-left: 3px solid var(--acento); padding-left: 14px; }
+  .pasos { margin: 0 0 12px; padding-left: 14px; border-left: 3px solid var(--linea); display: grid; gap: 4px; }
+  .pregunta { font: 15px/1.5 var(--ui); background: var(--papel); border-radius: 6px; padding: 10px 12px; margin: 0 0 8px; }
+  .pregunta .opciones { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .pregunta .opciones span.af { background: var(--hoja); border: 1px solid var(--linea); border-radius: 4px; padding: 1px 6px; }
+  .pregunta details summary { cursor: pointer; color: var(--acento); font-size: 13px; font-weight: 500; }
+  .pregunta details div { margin-top: 6px; display: grid; gap: 2px; }
+  .pendiente { font: 14px/1.5 var(--ui); background: var(--rotulador-suave); border-left: 3px solid var(--rotulador); padding: 6px 10px; margin: 0 0 12px; border-radius: 0 4px 4px 0; }
+  .esquema { font: 13px/1.5 var(--ui); color: var(--grafito); border: 1px dashed var(--linea); border-radius: 6px; padding: 10px 12px; margin: 0 0 12px; }
+  .repaso { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; font-size: 16px; }
+  .requisitos { font: 15px/1.5 var(--ui); color: var(--grafito); border-bottom: 1px solid var(--linea); padding-bottom: 14px; margin-bottom: 20px; }
+  /* Origen */
+  .origen { position: fixed; right: 16px; top: calc(env(safe-area-inset-top, 0px) + 16px); width: min(380px, calc(100% - 32px)); max-height: calc(100% - 32px); overflow: auto; background: var(--hoja); border: 1px solid var(--linea); border-radius: 10px; box-shadow: 0 12px 32px rgba(10, 20, 30, 0.18); padding: 16px; z-index: 5; font-size: 14px; }
+  .origen header { display: flex; justify-content: space-between; align-items: start; gap: 8px; }
+  .origen h2 { margin: 0; font: 600 12px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito); }
+  .origen .frase { font: 16px/1.5 var(--lectura); margin: 8px 0 12px; }
+  .origen dl { margin: 0; display: grid; gap: 8px; }
+  .origen dt { font: 500 11px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.06em; color: var(--grafito); }
+  .origen dd { margin: 2px 0 0; }
+  .origen .ids { font: 11px/1.5 var(--mono); color: var(--grafito); word-break: break-all; }
+  .cerrar { background: none; border: 1px solid var(--linea); border-radius: 5px; padding: 2px 8px; cursor: pointer; }
+  /* Apuntes */
+  .apuntes { display: grid; gap: 12px; }
+  .apuntes textarea { width: 100%; min-height: 260px; resize: vertical; background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 12px; font: 14px/1.55 var(--mono); }
+  .apuntes input { background: var(--hoja); border: 1px solid var(--linea); border-radius: 5px; padding: 5px 8px; min-width: 0; }
+  .ayuda { font-size: 13px; color: var(--grafito); margin: 0; }
+  .ayuda code { font-family: var(--mono); background: var(--acento-suave); border-radius: 3px; padding: 0 4px; }
+  .tabla { overflow-x: auto; }
+  .tabla table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .tabla th, .tabla td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--linea); vertical-align: top; }
+  .tabla th { font-weight: 600; color: var(--grafito); }
+  .tabla td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--grafito); }
+  .errores { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+  .errores li { background: var(--mal-suave); color: var(--mal); border-radius: 5px; padding: 5px 10px; font-size: 13px; }
+  .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--grafito); border-top: 1px solid var(--linea); padding-top: 12px; }
+  .vacio { color: var(--grafito); font-style: italic; }
+  @media (max-width: 900px) {
+    .marco { grid-template-columns: minmax(0, 1fr); }
+    .lateral { position: static; max-height: none; order: 2; }
+    .principal { order: 1; }
+    .pie { order: 3; }
+    .origen { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 12px); right: 16px; width: calc(100% - 32px); max-height: 55%; }
+  }
+  @media (prefers-reduced-motion: reduce) { .af { transition: none; } }
+</style>
+</head>
+<body>
+<div class="marco">
+  <header class="cabecera">
+    <h1>Taller de Materiales</h1>
+    <p>Genera material de estudio a partir de datos verificados · sin IA externa · todo en este navegador</p>
+  </header>
+  <div class="aviso" id="avisoMemoria" hidden>Este navegador no permite guardar datos (IndexedDB). Todo funciona, pero se perderá al recargar la página.</div>
+
+  <aside class="lateral" aria-label="Biblioteca">
+    <section class="panel">
+      <h2>Biblioteca</h2>
+      <ul class="arbol" id="arbol"><li class="vacio">Cargando…</li></ul>
+    </section>
+    <section class="panel">
+      <h2 id="tituloUnidades">Unidades</h2>
+      <ul class="unidades" id="unidades"><li class="vacio">Elige un tema.</li></ul>
+    </section>
+  </aside>
+
+  <main class="principal">
+    <div class="pestanas" role="tablist">
+      <button type="button" role="tab" id="tabMaterial" aria-selected="true" aria-controls="vistaMaterial">Material</button>
+      <button type="button" role="tab" id="tabApuntes" aria-selected="false" aria-controls="vistaApuntes">Mis apuntes</button>
+    </div>
+
+    <section id="vistaMaterial" role="tabpanel" aria-labelledby="tabMaterial" class="principal">
+      <div class="barra">
+        <label for="selNivel">Nivel <select id="selNivel"></select></label>
+        <label><input type="checkbox" id="chkObjetivos" checked> Objetivos</label>
+        <label><input type="checkbox" id="chkPreguntas" checked> Preguntas</label>
+        <label><input type="checkbox" id="chkPendientes" checked> Huecos pendientes</label>
+        <button type="button" class="boton" id="btnOtra">Otra versión</button>
+        <button type="button" class="boton secundario" id="btnMarcar" aria-pressed="false">Marcar cambios</button>
+      </div>
+      <div class="indicadores" id="indicadores"></div>
+      <ul class="errores" id="problemas" hidden></ul>
+      <article class="hoja"><div class="documento" id="documento"><p class="vacio">Preparando el material…</p></div></article>
+    </section>
+
+    <section id="vistaApuntes" role="tabpanel" aria-labelledby="tabApuntes" class="apuntes" hidden>
+      <p class="ayuda">Una idea por línea. Lo sangrado pertenece a la línea de arriba. <code>Término: definición</code> · <code>1789: suceso</code> · <code>Ej:</code> · <code>Dato:</code> · <code>Fórmula:</code> · <code>Procedimiento:</code> con pasos sangrados · <code>→ causa: X</code> · <code>→ requiere: X</code>.</p>
+      <div class="barra">
+        <label for="txtTitulo">Título <input id="txtTitulo" value="Apuntes de ejemplo: la célula"></label>
+        <label for="selNivelApuntes">Nivel <select id="selNivelApuntes"></select></label>
+      </div>
+      <textarea id="txtApuntes" spellcheck="false" aria-label="Apuntes"></textarea>
+      <div class="barra">
+        <button type="button" class="boton secundario" id="btnAnalizar">Analizar</button>
+        <button type="button" class="boton" id="btnImportar">Guardar en la biblioteca</button>
+        <button type="button" class="boton secundario" id="btnDeshacer" hidden>Deshacer esta importación</button>
+      </div>
+      <div id="resultadoApuntes"></div>
+    </section>
+  </main>
+
+  <aside class="origen" id="origen" hidden aria-live="polite"></aside>
+
+  <footer class="pie">
+    <span id="estadoDatos">—</span>
+    <span><button type="button" class="cerrar" id="btnRestablecer">Restablecer biblioteca de prueba</button></span>
+  </footer>
+</div>
+
+<script src="nucleo/edu_base.js"></script>
+<script src="nucleo/edu_esquemas.js"></script>
+<script src="nucleo/edu_almacen.js"></script>
+<script src="conocimiento/edu_biblioteca.js"></script>
+<script src="conocimiento/edu_importador.js"></script>
+<script src="expansion/edu_expansor.js"></script>
+<script src="expansion/edu_secuencia.js"></script>
+<script src="redaccion/edu_lengua_es.js"></script>
+<script src="redaccion/edu_redactor.js"></script>
+<script src="variacion/edu_variacion.js"></script>
+<script src="visor/edu_visor.js"></script>
+</body>
+</html>
