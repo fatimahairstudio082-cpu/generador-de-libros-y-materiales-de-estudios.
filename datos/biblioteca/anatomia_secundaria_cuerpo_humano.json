@@ -1,0 +1,653 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_anatomia_secundaria_cuerpo_humano",
+  "titulo": "Anatomía y fisiología · Secundaria · El cuerpo humano",
+  "descripcion": "Niveles de organización y los aparatos locomotor, circulatorio, respiratorio y digestivo.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "ref",
+      "clase": "propia",
+      "titulo": "Contenido académico general de anatomía y fisiología humana redactado para el Taller",
+      "licencia": "propia",
+      "nota": "Conocimiento escolar establecido. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    {
+      "clave": "mat",
+      "clase": "materia",
+      "nombre": "Anatomía y fisiología"
+    },
+    {
+      "clave": "niv",
+      "clase": "nivel",
+      "nombre": "Secundaria",
+      "padre": "mat",
+      "nivel": "secundaria"
+    },
+    {
+      "clave": "tema",
+      "clase": "tema",
+      "nombre": "El cuerpo humano",
+      "padre": "niv"
+    },
+    {
+      "clave": "organizacion",
+      "clase": "subtema",
+      "nombre": "Niveles de organización",
+      "padre": "tema",
+      "orden": 1
+    },
+    {
+      "clave": "locomotor",
+      "clase": "subtema",
+      "nombre": "El aparato locomotor",
+      "padre": "tema",
+      "orden": 2
+    },
+    {
+      "clave": "circulatorio",
+      "clase": "subtema",
+      "nombre": "El aparato circulatorio",
+      "padre": "tema",
+      "orden": 3
+    },
+    {
+      "clave": "respiratorio",
+      "clase": "subtema",
+      "nombre": "El aparato respiratorio",
+      "padre": "tema",
+      "orden": 4
+    },
+    {
+      "clave": "digestivo",
+      "clase": "subtema",
+      "nombre": "El aparato digestivo",
+      "padre": "tema",
+      "orden": 5
+    }
+  ],
+  "ucs": [
+    {
+      "clave": "tejido",
+      "tipo": "concepto",
+      "titulo": "Tejido",
+      "rama": "organizacion",
+      "texto": "Conjunto de células parecidas que realizan la misma función."
+    },
+    {
+      "clave": "organo",
+      "tipo": "concepto",
+      "titulo": "Órgano",
+      "rama": "organizacion",
+      "texto": "Estructura formada por varios tejidos que trabajan juntos para realizar una función."
+    },
+    {
+      "clave": "aparato",
+      "tipo": "concepto",
+      "titulo": "Aparato",
+      "rama": "organizacion",
+      "texto": "Conjunto de órganos distintos que colaboran en una misma función."
+    },
+    {
+      "clave": "organismo",
+      "tipo": "concepto",
+      "titulo": "Organismo",
+      "rama": "organizacion",
+      "texto": "Ser vivo completo formado por todos sus aparatos y sistemas."
+    },
+    {
+      "clave": "ej_corazon_organo",
+      "tipo": "ejemplo",
+      "titulo": "El corazón como órgano",
+      "rama": "organizacion",
+      "texto": "El corazón es un órgano formado por tejido muscular, tejido nervioso y tejido conjuntivo."
+    },
+    {
+      "clave": "esqueleto",
+      "tipo": "concepto",
+      "titulo": "Esqueleto",
+      "rama": "locomotor",
+      "texto": "Conjunto de huesos del cuerpo. Sostiene el cuerpo, protege los órganos y permite el movimiento."
+    },
+    {
+      "clave": "hueso",
+      "tipo": "concepto",
+      "titulo": "Hueso",
+      "rama": "locomotor",
+      "texto": "Órgano duro y resistente que forma el esqueleto."
+    },
+    {
+      "clave": "n_huesos",
+      "tipo": "dato",
+      "titulo": "Número de huesos del adulto",
+      "rama": "locomotor",
+      "texto": "El esqueleto de una persona adulta tiene 206 huesos."
+    },
+    {
+      "clave": "musculo",
+      "tipo": "concepto",
+      "titulo": "Músculo",
+      "rama": "locomotor",
+      "texto": "Órgano que se contrae y se relaja para producir movimiento."
+    },
+    {
+      "clave": "articulacion",
+      "tipo": "concepto",
+      "titulo": "Articulación",
+      "rama": "locomotor",
+      "texto": "Zona de unión entre dos o más huesos."
+    },
+    {
+      "clave": "tendon",
+      "tipo": "concepto",
+      "titulo": "Tendón",
+      "rama": "locomotor",
+      "texto": "Estructura fibrosa que une un músculo a un hueso."
+    },
+    {
+      "clave": "ej_femur",
+      "tipo": "ejemplo",
+      "titulo": "El fémur",
+      "rama": "locomotor",
+      "texto": "El fémur, el hueso del muslo, es el hueso más largo del cuerpo humano."
+    },
+    {
+      "clave": "craneo",
+      "tipo": "concepto",
+      "titulo": "Cráneo",
+      "rama": "locomotor",
+      "texto": "Conjunto de huesos de la cabeza que protege el encéfalo."
+    },
+    {
+      "clave": "a_circulatorio",
+      "tipo": "concepto",
+      "titulo": "Aparato circulatorio",
+      "rama": "circulatorio",
+      "texto": "Aparato que transporta la sangre por todo el cuerpo para llevar nutrientes y oxígeno a las células y recoger sus desechos."
+    },
+    {
+      "clave": "corazon",
+      "tipo": "concepto",
+      "titulo": "Corazón",
+      "rama": "circulatorio",
+      "texto": "Órgano muscular que bombea la sangre. Tiene cuatro cavidades: dos aurículas y dos ventrículos."
+    },
+    {
+      "clave": "sangre",
+      "tipo": "concepto",
+      "titulo": "Sangre",
+      "rama": "circulatorio",
+      "texto": "Líquido formado por plasma, glóbulos rojos, glóbulos blancos y plaquetas."
+    },
+    {
+      "clave": "arteria",
+      "tipo": "concepto",
+      "titulo": "Arteria",
+      "rama": "circulatorio",
+      "texto": "Vaso sanguíneo que lleva la sangre desde el corazón hacia el resto del cuerpo."
+    },
+    {
+      "clave": "vena",
+      "tipo": "concepto",
+      "titulo": "Vena",
+      "rama": "circulatorio",
+      "texto": "Vaso sanguíneo que lleva la sangre desde el cuerpo de vuelta al corazón."
+    },
+    {
+      "clave": "capilar",
+      "tipo": "concepto",
+      "titulo": "Vaso capilar",
+      "rama": "circulatorio",
+      "texto": "Vaso sanguíneo muy fino donde la sangre intercambia sustancias con las células."
+    },
+    {
+      "clave": "globulo_rojo",
+      "tipo": "concepto",
+      "titulo": "Glóbulo rojo",
+      "rama": "circulatorio",
+      "texto": "Célula de la sangre que transporta el oxígeno."
+    },
+    {
+      "clave": "a_respiratorio",
+      "tipo": "concepto",
+      "titulo": "Aparato respiratorio",
+      "rama": "respiratorio",
+      "texto": "Aparato que toma el oxígeno del aire y expulsa el dióxido de carbono."
+    },
+    {
+      "clave": "pulmon",
+      "tipo": "concepto",
+      "titulo": "Pulmón",
+      "rama": "respiratorio",
+      "texto": "Órgano donde se produce el intercambio de gases entre el aire y la sangre."
+    },
+    {
+      "clave": "alveolo",
+      "tipo": "concepto",
+      "titulo": "Alveolo pulmonar",
+      "rama": "respiratorio",
+      "texto": "Pequeño saco de aire del pulmón rodeado de capilares, donde el oxígeno pasa a la sangre."
+    },
+    {
+      "clave": "traquea",
+      "tipo": "concepto",
+      "titulo": "Tráquea",
+      "rama": "respiratorio",
+      "texto": "Tubo que conduce el aire desde la laringe hasta los bronquios."
+    },
+    {
+      "clave": "diafragma",
+      "tipo": "concepto",
+      "titulo": "Diafragma",
+      "rama": "respiratorio",
+      "texto": "Músculo situado bajo los pulmones que, al contraerse, hace que entre el aire."
+    },
+    {
+      "clave": "p_respirar",
+      "tipo": "procedimiento",
+      "titulo": "Recorrido del aire al inspirar",
+      "rama": "respiratorio",
+      "texto": "El aire recorre las vías respiratorias en este orden.",
+      "campos": {
+        "pasos": [
+          "El aire entra por la nariz o por la boca.",
+          "Pasa por la faringe y la laringe.",
+          "Baja por la tráquea.",
+          "Se reparte por los bronquios hacia cada pulmón.",
+          "Llega a los alveolos, donde el oxígeno pasa a la sangre."
+        ]
+      }
+    },
+    {
+      "clave": "a_digestivo",
+      "tipo": "concepto",
+      "titulo": "Aparato digestivo",
+      "rama": "digestivo",
+      "texto": "Aparato que transforma los alimentos en nutrientes que el cuerpo puede absorber."
+    },
+    {
+      "clave": "estomago",
+      "tipo": "concepto",
+      "titulo": "Estómago",
+      "rama": "digestivo",
+      "texto": "Órgano en forma de bolsa donde los jugos gástricos siguen la digestión de los alimentos."
+    },
+    {
+      "clave": "intestino_delgado",
+      "tipo": "concepto",
+      "titulo": "Intestino delgado",
+      "rama": "digestivo",
+      "texto": "Tubo largo donde termina la digestión y se absorben los nutrientes hacia la sangre."
+    },
+    {
+      "clave": "intestino_grueso",
+      "tipo": "concepto",
+      "titulo": "Intestino grueso",
+      "rama": "digestivo",
+      "texto": "Última parte del tubo digestivo, donde se absorbe agua y se forman las heces."
+    },
+    {
+      "clave": "higado",
+      "tipo": "concepto",
+      "titulo": "Hígado",
+      "rama": "digestivo",
+      "texto": "Glándula que produce la bilis, que ayuda a digerir las grasas."
+    },
+    {
+      "clave": "p_digestion",
+      "tipo": "procedimiento",
+      "titulo": "Recorrido de los alimentos",
+      "rama": "digestivo",
+      "texto": "Los alimentos recorren el tubo digestivo en este orden.",
+      "campos": {
+        "pasos": [
+          "Boca: los dientes trituran el alimento y la saliva lo humedece.",
+          "Faringe y esófago: el alimento baja hasta el estómago.",
+          "Estómago: los jugos gástricos lo transforman en una pasta.",
+          "Intestino delgado: se completa la digestión y se absorben los nutrientes.",
+          "Intestino grueso: se absorbe el agua y se forman las heces, que se expulsan por el ano."
+        ]
+      }
+    }
+  ],
+  "relaciones": [
+    {
+      "tipo": "parte_de",
+      "de": "tejido",
+      "a": "organo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "organo",
+      "a": "aparato"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "aparato",
+      "a": "organismo"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_corazon_organo",
+      "a": "organo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "hueso",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "n_huesos",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "es_un",
+      "de": "hueso",
+      "a": "organo"
+    },
+    {
+      "tipo": "es_un",
+      "de": "musculo",
+      "a": "organo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "articulacion",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "tendon",
+      "a": "musculo"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "tendon",
+      "a": "hueso"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_femur",
+      "a": "hueso"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "craneo",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "es_un",
+      "de": "a_circulatorio",
+      "a": "aparato"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "corazon",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "sangre",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "arteria",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "vena",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "capilar",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "arteria",
+      "a": "vena"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "globulo_rojo",
+      "a": "sangre"
+    },
+    {
+      "tipo": "es_un",
+      "de": "a_respiratorio",
+      "a": "aparato"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "pulmon",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "alveolo",
+      "a": "pulmon"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "traquea",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "diafragma",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "p_respirar",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "alveolo",
+      "a": "capilar"
+    },
+    {
+      "tipo": "es_un",
+      "de": "a_digestivo",
+      "a": "aparato"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "estomago",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "intestino_delgado",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "intestino_grueso",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "higado",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "p_digestion",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "organo",
+      "a": "tejido"
+    },
+    {
+      "tipo": "requiere",
+      "de": "aparato",
+      "a": "organo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "organismo",
+      "a": "aparato"
+    },
+    {
+      "tipo": "requiere",
+      "de": "hueso",
+      "a": "organo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "esqueleto",
+      "a": "hueso"
+    },
+    {
+      "tipo": "requiere",
+      "de": "articulacion",
+      "a": "hueso"
+    },
+    {
+      "tipo": "requiere",
+      "de": "craneo",
+      "a": "hueso"
+    },
+    {
+      "tipo": "requiere",
+      "de": "n_huesos",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "requiere",
+      "de": "musculo",
+      "a": "organo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "musculo",
+      "a": "esqueleto"
+    },
+    {
+      "tipo": "requiere",
+      "de": "tendon",
+      "a": "musculo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a_circulatorio",
+      "a": "aparato"
+    },
+    {
+      "tipo": "requiere",
+      "de": "corazon",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "sangre",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "arteria",
+      "a": "corazon"
+    },
+    {
+      "tipo": "requiere",
+      "de": "vena",
+      "a": "corazon"
+    },
+    {
+      "tipo": "requiere",
+      "de": "capilar",
+      "a": "arteria"
+    },
+    {
+      "tipo": "requiere",
+      "de": "globulo_rojo",
+      "a": "sangre"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a_respiratorio",
+      "a": "aparato"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a_respiratorio",
+      "a": "a_circulatorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "pulmon",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "traquea",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "alveolo",
+      "a": "pulmon"
+    },
+    {
+      "tipo": "requiere",
+      "de": "diafragma",
+      "a": "pulmon"
+    },
+    {
+      "tipo": "requiere",
+      "de": "p_respirar",
+      "a": "alveolo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "p_respirar",
+      "a": "traquea"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a_digestivo",
+      "a": "aparato"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a_digestivo",
+      "a": "a_respiratorio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "estomago",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "higado",
+      "a": "a_digestivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "intestino_delgado",
+      "a": "estomago"
+    },
+    {
+      "tipo": "requiere",
+      "de": "intestino_grueso",
+      "a": "intestino_delgado"
+    },
+    {
+      "tipo": "requiere",
+      "de": "p_digestion",
+      "a": "intestino_grueso"
+    }
+  ]
+}

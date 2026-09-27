@@ -1,0 +1,535 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_fisica_secundaria_movimiento",
+  "titulo": "Física · Secundaria · El movimiento y las fuerzas",
+  "descripcion": "Magnitudes del movimiento, movimiento rectilíneo uniforme y acelerado, fuerzas y leyes de Newton.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "ref",
+      "clase": "propia",
+      "titulo": "Contenido académico general de física redactado para el Taller",
+      "licencia": "propia",
+      "nota": "Conocimiento escolar establecido. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    {
+      "clave": "mat",
+      "clase": "materia",
+      "nombre": "Física"
+    },
+    {
+      "clave": "niv",
+      "clase": "nivel",
+      "nombre": "Secundaria",
+      "padre": "mat",
+      "nivel": "secundaria"
+    },
+    {
+      "clave": "tema",
+      "clase": "tema",
+      "nombre": "El movimiento y las fuerzas",
+      "padre": "niv"
+    },
+    {
+      "clave": "magnitudes",
+      "clase": "subtema",
+      "nombre": "Magnitudes del movimiento",
+      "padre": "tema",
+      "orden": 1
+    },
+    {
+      "clave": "tipos",
+      "clase": "subtema",
+      "nombre": "Tipos de movimiento",
+      "padre": "tema",
+      "orden": 2
+    },
+    {
+      "clave": "fuerzas",
+      "clase": "subtema",
+      "nombre": "Las fuerzas y las leyes de Newton",
+      "padre": "tema",
+      "orden": 3
+    }
+  ],
+  "ucs": [
+    {
+      "clave": "movimiento",
+      "tipo": "concepto",
+      "titulo": "Movimiento",
+      "rama": "magnitudes",
+      "texto": "Cambio de posición de un cuerpo respecto a un punto de referencia a lo largo del tiempo."
+    },
+    {
+      "clave": "referencia",
+      "tipo": "concepto",
+      "titulo": "Sistema de referencia",
+      "rama": "magnitudes",
+      "texto": "Punto o conjunto de puntos respecto al cual se describe la posición de un cuerpo."
+    },
+    {
+      "clave": "trayectoria",
+      "tipo": "concepto",
+      "titulo": "Trayectoria",
+      "rama": "magnitudes",
+      "texto": "Línea que describe un cuerpo al moverse."
+    },
+    {
+      "clave": "desplazamiento",
+      "tipo": "concepto",
+      "titulo": "Desplazamiento",
+      "rama": "magnitudes",
+      "texto": "Distancia en línea recta entre la posición inicial y la posición final de un cuerpo, con su dirección y sentido."
+    },
+    {
+      "clave": "velocidad",
+      "tipo": "formula",
+      "titulo": "Velocidad media",
+      "rama": "magnitudes",
+      "texto": "Cociente entre la distancia recorrida y el tiempo empleado. En el Sistema Internacional se mide en metros por segundo.",
+      "campos": {
+        "expresion": "v = d / t"
+      }
+    },
+    {
+      "clave": "aceleracion",
+      "tipo": "formula",
+      "titulo": "Aceleración",
+      "rama": "magnitudes",
+      "texto": "Variación de la velocidad en cada unidad de tiempo. Se mide en metros por segundo al cuadrado.",
+      "campos": {
+        "expresion": "a = (v − v₀) / t"
+      }
+    },
+    {
+      "clave": "ej_velocidad",
+      "tipo": "ejemplo",
+      "titulo": "Calcular una velocidad",
+      "rama": "magnitudes",
+      "texto": "Un ciclista que recorre 100 m en 20 s lleva una velocidad media de 5 m/s."
+    },
+    {
+      "clave": "conversion",
+      "tipo": "dato",
+      "titulo": "Conversión de km/h a m/s",
+      "rama": "magnitudes",
+      "texto": "Para pasar de km/h a m/s se divide entre 3,6."
+    },
+    {
+      "clave": "mru",
+      "tipo": "concepto",
+      "titulo": "Movimiento rectilíneo uniforme",
+      "rama": "tipos",
+      "texto": "Movimiento en línea recta con velocidad constante: el cuerpo recorre distancias iguales en tiempos iguales."
+    },
+    {
+      "clave": "mru_formula",
+      "tipo": "formula",
+      "titulo": "Ecuación del movimiento rectilíneo uniforme",
+      "rama": "tipos",
+      "texto": "La posición final es la posición inicial más la velocidad por el tiempo.",
+      "campos": {
+        "expresion": "x = x₀ + v · t"
+      }
+    },
+    {
+      "clave": "mrua",
+      "tipo": "concepto",
+      "titulo": "Movimiento rectilíneo uniformemente acelerado",
+      "rama": "tipos",
+      "texto": "Movimiento en línea recta con aceleración constante: la velocidad cambia lo mismo en tiempos iguales."
+    },
+    {
+      "clave": "mrua_formula",
+      "tipo": "formula",
+      "titulo": "Velocidad en el movimiento uniformemente acelerado",
+      "rama": "tipos",
+      "texto": "La velocidad final es la velocidad inicial más la aceleración por el tiempo.",
+      "campos": {
+        "expresion": "v = v₀ + a · t"
+      }
+    },
+    {
+      "clave": "caida_libre",
+      "tipo": "concepto",
+      "titulo": "Caída libre",
+      "rama": "tipos",
+      "texto": "Movimiento uniformemente acelerado de un cuerpo que cae solo por efecto de la gravedad, sin rozamiento con el aire."
+    },
+    {
+      "clave": "ej_coche",
+      "tipo": "ejemplo",
+      "titulo": "Un coche que acelera",
+      "rama": "tipos",
+      "texto": "Un coche que parte del reposo y alcanza 20 m/s en 10 s tiene una aceleración de 2 m/s²."
+    },
+    {
+      "clave": "fuerza",
+      "tipo": "concepto",
+      "titulo": "Fuerza",
+      "rama": "fuerzas",
+      "texto": "Acción capaz de cambiar el estado de movimiento de un cuerpo o de deformarlo."
+    },
+    {
+      "clave": "newton_unidad",
+      "tipo": "dato",
+      "titulo": "El newton",
+      "rama": "fuerzas",
+      "texto": "En el Sistema Internacional las fuerzas se miden en newtons (N)."
+    },
+    {
+      "clave": "ley1",
+      "tipo": "concepto",
+      "titulo": "Primera ley de Newton",
+      "rama": "fuerzas",
+      "texto": "Ley de la inercia: un cuerpo permanece en reposo o en movimiento rectilíneo uniforme si no actúa sobre él ninguna fuerza neta."
+    },
+    {
+      "clave": "ley2",
+      "tipo": "formula",
+      "titulo": "Segunda ley de Newton",
+      "rama": "fuerzas",
+      "texto": "La fuerza neta que actúa sobre un cuerpo es igual a su masa por la aceleración que adquiere.",
+      "campos": {
+        "expresion": "F = m · a"
+      }
+    },
+    {
+      "clave": "ley3",
+      "tipo": "concepto",
+      "titulo": "Tercera ley de Newton",
+      "rama": "fuerzas",
+      "texto": "Ley de acción y reacción: si un cuerpo ejerce una fuerza sobre otro, este ejerce sobre el primero una fuerza igual y de sentido contrario."
+    },
+    {
+      "clave": "peso",
+      "tipo": "formula",
+      "titulo": "Peso",
+      "rama": "fuerzas",
+      "texto": "Fuerza con la que la Tierra atrae a un cuerpo. Es la masa por la aceleración de la gravedad.",
+      "campos": {
+        "expresion": "P = m · g"
+      }
+    },
+    {
+      "clave": "gravedad",
+      "tipo": "dato",
+      "titulo": "Aceleración de la gravedad en la Tierra",
+      "rama": "fuerzas",
+      "texto": "En la superficie de la Tierra la aceleración de la gravedad vale aproximadamente 9,8 m/s²."
+    },
+    {
+      "clave": "masa_peso",
+      "tipo": "dato",
+      "titulo": "Masa y peso no son lo mismo",
+      "rama": "fuerzas",
+      "texto": "La masa se mide en kilogramos y no cambia de un lugar a otro; el peso es una fuerza, se mide en newtons y depende de la gravedad."
+    },
+    {
+      "clave": "rozamiento",
+      "tipo": "concepto",
+      "titulo": "Fuerza de rozamiento",
+      "rama": "fuerzas",
+      "texto": "Fuerza que se opone al deslizamiento de un cuerpo sobre una superficie."
+    },
+    {
+      "clave": "ej_empujar",
+      "tipo": "ejemplo",
+      "titulo": "Aplicar la segunda ley",
+      "rama": "fuerzas",
+      "texto": "Para acelerar a 2 m/s² un carro de 10 kg hace falta una fuerza neta de 20 N."
+    },
+    {
+      "clave": "ej_remo",
+      "tipo": "ejemplo",
+      "titulo": "Acción y reacción al remar",
+      "rama": "fuerzas",
+      "texto": "Al remar, el remo empuja el agua hacia atrás y el agua empuja la barca hacia delante."
+    },
+    {
+      "clave": "f_principia",
+      "tipo": "fecha",
+      "titulo": "Publicación de las leyes de Newton",
+      "rama": "fuerzas",
+      "texto": "Isaac Newton publicó las tres leyes del movimiento en su obra Principia.",
+      "campos": {
+        "fecha": "1687"
+      }
+    }
+  ],
+  "relaciones": [
+    {
+      "tipo": "requiere",
+      "de": "movimiento",
+      "a": "referencia"
+    },
+    {
+      "tipo": "propiedad_de",
+      "de": "trayectoria",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "propiedad_de",
+      "de": "desplazamiento",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "trayectoria",
+      "a": "desplazamiento"
+    },
+    {
+      "tipo": "propiedad_de",
+      "de": "velocidad",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "aceleracion",
+      "a": "velocidad"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_velocidad",
+      "a": "velocidad"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "conversion",
+      "a": "velocidad"
+    },
+    {
+      "tipo": "es_un",
+      "de": "mru",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "es_un",
+      "de": "mrua",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "mru",
+      "a": "mrua"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "mru_formula",
+      "a": "mru"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "mrua_formula",
+      "a": "mrua"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mrua",
+      "a": "aceleracion"
+    },
+    {
+      "tipo": "es_un",
+      "de": "caida_libre",
+      "a": "mrua"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_coche",
+      "a": "mrua"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "newton_unidad",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "ley1",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "ley2",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley2",
+      "a": "aceleracion"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "ley3",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "es_un",
+      "de": "peso",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "peso",
+      "a": "gravedad"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "masa_peso",
+      "a": "peso"
+    },
+    {
+      "tipo": "es_un",
+      "de": "rozamiento",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_empujar",
+      "a": "ley2"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_remo",
+      "a": "ley3"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "f_principia",
+      "a": "ley1"
+    },
+    {
+      "tipo": "requiere",
+      "de": "velocidad",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "trayectoria",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "desplazamiento",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mru",
+      "a": "velocidad"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mru_formula",
+      "a": "mru"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mrua_formula",
+      "a": "mrua"
+    },
+    {
+      "tipo": "requiere",
+      "de": "conversion",
+      "a": "velocidad"
+    },
+    {
+      "tipo": "requiere",
+      "de": "fuerza",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "fuerza",
+      "a": "aceleracion"
+    },
+    {
+      "tipo": "requiere",
+      "de": "newton_unidad",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley1",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley2",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley3",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley2",
+      "a": "ley1"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ley3",
+      "a": "ley2"
+    },
+    {
+      "tipo": "requiere",
+      "de": "peso",
+      "a": "ley2"
+    },
+    {
+      "tipo": "requiere",
+      "de": "gravedad",
+      "a": "aceleracion"
+    },
+    {
+      "tipo": "requiere",
+      "de": "caida_libre",
+      "a": "gravedad"
+    },
+    {
+      "tipo": "requiere",
+      "de": "masa_peso",
+      "a": "peso"
+    },
+    {
+      "tipo": "requiere",
+      "de": "rozamiento",
+      "a": "fuerza"
+    },
+    {
+      "tipo": "requiere",
+      "de": "f_principia",
+      "a": "ley3"
+    },
+    {
+      "tipo": "requiere",
+      "de": "aceleracion",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "conversion",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "gravedad",
+      "a": "movimiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mrua_formula",
+      "a": "mru_formula"
+    },
+    {
+      "tipo": "requiere",
+      "de": "caida_libre",
+      "a": "mrua_formula"
+    }
+  ]
+}

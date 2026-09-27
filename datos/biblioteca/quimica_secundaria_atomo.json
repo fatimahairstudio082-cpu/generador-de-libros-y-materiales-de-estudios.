@@ -1,0 +1,410 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_quimica_secundaria_atomo",
+  "titulo": "Química · Secundaria · El átomo y la tabla periódica",
+  "descripcion": "Partículas del átomo, número atómico y másico, isótopos, modelos atómicos y tabla periódica.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "ref",
+      "clase": "propia",
+      "titulo": "Contenido académico general de química redactado para el Taller",
+      "licencia": "propia",
+      "nota": "Conocimiento escolar establecido. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    {
+      "clave": "mat",
+      "clase": "materia",
+      "nombre": "Química"
+    },
+    {
+      "clave": "niv",
+      "clase": "nivel",
+      "nombre": "Secundaria",
+      "padre": "mat",
+      "nivel": "secundaria"
+    },
+    {
+      "clave": "tema",
+      "clase": "tema",
+      "nombre": "El átomo y la tabla periódica",
+      "padre": "niv"
+    },
+    {
+      "clave": "estructura",
+      "clase": "subtema",
+      "nombre": "Estructura del átomo",
+      "padre": "tema",
+      "orden": 1
+    },
+    {
+      "clave": "modelos",
+      "clase": "subtema",
+      "nombre": "Modelos atómicos",
+      "padre": "tema",
+      "orden": 2
+    },
+    {
+      "clave": "tabla",
+      "clase": "subtema",
+      "nombre": "La tabla periódica",
+      "padre": "tema",
+      "orden": 3
+    }
+  ],
+  "ucs": [
+    {
+      "clave": "materia",
+      "tipo": "concepto",
+      "titulo": "Materia",
+      "rama": "estructura",
+      "texto": "Todo lo que tiene masa y ocupa un lugar en el espacio."
+    },
+    {
+      "clave": "atomo",
+      "tipo": "concepto",
+      "titulo": "Átomo",
+      "rama": "estructura",
+      "texto": "Partícula más pequeña de un elemento químico que conserva sus propiedades."
+    },
+    {
+      "clave": "nucleo",
+      "tipo": "concepto",
+      "titulo": "Núcleo atómico",
+      "rama": "estructura",
+      "texto": "Parte central del átomo, donde se concentra casi toda su masa. Contiene los protones y los neutrones."
+    },
+    {
+      "clave": "corteza",
+      "tipo": "concepto",
+      "titulo": "Corteza electrónica",
+      "rama": "estructura",
+      "texto": "Zona que rodea el núcleo, donde se mueven los electrones."
+    },
+    {
+      "clave": "proton",
+      "tipo": "concepto",
+      "titulo": "Protón",
+      "rama": "estructura",
+      "texto": "Partícula del núcleo con carga eléctrica positiva."
+    },
+    {
+      "clave": "neutron",
+      "tipo": "concepto",
+      "titulo": "Neutrón",
+      "rama": "estructura",
+      "texto": "Partícula del núcleo sin carga eléctrica."
+    },
+    {
+      "clave": "electron",
+      "tipo": "concepto",
+      "titulo": "Electrón",
+      "rama": "estructura",
+      "texto": "Partícula de la corteza con carga eléctrica negativa y una masa mucho menor que la del protón."
+    },
+    {
+      "clave": "z",
+      "tipo": "formula",
+      "titulo": "Número atómico",
+      "rama": "estructura",
+      "texto": "Número de protones del núcleo. En un átomo neutro coincide con el número de electrones.",
+      "campos": {
+        "expresion": "Z = número de protones"
+      }
+    },
+    {
+      "clave": "a",
+      "tipo": "formula",
+      "titulo": "Número másico",
+      "rama": "estructura",
+      "texto": "Suma de los protones y los neutrones del núcleo.",
+      "campos": {
+        "expresion": "A = Z + N"
+      }
+    },
+    {
+      "clave": "isotopo",
+      "tipo": "concepto",
+      "titulo": "Isótopo",
+      "rama": "estructura",
+      "texto": "Átomo de un mismo elemento con igual número de protones pero distinto número de neutrones."
+    },
+    {
+      "clave": "ion",
+      "tipo": "concepto",
+      "titulo": "Ion",
+      "rama": "estructura",
+      "texto": "Átomo que ha ganado o perdido electrones y por eso tiene carga eléctrica."
+    },
+    {
+      "clave": "ej_carbono",
+      "tipo": "ejemplo",
+      "titulo": "Isótopos del carbono",
+      "rama": "estructura",
+      "texto": "El carbono-12 y el carbono-14 tienen 6 protones, pero el primero tiene 6 neutrones y el segundo 8."
+    },
+    {
+      "clave": "ej_masico",
+      "tipo": "ejemplo",
+      "titulo": "Calcular el número másico",
+      "rama": "estructura",
+      "texto": "Un átomo con 11 protones y 12 neutrones tiene un número másico de 23."
+    },
+    {
+      "clave": "f_dalton",
+      "tipo": "fecha",
+      "titulo": "Teoría atómica de Dalton",
+      "rama": "modelos",
+      "texto": "Dalton propuso que la materia está formada por átomos indivisibles.",
+      "campos": {
+        "fecha": "1808"
+      }
+    },
+    {
+      "clave": "f_thomson",
+      "tipo": "fecha",
+      "titulo": "Descubrimiento del electrón por Thomson",
+      "rama": "modelos",
+      "texto": "Thomson descubrió el electrón y propuso un átomo como una esfera positiva con electrones incrustados.",
+      "campos": {
+        "fecha": "1897"
+      }
+    },
+    {
+      "clave": "f_rutherford",
+      "tipo": "fecha",
+      "titulo": "Modelo nuclear de Rutherford",
+      "rama": "modelos",
+      "texto": "Rutherford demostró que el átomo tiene un núcleo pequeño y positivo rodeado de electrones.",
+      "campos": {
+        "fecha": "1911"
+      }
+    },
+    {
+      "clave": "f_bohr",
+      "tipo": "fecha",
+      "titulo": "Modelo de Bohr",
+      "rama": "modelos",
+      "texto": "Bohr propuso que los electrones giran alrededor del núcleo en órbitas de energía fija.",
+      "campos": {
+        "fecha": "1913"
+      }
+    },
+    {
+      "clave": "elemento",
+      "tipo": "concepto",
+      "titulo": "Elemento químico",
+      "rama": "tabla",
+      "texto": "Sustancia formada por átomos que tienen el mismo número atómico."
+    },
+    {
+      "clave": "tabla",
+      "tipo": "concepto",
+      "titulo": "Tabla periódica",
+      "rama": "tabla",
+      "texto": "Ordenación de los elementos químicos por su número atómico creciente, en filas y columnas."
+    },
+    {
+      "clave": "periodo",
+      "tipo": "concepto",
+      "titulo": "Periodo",
+      "rama": "tabla",
+      "texto": "Cada una de las siete filas horizontales de la tabla periódica."
+    },
+    {
+      "clave": "grupo",
+      "tipo": "concepto",
+      "titulo": "Grupo",
+      "rama": "tabla",
+      "texto": "Cada una de las dieciocho columnas de la tabla periódica. Sus elementos tienen propiedades químicas parecidas."
+    },
+    {
+      "clave": "metales",
+      "tipo": "concepto",
+      "titulo": "Metal",
+      "rama": "tabla",
+      "texto": "Elemento brillante que conduce bien el calor y la electricidad. Los metales ocupan la mayor parte de la tabla periódica."
+    },
+    {
+      "clave": "no_metales",
+      "tipo": "concepto",
+      "titulo": "Elemento no metálico",
+      "rama": "tabla",
+      "texto": "Elemento que conduce mal el calor y la electricidad. Los no metales se sitúan en la parte derecha de la tabla periódica."
+    },
+    {
+      "clave": "gases_nobles",
+      "tipo": "concepto",
+      "titulo": "Gas noble",
+      "rama": "tabla",
+      "texto": "Elemento del grupo 18, que casi no reacciona con otros elementos."
+    },
+    {
+      "clave": "f_mendeleiev",
+      "tipo": "fecha",
+      "titulo": "Tabla periódica de Mendeléiev",
+      "rama": "tabla",
+      "texto": "Mendeléiev ordenó los elementos conocidos y dejó huecos para elementos que aún no se habían descubierto.",
+      "campos": {
+        "fecha": "1869"
+      }
+    },
+    {
+      "clave": "ej_gases_nobles",
+      "tipo": "ejemplo",
+      "titulo": "Ejemplos de gases nobles",
+      "rama": "tabla",
+      "texto": "El helio, el neón y el argón son gases nobles."
+    }
+  ],
+  "relaciones": [
+    {
+      "tipo": "parte_de",
+      "de": "atomo",
+      "a": "materia"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "nucleo",
+      "a": "atomo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "corteza",
+      "a": "atomo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "proton",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "neutron",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "electron",
+      "a": "corteza"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "proton",
+      "a": "electron"
+    },
+    {
+      "tipo": "requiere",
+      "de": "z",
+      "a": "proton"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a",
+      "a": "z"
+    },
+    {
+      "tipo": "requiere",
+      "de": "a",
+      "a": "neutron"
+    },
+    {
+      "tipo": "es_un",
+      "de": "isotopo",
+      "a": "atomo"
+    },
+    {
+      "tipo": "es_un",
+      "de": "ion",
+      "a": "atomo"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_carbono",
+      "a": "isotopo"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_masico",
+      "a": "a"
+    },
+    {
+      "tipo": "antes_de",
+      "de": "f_dalton",
+      "a": "f_thomson"
+    },
+    {
+      "tipo": "antes_de",
+      "de": "f_thomson",
+      "a": "f_rutherford"
+    },
+    {
+      "tipo": "antes_de",
+      "de": "f_rutherford",
+      "a": "f_bohr"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "f_thomson",
+      "a": "electron"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "f_rutherford",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "elemento",
+      "a": "z"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "periodo",
+      "a": "tabla"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "grupo",
+      "a": "tabla"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "tabla",
+      "a": "elemento"
+    },
+    {
+      "tipo": "es_un",
+      "de": "metales",
+      "a": "elemento"
+    },
+    {
+      "tipo": "es_un",
+      "de": "no_metales",
+      "a": "elemento"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "metales",
+      "a": "no_metales"
+    },
+    {
+      "tipo": "es_un",
+      "de": "gases_nobles",
+      "a": "no_metales"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_gases_nobles",
+      "a": "gases_nobles"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "f_mendeleiev",
+      "a": "tabla"
+    }
+  ]
+}

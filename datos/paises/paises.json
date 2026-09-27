@@ -1,0 +1,104 @@
+{
+  "formato": "edu-paises",
+  "version": 1,
+  "estado": "pendiente de revisión por Fátima",
+  "fuentes": {
+    "numeros": "Unicode CLDR (convenciones de números y fechas por país)",
+    "educacion": "Leyes generales de educación de cada país (estructura de etapas y cursos)",
+    "contabilidad": "Organismos normativos contables de cada país"
+  },
+  "nota": "Cada etapa indica a qué nivel del sistema corresponde (campo «nivel»), para que el mismo contenido de la biblioteca se presente con los nombres de cursos de cada país.",
+  "paises": {
+    "es": {
+      "nombre": "España", "idioma": "es", "papel": "a4",
+      "fecha": "dd/mm/aaaa", "decimal": ",", "miles": ".", "moneda": { "codigo": "EUR", "simbolo": "€", "nombre": "euro" },
+      "contabilidad": { "norma": "Plan General de Contabilidad", "referencia": "Real Decreto 1514/2007; PGC de PYMES: Real Decreto 1515/2007" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Infantil", "cursos": ["Primer ciclo (0-3 años)", "Segundo ciclo (3-6 años)"] },
+        { "nivel": "primaria", "nombre": "Educación Primaria", "cursos": ["1.º de Primaria", "2.º de Primaria", "3.º de Primaria", "4.º de Primaria", "5.º de Primaria", "6.º de Primaria"] },
+        { "nivel": "secundaria", "nombre": "Educación Secundaria Obligatoria (ESO)", "cursos": ["1.º de ESO", "2.º de ESO", "3.º de ESO", "4.º de ESO"] },
+        { "nivel": "bachillerato", "nombre": "Bachillerato", "cursos": ["1.º de Bachillerato", "2.º de Bachillerato"] },
+        { "nivel": "fp", "nombre": "Formación Profesional", "cursos": ["Grado Básico", "Grado Medio", "Grado Superior"] },
+        { "nivel": "universidad", "nombre": "Universidad", "cursos": ["Grado", "Máster", "Doctorado"] }
+      ]
+    },
+    "ve": {
+      "nombre": "Venezuela", "idioma": "es", "papel": "carta",
+      "fecha": "dd/mm/aaaa", "decimal": ",", "miles": ".", "moneda": { "codigo": "VES", "simbolo": "Bs.", "nombre": "bolívar" },
+      "contabilidad": { "norma": "VEN-NIF", "referencia": "Federación de Colegios de Contadores Públicos de Venezuela (adopción de las NIIF)" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Inicial", "cursos": ["Maternal", "Preescolar"] },
+        { "nivel": "primaria", "nombre": "Educación Primaria", "cursos": ["1.er grado", "2.º grado", "3.er grado", "4.º grado", "5.º grado", "6.º grado"] },
+        { "nivel": "secundaria", "nombre": "Educación Media General", "cursos": ["1.er año", "2.º año", "3.er año"] },
+        { "nivel": "bachillerato", "nombre": "Educación Media General (diversificado)", "cursos": ["4.º año", "5.º año"] },
+        { "nivel": "fp", "nombre": "Educación Media Técnica", "cursos": ["4.º año", "5.º año", "6.º año"] },
+        { "nivel": "universidad", "nombre": "Educación Universitaria", "cursos": ["Técnico Superior Universitario (TSU)", "Licenciatura o ingeniería", "Especialización", "Maestría", "Doctorado"] }
+      ]
+    },
+    "us": {
+      "nombre": "Estados Unidos", "idioma": "en", "papel": "carta",
+      "fecha": "mm/dd/aaaa", "decimal": ".", "miles": ",", "moneda": { "codigo": "USD", "simbolo": "$", "nombre": "dólar estadounidense" },
+      "contabilidad": { "norma": "US GAAP", "referencia": "FASB Accounting Standards Codification" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Early Childhood Education", "cursos": ["Pre-K", "Kindergarten"] },
+        { "nivel": "primaria", "nombre": "Elementary School", "cursos": ["1st grade", "2nd grade", "3rd grade", "4th grade", "5th grade"] },
+        { "nivel": "secundaria", "nombre": "Middle School", "cursos": ["6th grade", "7th grade", "8th grade"] },
+        { "nivel": "bachillerato", "nombre": "High School", "cursos": ["9th grade (Freshman)", "10th grade (Sophomore)", "11th grade (Junior)", "12th grade (Senior)"] },
+        { "nivel": "fp", "nombre": "Community College / Vocational", "cursos": ["Certificate", "Associate degree"] },
+        { "nivel": "universidad", "nombre": "College / University", "cursos": ["Bachelor's degree", "Master's degree", "Doctorate"] }
+      ]
+    },
+    "ec": {
+      "nombre": "Ecuador", "idioma": "es", "papel": "a4",
+      "fecha": "dd/mm/aaaa", "decimal": ",", "miles": ".", "moneda": { "codigo": "USD", "simbolo": "$", "nombre": "dólar estadounidense" },
+      "contabilidad": { "norma": "NIIF", "referencia": "Superintendencia de Compañías, Valores y Seguros (adopción de las NIIF)" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Inicial", "cursos": ["Inicial 1", "Inicial 2"] },
+        { "nivel": "primaria", "nombre": "Educación General Básica (Preparatoria, Elemental y Media)", "cursos": ["1.º de EGB", "2.º de EGB", "3.º de EGB", "4.º de EGB", "5.º de EGB", "6.º de EGB", "7.º de EGB"] },
+        { "nivel": "secundaria", "nombre": "Educación General Básica Superior", "cursos": ["8.º de EGB", "9.º de EGB", "10.º de EGB"] },
+        { "nivel": "bachillerato", "nombre": "Bachillerato General Unificado (BGU)", "cursos": ["1.º de Bachillerato", "2.º de Bachillerato", "3.º de Bachillerato"] },
+        { "nivel": "fp", "nombre": "Bachillerato Técnico e Institutos Tecnológicos", "cursos": ["Bachillerato Técnico", "Técnico Superior", "Tecnólogo Superior"] },
+        { "nivel": "universidad", "nombre": "Educación Superior", "cursos": ["Tercer nivel (grado)", "Cuarto nivel (maestría)", "Doctorado"] }
+      ]
+    },
+    "pe": {
+      "nombre": "Perú", "idioma": "es", "papel": "a4",
+      "fecha": "dd/mm/aaaa", "decimal": ".", "miles": ",", "moneda": { "codigo": "PEN", "simbolo": "S/", "nombre": "sol" },
+      "contabilidad": { "norma": "Plan Contable General Empresarial y NIIF", "referencia": "Consejo Normativo de Contabilidad (PCGE)" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Inicial", "cursos": ["Cuna (0-2 años)", "Jardín (3-5 años)"] },
+        { "nivel": "primaria", "nombre": "Educación Primaria", "cursos": ["1.er grado", "2.º grado", "3.er grado", "4.º grado", "5.º grado", "6.º grado"] },
+        { "nivel": "secundaria", "nombre": "Educación Secundaria", "cursos": ["1.er año", "2.º año", "3.er año"] },
+        { "nivel": "bachillerato", "nombre": "Educación Secundaria (ciclo VII)", "cursos": ["4.º año", "5.º año"] },
+        { "nivel": "fp", "nombre": "Educación Superior Tecnológica", "cursos": ["Técnico", "Profesional Técnico"] },
+        { "nivel": "universidad", "nombre": "Educación Superior Universitaria", "cursos": ["Bachiller", "Título profesional (licenciatura)", "Maestría", "Doctorado"] }
+      ]
+    },
+    "co": {
+      "nombre": "Colombia", "idioma": "es", "papel": "carta",
+      "fecha": "dd/mm/aaaa", "decimal": ",", "miles": ".", "moneda": { "codigo": "COP", "simbolo": "$", "nombre": "peso colombiano" },
+      "contabilidad": { "norma": "NIIF (Ley 1314 de 2009) y Plan Único de Cuentas", "referencia": "Consejo Técnico de la Contaduría Pública; PUC: Decreto 2650 de 1993" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Preescolar", "cursos": ["Prejardín", "Jardín", "Transición"] },
+        { "nivel": "primaria", "nombre": "Educación Básica Primaria", "cursos": ["1.º", "2.º", "3.º", "4.º", "5.º"] },
+        { "nivel": "secundaria", "nombre": "Educación Básica Secundaria", "cursos": ["6.º", "7.º", "8.º", "9.º"] },
+        { "nivel": "bachillerato", "nombre": "Educación Media", "cursos": ["10.º", "11.º"] },
+        { "nivel": "fp", "nombre": "Educación Técnica y Tecnológica", "cursos": ["Técnico profesional", "Tecnólogo"] },
+        { "nivel": "universidad", "nombre": "Educación Superior Universitaria", "cursos": ["Pregrado (profesional)", "Especialización", "Maestría", "Doctorado"] }
+      ]
+    },
+    "mx": {
+      "nombre": "México", "idioma": "es", "papel": "carta",
+      "fecha": "dd/mm/aaaa", "decimal": ".", "miles": ",", "moneda": { "codigo": "MXN", "simbolo": "$", "nombre": "peso mexicano" },
+      "contabilidad": { "norma": "Normas de Información Financiera (NIF)", "referencia": "Consejo Mexicano de Normas de Información Financiera (CINIF)" },
+      "etapas": [
+        { "nivel": "infantil", "nombre": "Educación Preescolar", "cursos": ["1.º de preescolar", "2.º de preescolar", "3.º de preescolar"] },
+        { "nivel": "primaria", "nombre": "Educación Primaria", "cursos": ["1.º de primaria", "2.º de primaria", "3.º de primaria", "4.º de primaria", "5.º de primaria", "6.º de primaria"] },
+        { "nivel": "secundaria", "nombre": "Educación Secundaria", "cursos": ["1.º de secundaria", "2.º de secundaria", "3.º de secundaria"] },
+        { "nivel": "bachillerato", "nombre": "Educación Media Superior (bachillerato o preparatoria)", "cursos": ["1.er año", "2.º año", "3.er año"] },
+        { "nivel": "fp", "nombre": "Bachillerato Tecnológico y Técnico Superior Universitario", "cursos": ["Profesional técnico", "Técnico Superior Universitario (TSU)"] },
+        { "nivel": "universidad", "nombre": "Educación Superior", "cursos": ["Licenciatura", "Especialidad", "Maestría", "Doctorado"] }
+      ]
+    }
+  }
+}

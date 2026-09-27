@@ -49,7 +49,7 @@ console.log('edu_biblioteca.js');
 ok(codigo.split('\n').length <= 800, 'no supera 800 líneas (' + codigo.split('\n').length + ')');
 ok(EDU.modulos().filter(function (m) { return m.nombre === 'biblioteca'; }).length === 1, 'la doble carga no duplica el módulo');
 ok(!/matem|fraccion|ciencias|historia|agua|revoluc/i.test(codigo), 'el código no menciona ninguna materia');
-ok(indice.paquetes.length === 3 && indice.paquetes.every(function (f) { return fs.existsSync(path.join(__dirname, '..', 'datos', 'biblioteca', f)); }), 'el índice lista los 3 paquetes y existen');
+ok(['ciencias_primaria_agua.json', 'matematicas_primaria_fracciones.json', 'historia_secundaria_revolucion_francesa.json'].every(function (f) { return indice.paquetes.indexOf(f) >= 0; }) && indice.paquetes.every(function (f) { return fs.existsSync(path.join(__dirname, '..', 'datos', 'biblioteca', f)); }), 'el índice lista los 3 paquetes de prueba y todos sus paquetes existen');
 
 var esperado = {};
 [AGUA, FRAC, HIST].forEach(function (p) { esperado[p.id] = { ucs: p.ucs.length, rel: p.relaciones.length }; });

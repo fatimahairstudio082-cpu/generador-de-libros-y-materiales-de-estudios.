@@ -19,6 +19,7 @@ Pruebas (Node, sin dependencias):
 |---|---|
 | Núcleo | `nucleo/edu_base.js` (registro, avisos, azar con semilla, puentes a heredados) · `edu_esquemas.js` (contratos de datos) · `edu_almacen.js` (IndexedDB; localStorage solo preferencias) |
 | Conocimiento | `conocimiento/edu_biblioteca.js` (materia → nivel → tema → subtema; crece con `datos/biblioteca/*.json`) · `edu_importador.js` (apuntes de la usuaria → UC) |
+| Datos | `datos/biblioteca/indice.json` (orden de carga; `catalogo_materias.json` primero: 41 materias × niveles, sin contenido) · paquetes de contenido por tema (pendientes de revisión) · `datos/paises/paises.json` (es, ve, us, ec, pe, co, mx: cursos por etapa, papel, números, moneda, norma contable) |
 | Expansión | `expansion/edu_expansor.js` (UC → estructura educativa) · `edu_secuencia.js` (orden, módulos, objetivos) |
 | Redacción | `redaccion/edu_lengua_es.js` (gramática, intercambiable por idioma) · `edu_redactor.js` (texto con trazabilidad) |
 | Variación | `variacion/edu_variacion.js` (versiones con los mismos hechos) |
@@ -55,6 +56,19 @@ Orden de carga: el de los `<script>` de `index.html`. Cada módulo se registra c
 - Trabajo por módulos con revisión de Fátima entre uno y otro.
 
 ## Pendiente de decisión de Fátima
-- Revisar el contenido de los tres paquetes de prueba (marcados como pendientes de revisión).
+- Revisar el contenido de todos los paquetes (marcados como pendientes de revisión) y `datos/paises/paises.json`.
 - Tabla de verbos por nivel y orden de fases (configurables, propuesta inicial).
 - Léxico para nombres propios con artículo («la Revolución francesa», «el Antiguo Régimen»).
+
+## Hoja de ruta pedida por Fátima (no perder)
+Herramienta universal primaria → universidad que reutiliza los motores de los dos bloques de FATIMA PRO:
+- **Un trabajo → todas las salidas:** libro/eBook (hecho: PDF, EPUB, HTML), examen (hecho), presentación PDF/PPTX,
+  curso HTML/SCORM, guía paso a paso, vídeo explicativo animado con voz gratuita, ZIP (hecho).
+- **Trabajos académicos con aspecto de libro profesional:** portada, índice paginado, introducción, desarrollo,
+  conclusiones y bibliografía a partir de las fuentes.
+- **Editor:** plantillas, colores, efectos y animaciones; subir imágenes, vídeos y audios.
+- **Cerebro completo por áreas:** más paquetes de contenido por materia y nivel (tanda 1 hecha: biología, anatomía,
+  contabilidad, química, física); contabilidad por país; motor de ejercicios contables y matemáticos con solucionario.
+- **Países:** España, Venezuela, Estados Unidos, Ecuador, Perú, Colombia y México (nombres de cursos, formatos, normas).
+- **Cerebros nuevos:** inglés + diccionario bilingüe; infantil (caligrafía, sopas de letras, crucigramas…).
+- **Heredados por conectar:** `b6_cerebro.js` (técnicas de peluquería de Fátima) mediante adaptador, sin editarlo.

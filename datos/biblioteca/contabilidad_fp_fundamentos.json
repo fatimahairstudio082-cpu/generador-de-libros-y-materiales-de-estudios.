@@ -1,0 +1,562 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_contabilidad_fp_fundamentos",
+  "titulo": "Contabilidad · Formación profesional · Fundamentos de contabilidad",
+  "descripcion": "Patrimonio, ecuación contable, cuentas, partida doble y libros contables. Comunes a todos los países; el plan de cuentas de cada país irá en su propio paquete.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "ref",
+      "clase": "propia",
+      "titulo": "Principios generales de contabilidad por partida doble redactados para el Taller",
+      "licencia": "propia",
+      "nota": "Fundamentos comunes a las normas de España (PGC), NIIF, US GAAP y normas latinoamericanas. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    {
+      "clave": "mat",
+      "clase": "materia",
+      "nombre": "Contabilidad"
+    },
+    {
+      "clave": "niv",
+      "clase": "nivel",
+      "nombre": "Formación profesional",
+      "padre": "mat",
+      "nivel": "fp"
+    },
+    {
+      "clave": "tema",
+      "clase": "tema",
+      "nombre": "Fundamentos de contabilidad",
+      "padre": "niv"
+    },
+    {
+      "clave": "patrimonio",
+      "clase": "subtema",
+      "nombre": "El patrimonio",
+      "padre": "tema",
+      "orden": 1
+    },
+    {
+      "clave": "cuentas",
+      "clase": "subtema",
+      "nombre": "Las cuentas",
+      "padre": "tema",
+      "orden": 2
+    },
+    {
+      "clave": "partida",
+      "clase": "subtema",
+      "nombre": "La partida doble",
+      "padre": "tema",
+      "orden": 3
+    },
+    {
+      "clave": "libros",
+      "clase": "subtema",
+      "nombre": "Los libros contables",
+      "padre": "tema",
+      "orden": 4
+    }
+  ],
+  "ucs": [
+    {
+      "clave": "contabilidad",
+      "tipo": "concepto",
+      "titulo": "Contabilidad",
+      "rama": "patrimonio",
+      "texto": "Técnica que registra, clasifica y resume las operaciones económicas de una empresa para conocer su situación y sus resultados."
+    },
+    {
+      "clave": "patrimonio",
+      "tipo": "concepto",
+      "titulo": "Patrimonio",
+      "rama": "patrimonio",
+      "texto": "Conjunto de bienes, derechos y obligaciones de una empresa en un momento determinado."
+    },
+    {
+      "clave": "activo",
+      "tipo": "concepto",
+      "titulo": "Activo",
+      "rama": "patrimonio",
+      "texto": "Bienes y derechos que posee la empresa y de los que espera obtener beneficios en el futuro."
+    },
+    {
+      "clave": "pasivo",
+      "tipo": "concepto",
+      "titulo": "Pasivo",
+      "rama": "patrimonio",
+      "texto": "Obligaciones o deudas que la empresa tiene con terceros."
+    },
+    {
+      "clave": "neto",
+      "tipo": "concepto",
+      "titulo": "Patrimonio neto",
+      "rama": "patrimonio",
+      "texto": "Parte del activo que pertenece a los propietarios: la diferencia entre el activo y el pasivo."
+    },
+    {
+      "clave": "ecuacion",
+      "tipo": "formula",
+      "titulo": "Ecuación fundamental del patrimonio",
+      "rama": "patrimonio",
+      "texto": "El activo siempre es igual a la suma del pasivo y el patrimonio neto.",
+      "campos": {
+        "expresion": "Activo = Pasivo + Patrimonio neto"
+      }
+    },
+    {
+      "clave": "ej_activo",
+      "tipo": "ejemplo",
+      "titulo": "Elementos de activo",
+      "rama": "patrimonio",
+      "texto": "El dinero en caja, el dinero en el banco, las mercaderías, los ordenadores y lo que deben los clientes son elementos de activo."
+    },
+    {
+      "clave": "ej_pasivo",
+      "tipo": "ejemplo",
+      "titulo": "Elementos de pasivo",
+      "rama": "patrimonio",
+      "texto": "Un préstamo bancario y lo que se debe a los proveedores son elementos de pasivo."
+    },
+    {
+      "clave": "ej_ecuacion",
+      "tipo": "ejemplo",
+      "titulo": "Aplicar la ecuación del patrimonio",
+      "rama": "patrimonio",
+      "texto": "Si una empresa tiene un activo de 50 000 y un pasivo de 20 000, su patrimonio neto es de 30 000."
+    },
+    {
+      "clave": "cuenta",
+      "tipo": "concepto",
+      "titulo": "Cuenta",
+      "rama": "cuentas",
+      "texto": "Instrumento que registra los aumentos y las disminuciones de un elemento del patrimonio."
+    },
+    {
+      "clave": "debe",
+      "tipo": "concepto",
+      "titulo": "Debe",
+      "rama": "cuentas",
+      "texto": "Columna izquierda de una cuenta."
+    },
+    {
+      "clave": "haber",
+      "tipo": "concepto",
+      "titulo": "Haber",
+      "rama": "cuentas",
+      "texto": "Columna derecha de una cuenta."
+    },
+    {
+      "clave": "cargar",
+      "tipo": "concepto",
+      "titulo": "Cargar una cuenta",
+      "rama": "cuentas",
+      "texto": "Anotar un importe en el debe de una cuenta. También se llama adeudar."
+    },
+    {
+      "clave": "abonar",
+      "tipo": "concepto",
+      "titulo": "Abonar una cuenta",
+      "rama": "cuentas",
+      "texto": "Anotar un importe en el haber de una cuenta."
+    },
+    {
+      "clave": "saldo",
+      "tipo": "concepto",
+      "titulo": "Saldo",
+      "rama": "cuentas",
+      "texto": "Diferencia entre la suma del debe y la suma del haber de una cuenta."
+    },
+    {
+      "clave": "reglas_activo",
+      "tipo": "dato",
+      "titulo": "Funcionamiento de las cuentas de activo",
+      "rama": "cuentas",
+      "texto": "Las cuentas de activo aumentan por el debe y disminuyen por el haber, y su saldo es deudor."
+    },
+    {
+      "clave": "reglas_pasivo",
+      "tipo": "dato",
+      "titulo": "Funcionamiento de las cuentas de pasivo y patrimonio neto",
+      "rama": "cuentas",
+      "texto": "Las cuentas de pasivo y de patrimonio neto aumentan por el haber y disminuyen por el debe, y su saldo es acreedor."
+    },
+    {
+      "clave": "saldo_deudor",
+      "tipo": "concepto",
+      "titulo": "Saldo deudor",
+      "rama": "cuentas",
+      "texto": "Saldo de una cuenta cuya suma del debe es mayor que la suma del haber."
+    },
+    {
+      "clave": "saldo_acreedor",
+      "tipo": "concepto",
+      "titulo": "Saldo acreedor",
+      "rama": "cuentas",
+      "texto": "Saldo de una cuenta cuya suma del haber es mayor que la suma del debe."
+    },
+    {
+      "clave": "partida_doble",
+      "tipo": "concepto",
+      "titulo": "Partida doble",
+      "rama": "partida",
+      "texto": "Principio según el cual toda operación se anota en al menos dos cuentas, de modo que la suma de los importes cargados es igual a la suma de los importes abonados."
+    },
+    {
+      "clave": "no_deudor",
+      "tipo": "dato",
+      "titulo": "Regla del deudor y el acreedor",
+      "rama": "partida",
+      "texto": "En la partida doble no hay deudor sin acreedor: lo que entra en una cuenta sale de otra."
+    },
+    {
+      "clave": "asiento",
+      "tipo": "concepto",
+      "titulo": "Asiento contable",
+      "rama": "partida",
+      "texto": "Anotación de una operación en el libro diario con la fecha, las cuentas cargadas, las cuentas abonadas y sus importes."
+    },
+    {
+      "clave": "p_asiento",
+      "tipo": "procedimiento",
+      "titulo": "Registrar una operación",
+      "rama": "partida",
+      "texto": "Para registrar una operación se siguen estos pasos.",
+      "campos": {
+        "pasos": [
+          "Identificar los elementos del patrimonio que cambian.",
+          "Asignar a cada elemento su cuenta.",
+          "Decidir si cada cuenta aumenta o disminuye.",
+          "Cargar o abonar cada cuenta según sea de activo, de pasivo o de patrimonio neto.",
+          "Comprobar que la suma del debe es igual a la suma del haber."
+        ]
+      }
+    },
+    {
+      "clave": "ej_compra",
+      "tipo": "ejemplo",
+      "titulo": "Compra de mercaderías al contado",
+      "rama": "partida",
+      "texto": "Al comprar mercaderías por 1 000 pagando en efectivo, se carga la cuenta de mercaderías por 1 000 y se abona la cuenta de caja por 1 000."
+    },
+    {
+      "clave": "libro_diario",
+      "tipo": "concepto",
+      "titulo": "Libro diario",
+      "rama": "libros",
+      "texto": "Libro en el que se anotan todas las operaciones por orden de fecha mediante asientos."
+    },
+    {
+      "clave": "libro_mayor",
+      "tipo": "concepto",
+      "titulo": "Libro mayor",
+      "rama": "libros",
+      "texto": "Libro que agrupa por cuentas los movimientos anotados en el libro diario."
+    },
+    {
+      "clave": "balance_comprobacion",
+      "tipo": "concepto",
+      "titulo": "Balance de comprobación",
+      "rama": "libros",
+      "texto": "Documento que resume las sumas y los saldos de todas las cuentas para comprobar que el total del debe es igual al total del haber."
+    },
+    {
+      "clave": "balance_situacion",
+      "tipo": "concepto",
+      "titulo": "Balance de situación",
+      "rama": "libros",
+      "texto": "Estado que muestra el activo, el pasivo y el patrimonio neto de la empresa en una fecha."
+    },
+    {
+      "clave": "p_ciclo",
+      "tipo": "procedimiento",
+      "titulo": "Ciclo contable",
+      "rama": "libros",
+      "texto": "Durante un ejercicio la contabilidad sigue este ciclo.",
+      "campos": {
+        "pasos": [
+          "Registrar las operaciones en el libro diario.",
+          "Pasar los importes de cada asiento a las cuentas del libro mayor.",
+          "Preparar el balance de comprobación.",
+          "Elaborar los estados financieros, como el balance de situación."
+        ]
+      }
+    }
+  ],
+  "relaciones": [
+    {
+      "tipo": "relacionado",
+      "de": "contabilidad",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "activo",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "pasivo",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "neto",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "activo",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "ecuacion",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ecuacion",
+      "a": "activo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ecuacion",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ecuacion",
+      "a": "neto"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_activo",
+      "a": "activo"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_pasivo",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_ecuacion",
+      "a": "ecuacion"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "debe",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "haber",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "debe",
+      "a": "haber"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "cargar",
+      "a": "debe"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "abonar",
+      "a": "haber"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "cargar",
+      "a": "abonar"
+    },
+    {
+      "tipo": "propiedad_de",
+      "de": "saldo",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "es_un",
+      "de": "saldo_deudor",
+      "a": "saldo"
+    },
+    {
+      "tipo": "es_un",
+      "de": "saldo_acreedor",
+      "a": "saldo"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "saldo_deudor",
+      "a": "saldo_acreedor"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "reglas_activo",
+      "a": "activo"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "reglas_pasivo",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "partida_doble",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "no_deudor",
+      "a": "partida_doble"
+    },
+    {
+      "tipo": "requiere",
+      "de": "asiento",
+      "a": "partida_doble"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "p_asiento",
+      "a": "asiento"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_compra",
+      "a": "asiento"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "asiento",
+      "a": "libro_diario"
+    },
+    {
+      "tipo": "requiere",
+      "de": "libro_mayor",
+      "a": "libro_diario"
+    },
+    {
+      "tipo": "requiere",
+      "de": "balance_comprobacion",
+      "a": "libro_mayor"
+    },
+    {
+      "tipo": "requiere",
+      "de": "balance_situacion",
+      "a": "balance_comprobacion"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "p_ciclo",
+      "a": "libro_diario"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "balance_situacion",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cargar",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "requiere",
+      "de": "abonar",
+      "a": "cuenta"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cuenta",
+      "a": "patrimonio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "patrimonio",
+      "a": "contabilidad"
+    },
+    {
+      "tipo": "requiere",
+      "de": "saldo",
+      "a": "cargar"
+    },
+    {
+      "tipo": "requiere",
+      "de": "saldo",
+      "a": "abonar"
+    },
+    {
+      "tipo": "requiere",
+      "de": "reglas_activo",
+      "a": "cargar"
+    },
+    {
+      "tipo": "requiere",
+      "de": "reglas_pasivo",
+      "a": "abonar"
+    },
+    {
+      "tipo": "requiere",
+      "de": "libro_diario",
+      "a": "asiento"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cuenta",
+      "a": "activo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cuenta",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cuenta",
+      "a": "neto"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cuenta",
+      "a": "ecuacion"
+    },
+    {
+      "tipo": "requiere",
+      "de": "reglas_activo",
+      "a": "activo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "reglas_pasivo",
+      "a": "pasivo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "reglas_pasivo",
+      "a": "neto"
+    },
+    {
+      "tipo": "requiere",
+      "de": "p_ciclo",
+      "a": "balance_situacion"
+    },
+    {
+      "tipo": "requiere",
+      "de": "p_asiento",
+      "a": "partida_doble"
+    },
+    {
+      "tipo": "requiere",
+      "de": "no_deudor",
+      "a": "partida_doble"
+    }
+  ]
+}

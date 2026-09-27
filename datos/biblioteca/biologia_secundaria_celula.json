@@ -1,0 +1,542 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_biologia_secundaria_celula",
+  "titulo": "Biología · Secundaria · La célula",
+  "descripcion": "Teoría celular, tipos de células, orgánulos y división celular.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "ref",
+      "clase": "propia",
+      "titulo": "Contenido académico general de biología celular redactado para el Taller",
+      "licencia": "propia",
+      "nota": "Conocimiento escolar establecido. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    {
+      "clave": "mat",
+      "clase": "materia",
+      "nombre": "Biología"
+    },
+    {
+      "clave": "niv",
+      "clase": "nivel",
+      "nombre": "Secundaria",
+      "padre": "mat",
+      "nivel": "secundaria"
+    },
+    {
+      "clave": "tema",
+      "clase": "tema",
+      "nombre": "La célula",
+      "padre": "niv"
+    },
+    {
+      "clave": "teoria",
+      "clase": "subtema",
+      "nombre": "La teoría celular",
+      "padre": "tema",
+      "orden": 1
+    },
+    {
+      "clave": "tipos",
+      "clase": "subtema",
+      "nombre": "Tipos de células",
+      "padre": "tema",
+      "orden": 2
+    },
+    {
+      "clave": "organulos",
+      "clase": "subtema",
+      "nombre": "Partes de la célula",
+      "padre": "tema",
+      "orden": 3
+    },
+    {
+      "clave": "division",
+      "clase": "subtema",
+      "nombre": "La división celular",
+      "padre": "tema",
+      "orden": 4
+    }
+  ],
+  "ucs": [
+    {
+      "clave": "celula",
+      "tipo": "concepto",
+      "titulo": "Célula",
+      "rama": "teoria",
+      "texto": "Unidad más pequeña de un ser vivo capaz de realizar por sí misma las funciones vitales."
+    },
+    {
+      "clave": "teoria_celular",
+      "tipo": "concepto",
+      "titulo": "Teoría celular",
+      "rama": "teoria",
+      "texto": "Teoría que afirma que todos los seres vivos están formados por células, que la célula es la unidad básica de la vida y que toda célula procede de otra célula."
+    },
+    {
+      "clave": "funciones_vitales",
+      "tipo": "concepto",
+      "titulo": "Funciones vitales",
+      "rama": "teoria",
+      "texto": "Nutrición, relación y reproducción: las tres funciones que realiza todo ser vivo."
+    },
+    {
+      "clave": "f_hooke",
+      "tipo": "fecha",
+      "titulo": "Observación de las celdas del corcho por Hooke",
+      "rama": "teoria",
+      "texto": "Al mirar una lámina de corcho con un microscopio, Hooke llamó «células» a las pequeñas celdas que vio.",
+      "campos": {
+        "fecha": "1665"
+      }
+    },
+    {
+      "clave": "f_schleiden",
+      "tipo": "fecha",
+      "titulo": "Formulación de la teoría celular por Schleiden y Schwann",
+      "rama": "teoria",
+      "texto": "Schleiden estudió las plantas y Schwann los animales; ambos concluyeron que todos los seres vivos están formados por células.",
+      "campos": {
+        "fecha": "1838-1839"
+      }
+    },
+    {
+      "clave": "microscopio",
+      "tipo": "dato",
+      "titulo": "Tamaño de las células",
+      "rama": "teoria",
+      "texto": "La mayoría de las células solo se pueden ver con un microscopio porque miden unas pocas milésimas de milímetro."
+    },
+    {
+      "clave": "procariota",
+      "tipo": "concepto",
+      "titulo": "Célula procariota",
+      "rama": "tipos",
+      "texto": "Célula que no tiene núcleo: su material genético está libre en el citoplasma."
+    },
+    {
+      "clave": "eucariota",
+      "tipo": "concepto",
+      "titulo": "Célula eucariota",
+      "rama": "tipos",
+      "texto": "Célula que tiene núcleo: su material genético está protegido por una envoltura nuclear."
+    },
+    {
+      "clave": "animal",
+      "tipo": "concepto",
+      "titulo": "Célula animal",
+      "rama": "tipos",
+      "texto": "Célula eucariota sin pared celular y sin cloroplastos."
+    },
+    {
+      "clave": "vegetal",
+      "tipo": "concepto",
+      "titulo": "Célula vegetal",
+      "rama": "tipos",
+      "texto": "Célula eucariota con pared celular, cloroplastos y una gran vacuola."
+    },
+    {
+      "clave": "ej_bacteria",
+      "tipo": "ejemplo",
+      "titulo": "Las bacterias",
+      "rama": "tipos",
+      "texto": "Las bacterias son organismos formados por una sola célula procariota."
+    },
+    {
+      "clave": "ej_hoja",
+      "tipo": "ejemplo",
+      "titulo": "Las células de una hoja",
+      "rama": "tipos",
+      "texto": "Las células de la hoja de una planta son células vegetales con muchos cloroplastos."
+    },
+    {
+      "clave": "unicelular",
+      "tipo": "concepto",
+      "titulo": "Organismo unicelular",
+      "rama": "tipos",
+      "texto": "Ser vivo formado por una sola célula."
+    },
+    {
+      "clave": "pluricelular",
+      "tipo": "concepto",
+      "titulo": "Organismo pluricelular",
+      "rama": "tipos",
+      "texto": "Ser vivo formado por muchas células que se reparten las funciones."
+    },
+    {
+      "clave": "membrana",
+      "tipo": "concepto",
+      "titulo": "Membrana plasmática",
+      "rama": "organulos",
+      "texto": "Capa fina que rodea la célula y controla qué sustancias entran y salen."
+    },
+    {
+      "clave": "citoplasma",
+      "tipo": "concepto",
+      "titulo": "Citoplasma",
+      "rama": "organulos",
+      "texto": "Medio acuoso del interior de la célula en el que se encuentran los orgánulos."
+    },
+    {
+      "clave": "nucleo",
+      "tipo": "concepto",
+      "titulo": "Núcleo",
+      "rama": "organulos",
+      "texto": "Orgánulo que contiene el material genético y dirige la actividad de la célula."
+    },
+    {
+      "clave": "adn",
+      "tipo": "concepto",
+      "titulo": "ADN",
+      "rama": "organulos",
+      "texto": "Molécula que contiene la información genética de la célula."
+    },
+    {
+      "clave": "mitocondria",
+      "tipo": "concepto",
+      "titulo": "Mitocondria",
+      "rama": "organulos",
+      "texto": "Orgánulo donde se realiza la respiración celular, que obtiene energía de los nutrientes."
+    },
+    {
+      "clave": "cloroplasto",
+      "tipo": "concepto",
+      "titulo": "Cloroplasto",
+      "rama": "organulos",
+      "texto": "Orgánulo de las células vegetales donde se realiza la fotosíntesis."
+    },
+    {
+      "clave": "ribosoma",
+      "tipo": "concepto",
+      "titulo": "Ribosoma",
+      "rama": "organulos",
+      "texto": "Orgánulo que fabrica las proteínas."
+    },
+    {
+      "clave": "pared",
+      "tipo": "concepto",
+      "titulo": "Pared celular",
+      "rama": "organulos",
+      "texto": "Cubierta rígida que rodea la membrana de las células vegetales y les da forma y resistencia."
+    },
+    {
+      "clave": "vacuola",
+      "tipo": "concepto",
+      "titulo": "Vacuola",
+      "rama": "organulos",
+      "texto": "Orgánulo que almacena agua y otras sustancias."
+    },
+    {
+      "clave": "mitosis",
+      "tipo": "concepto",
+      "titulo": "Mitosis",
+      "rama": "division",
+      "texto": "División de una célula en dos células hijas con el mismo material genético que la célula madre."
+    },
+    {
+      "clave": "meiosis",
+      "tipo": "concepto",
+      "titulo": "Meiosis",
+      "rama": "division",
+      "texto": "División celular que produce los gametos, con la mitad del material genético de la célula madre."
+    },
+    {
+      "clave": "fases_mitosis",
+      "tipo": "procedimiento",
+      "titulo": "Fases de la mitosis",
+      "rama": "division",
+      "texto": "La mitosis se divide en cuatro fases.",
+      "campos": {
+        "pasos": [
+          "Profase: el material genético se condensa en cromosomas y desaparece la envoltura nuclear.",
+          "Metafase: los cromosomas se colocan en el centro de la célula.",
+          "Anafase: cada cromosoma se separa en dos mitades que van a polos opuestos.",
+          "Telofase: se forman dos núcleos nuevos y la célula se divide en dos."
+        ]
+      }
+    },
+    {
+      "clave": "crecimiento",
+      "tipo": "dato",
+      "titulo": "Mitosis y crecimiento",
+      "rama": "division",
+      "texto": "Gracias a la mitosis los organismos pluricelulares crecen y reparan sus tejidos."
+    }
+  ],
+  "relaciones": [
+    {
+      "tipo": "relacionado",
+      "de": "teoria_celular",
+      "a": "celula"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "celula",
+      "a": "funciones_vitales"
+    },
+    {
+      "tipo": "antes_de",
+      "de": "f_hooke",
+      "a": "f_schleiden"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "f_schleiden",
+      "a": "teoria_celular"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "microscopio",
+      "a": "celula"
+    },
+    {
+      "tipo": "es_un",
+      "de": "procariota",
+      "a": "celula"
+    },
+    {
+      "tipo": "es_un",
+      "de": "eucariota",
+      "a": "celula"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "procariota",
+      "a": "eucariota"
+    },
+    {
+      "tipo": "es_un",
+      "de": "animal",
+      "a": "eucariota"
+    },
+    {
+      "tipo": "es_un",
+      "de": "vegetal",
+      "a": "eucariota"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "animal",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_bacteria",
+      "a": "procariota"
+    },
+    {
+      "tipo": "ejemplo_de",
+      "de": "ej_hoja",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "unicelular",
+      "a": "pluricelular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "unicelular",
+      "a": "celula"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "membrana",
+      "a": "celula"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "citoplasma",
+      "a": "celula"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "nucleo",
+      "a": "eucariota"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "adn",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "mitocondria",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "ribosoma",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "cloroplasto",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "pared",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "vacuola",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mitosis",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "contrasta_con",
+      "de": "mitosis",
+      "a": "meiosis"
+    },
+    {
+      "tipo": "parte_de",
+      "de": "fases_mitosis",
+      "a": "mitosis"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "crecimiento",
+      "a": "mitosis"
+    },
+    {
+      "tipo": "relacionado",
+      "de": "crecimiento",
+      "a": "pluricelular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "celula",
+      "a": "funciones_vitales"
+    },
+    {
+      "tipo": "requiere",
+      "de": "teoria_celular",
+      "a": "celula"
+    },
+    {
+      "tipo": "requiere",
+      "de": "microscopio",
+      "a": "celula"
+    },
+    {
+      "tipo": "requiere",
+      "de": "f_hooke",
+      "a": "microscopio"
+    },
+    {
+      "tipo": "requiere",
+      "de": "f_schleiden",
+      "a": "teoria_celular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "unicelular",
+      "a": "teoria_celular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "pluricelular",
+      "a": "unicelular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "procariota",
+      "a": "pluricelular"
+    },
+    {
+      "tipo": "requiere",
+      "de": "eucariota",
+      "a": "procariota"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ej_bacteria",
+      "a": "procariota"
+    },
+    {
+      "tipo": "requiere",
+      "de": "animal",
+      "a": "eucariota"
+    },
+    {
+      "tipo": "requiere",
+      "de": "vegetal",
+      "a": "animal"
+    },
+    {
+      "tipo": "requiere",
+      "de": "membrana",
+      "a": "vegetal"
+    },
+    {
+      "tipo": "requiere",
+      "de": "citoplasma",
+      "a": "membrana"
+    },
+    {
+      "tipo": "requiere",
+      "de": "nucleo",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "requiere",
+      "de": "adn",
+      "a": "nucleo"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mitocondria",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "requiere",
+      "de": "ribosoma",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "requiere",
+      "de": "cloroplasto",
+      "a": "mitocondria"
+    },
+    {
+      "tipo": "requiere",
+      "de": "pared",
+      "a": "membrana"
+    },
+    {
+      "tipo": "requiere",
+      "de": "vacuola",
+      "a": "citoplasma"
+    },
+    {
+      "tipo": "requiere",
+      "de": "mitosis",
+      "a": "adn"
+    },
+    {
+      "tipo": "requiere",
+      "de": "fases_mitosis",
+      "a": "mitosis"
+    },
+    {
+      "tipo": "requiere",
+      "de": "meiosis",
+      "a": "mitosis"
+    },
+    {
+      "tipo": "requiere",
+      "de": "crecimiento",
+      "a": "mitosis"
+    }
+  ]
+}

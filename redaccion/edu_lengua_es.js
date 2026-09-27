@@ -95,11 +95,14 @@
   var GENERO = {};
   ('dia mapa problema sistema tema esquema programa clima idioma planeta cometa poema drama dilema teorema sintoma ' +
    'fantasma sofa tranvia aroma diagrama lema enigma prisma dogma panorama telegrama crucigrama pijama mediodia ' +
-   'analisis enfasis parentesis oasis apocalipsis tipo estado avion camion gorrion sarampion').split(' ').forEach(function (p) { GENERO[p] = 'm'; });
+   'analisis enfasis parentesis oasis apocalipsis tipo estado avion camion gorrion sarampion ' +
+   'plasma citoplasma cromosoma ribosoma genoma diafragma corazon pulmon electron proton neutron tendon ' +
+   'balance debe haber capilar adn metal gas').split(' ').forEach(function (p) { GENERO[p] = 'm'; });
   ('mano foto moto radio nube parte noche gente calle llave clase fuente muerte suerte sangre leche carne base fase ' +
    'especie serie superficie torre madre nieve fiebre sede mente corriente hambre catastrofe flor labor luz voz cruz ' +
    'paz nariz raiz vez red pared sal miel piel carcel sed ley col imagen razon crisis tesis sintesis hipotesis ' +
-   'dosis metamorfosis mitosis meiosis fotosintesis tos lente frase cumbre costumbre legumbre').split(' ').forEach(function (p) { GENERO[p] = 'f'; });
+   'dosis metamorfosis mitosis meiosis fotosintesis tos lente frase cumbre costumbre legumbre ' +
+   'faringe laringe pelvis corteza').split(' ').forEach(function (p) { GENERO[p] = 'f'; });
 
   // Femeninos que empiezan por «a» tónica: llevan «el» y «un» en singular.
   var A_TONICA = {};
@@ -114,7 +117,7 @@
   // Sustantivos terminados en -ar/-er/-ir que NO son infinitivos.
   var NO_INFINITIVO = {};
   ('lugar mar hogar collar altar azar pilar par militar polar solar radar bar poder deber placer mujer taller alfiler ' +
-  'cancer caracter cadaver esfinter elixir nadir tapir faquir emir visir zafir primer tercer cualquier').split(' ').forEach(function (p) { NO_INFINITIVO[p] = true; });
+  'cancer caracter cadaver esfinter elixir nadir tapir faquir emir visir zafir primer tercer cualquier haber').split(' ').forEach(function (p) { NO_INFINITIVO[p] = true; });
 
   function esInfinitivo(palabra) {
     var k = clave(palabra);

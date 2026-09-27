@@ -9,6 +9,7 @@ var dir = __dirname;
 var orden = ['base', 'esquemas', 'almacen', 'biblioteca', 'importador', 'expansor', 'secuencia', 'lengua_es', 'redactor', 'variacion'];
 var archivos = orden.map(function (n) { return 'prueba_edu_' + n + '.js'; }).filter(function (f) { return fs.existsSync(path.join(dir, f)); });
 archivos.push('prueba_heredados.js');
+if (fs.existsSync(path.join(dir, 'prueba_datos.js'))) archivos.push('prueba_datos.js');
 if (fs.existsSync(path.join(dir, 'prueba_edu_visual.js'))) archivos.push('prueba_edu_visual.js');
 if (fs.existsSync(path.join(dir, 'prueba_edu_asistente.js'))) archivos.push('prueba_edu_asistente.js');
 if (fs.existsSync(path.join(dir, 'prueba_edu_salidas.js'))) archivos.push('prueba_edu_salidas.js');

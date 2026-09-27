@@ -1,0 +1,1123 @@
+{
+ "formato": "edu-paquete",
+ "version": 1,
+ "id": "paq_catalogo_materias",
+ "titulo": "Catálogo universal de materias y niveles",
+ "descripcion": "Estructura de la biblioteca: materias y niveles en los que se estudian. No contiene unidades: el contenido llega con los paquetes de cada tema, con los apuntes o con el texto pegado.",
+ "idioma": "es",
+ "fuentes": [
+  {
+   "clave": "catalogo",
+   "clase": "propia",
+   "titulo": "Catálogo de materias del Taller",
+   "licencia": "propia",
+   "nota": "Estructura propuesta. Pendiente de revisión y aprobación por Fátima."
+  }
+ ],
+ "ramas": [
+  {
+   "clave": "ciencias_naturales",
+   "clase": "materia",
+   "nombre": "Ciencias naturales",
+   "orden": 1
+  },
+  {
+   "clave": "ciencias_naturales__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "ciencias_naturales",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "ciencias_naturales__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "ciencias_naturales",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "biologia",
+   "clase": "materia",
+   "nombre": "Biología",
+   "orden": 2
+  },
+  {
+   "clave": "biologia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "biologia",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "biologia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "biologia",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "biologia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "biologia",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "anatomia_y_fisiologia",
+   "clase": "materia",
+   "nombre": "Anatomía y fisiología",
+   "orden": 3
+  },
+  {
+   "clave": "anatomia_y_fisiologia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "anatomia_y_fisiologia",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "anatomia_y_fisiologia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "anatomia_y_fisiologia",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "anatomia_y_fisiologia__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "anatomia_y_fisiologia",
+   "nivel": "fp",
+   "orden": 3
+  },
+  {
+   "clave": "anatomia_y_fisiologia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "anatomia_y_fisiologia",
+   "nivel": "universidad",
+   "orden": 4
+  },
+  {
+   "clave": "quimica",
+   "clase": "materia",
+   "nombre": "Química",
+   "orden": 4
+  },
+  {
+   "clave": "quimica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "quimica",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "quimica__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "quimica",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "quimica__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "quimica",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "fisica",
+   "clase": "materia",
+   "nombre": "Física",
+   "orden": 5
+  },
+  {
+   "clave": "fisica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "fisica",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "fisica__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "fisica",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "fisica__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "fisica",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "geologia",
+   "clase": "materia",
+   "nombre": "Geología",
+   "orden": 6
+  },
+  {
+   "clave": "geologia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "geologia",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "geologia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "geologia",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "geologia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "geologia",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "matematicas",
+   "clase": "materia",
+   "nombre": "Matemáticas",
+   "orden": 7
+  },
+  {
+   "clave": "matematicas__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "matematicas",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "matematicas__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "matematicas",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "matematicas__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "matematicas",
+   "nivel": "secundaria",
+   "orden": 3
+  },
+  {
+   "clave": "matematicas__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "matematicas",
+   "nivel": "bachillerato",
+   "orden": 4
+  },
+  {
+   "clave": "matematicas__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "matematicas",
+   "nivel": "universidad",
+   "orden": 5
+  },
+  {
+   "clave": "estadistica",
+   "clase": "materia",
+   "nombre": "Estadística",
+   "orden": 8
+  },
+  {
+   "clave": "estadistica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "estadistica",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "estadistica__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "estadistica",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "estadistica__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "estadistica",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "lengua_y_literatura",
+   "clase": "materia",
+   "nombre": "Lengua y literatura",
+   "orden": 9
+  },
+  {
+   "clave": "lengua_y_literatura__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "lengua_y_literatura",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "lengua_y_literatura__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "lengua_y_literatura",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "lengua_y_literatura__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "lengua_y_literatura",
+   "nivel": "bachillerato",
+   "orden": 3
+  },
+  {
+   "clave": "caligrafia_y_lectoescritura",
+   "clase": "materia",
+   "nombre": "Caligrafía y lectoescritura",
+   "orden": 10
+  },
+  {
+   "clave": "caligrafia_y_lectoescritura__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "caligrafia_y_lectoescritura",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "caligrafia_y_lectoescritura__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "caligrafia_y_lectoescritura",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "ingles",
+   "clase": "materia",
+   "nombre": "Inglés",
+   "orden": 11
+  },
+  {
+   "clave": "ingles__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "ingles",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "ingles__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "ingles",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "ingles__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "ingles",
+   "nivel": "secundaria",
+   "orden": 3
+  },
+  {
+   "clave": "ingles__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "ingles",
+   "nivel": "bachillerato",
+   "orden": 4
+  },
+  {
+   "clave": "ingles__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "ingles",
+   "nivel": "universidad",
+   "orden": 5
+  },
+  {
+   "clave": "ingles__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "ingles",
+   "nivel": "profesional",
+   "orden": 6
+  },
+  {
+   "clave": "historia",
+   "clase": "materia",
+   "nombre": "Historia",
+   "orden": 12
+  },
+  {
+   "clave": "historia__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "historia",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "historia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "historia",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "historia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "historia",
+   "nivel": "bachillerato",
+   "orden": 3
+  },
+  {
+   "clave": "historia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "historia",
+   "nivel": "universidad",
+   "orden": 4
+  },
+  {
+   "clave": "geografia",
+   "clase": "materia",
+   "nombre": "Geografía",
+   "orden": 13
+  },
+  {
+   "clave": "geografia__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "geografia",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "geografia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "geografia",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "geografia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "geografia",
+   "nivel": "bachillerato",
+   "orden": 3
+  },
+  {
+   "clave": "educacion_civica_y_ciudadana",
+   "clase": "materia",
+   "nombre": "Educación cívica y ciudadana",
+   "orden": 14
+  },
+  {
+   "clave": "educacion_civica_y_ciudadana__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "educacion_civica_y_ciudadana",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "educacion_civica_y_ciudadana__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "educacion_civica_y_ciudadana",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "filosofia",
+   "clase": "materia",
+   "nombre": "Filosofía",
+   "orden": 15
+  },
+  {
+   "clave": "filosofia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "filosofia",
+   "nivel": "bachillerato",
+   "orden": 1
+  },
+  {
+   "clave": "filosofia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "filosofia",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "psicologia",
+   "clase": "materia",
+   "nombre": "Psicología",
+   "orden": 16
+  },
+  {
+   "clave": "psicologia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "psicologia",
+   "nivel": "bachillerato",
+   "orden": 1
+  },
+  {
+   "clave": "psicologia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "psicologia",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "economia",
+   "clase": "materia",
+   "nombre": "Economía",
+   "orden": 17
+  },
+  {
+   "clave": "economia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "economia",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "economia__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "economia",
+   "nivel": "bachillerato",
+   "orden": 2
+  },
+  {
+   "clave": "economia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "economia",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "derecho",
+   "clase": "materia",
+   "nombre": "Derecho",
+   "orden": 18
+  },
+  {
+   "clave": "derecho__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "derecho",
+   "nivel": "universidad",
+   "orden": 1
+  },
+  {
+   "clave": "derecho__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "derecho",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "contabilidad",
+   "clase": "materia",
+   "nombre": "Contabilidad",
+   "orden": 19
+  },
+  {
+   "clave": "contabilidad__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "contabilidad",
+   "nivel": "bachillerato",
+   "orden": 1
+  },
+  {
+   "clave": "contabilidad__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "contabilidad",
+   "nivel": "fp",
+   "orden": 2
+  },
+  {
+   "clave": "contabilidad__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "contabilidad",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "contabilidad__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "contabilidad",
+   "nivel": "profesional",
+   "orden": 4
+  },
+  {
+   "clave": "administracion_de_empresas",
+   "clase": "materia",
+   "nombre": "Administración de empresas",
+   "orden": 20
+  },
+  {
+   "clave": "administracion_de_empresas__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "administracion_de_empresas",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "administracion_de_empresas__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "administracion_de_empresas",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "facturacion_y_gestion_administrativa",
+   "clase": "materia",
+   "nombre": "Facturación y gestión administrativa",
+   "orden": 21
+  },
+  {
+   "clave": "facturacion_y_gestion_administrativa__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "facturacion_y_gestion_administrativa",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "facturacion_y_gestion_administrativa__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "facturacion_y_gestion_administrativa",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "marketing",
+   "clase": "materia",
+   "nombre": "Marketing",
+   "orden": 22
+  },
+  {
+   "clave": "marketing__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "marketing",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "marketing__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "marketing",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "recursos_humanos",
+   "clase": "materia",
+   "nombre": "Recursos humanos",
+   "orden": 23
+  },
+  {
+   "clave": "recursos_humanos__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "recursos_humanos",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "recursos_humanos__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "recursos_humanos",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "enfermeria",
+   "clase": "materia",
+   "nombre": "Enfermería",
+   "orden": 24
+  },
+  {
+   "clave": "enfermeria__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "enfermeria",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "enfermeria__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "enfermeria",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "primeros_auxilios",
+   "clase": "materia",
+   "nombre": "Primeros auxilios",
+   "orden": 25
+  },
+  {
+   "clave": "primeros_auxilios__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "primeros_auxilios",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "primeros_auxilios__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "primeros_auxilios",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "nutricion",
+   "clase": "materia",
+   "nombre": "Nutrición",
+   "orden": 26
+  },
+  {
+   "clave": "nutricion__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "nutricion",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "nutricion__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "nutricion",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "farmacologia",
+   "clase": "materia",
+   "nombre": "Farmacología",
+   "orden": 27
+  },
+  {
+   "clave": "farmacologia__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "farmacologia",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "farmacologia__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "farmacologia",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "informatica",
+   "clase": "materia",
+   "nombre": "Informática",
+   "orden": 28
+  },
+  {
+   "clave": "informatica__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "informatica",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "informatica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "informatica",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "informatica__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "informatica",
+   "nivel": "fp",
+   "orden": 3
+  },
+  {
+   "clave": "informatica__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "informatica",
+   "nivel": "universidad",
+   "orden": 4
+  },
+  {
+   "clave": "ofimatica",
+   "clase": "materia",
+   "nombre": "Ofimática",
+   "orden": 29
+  },
+  {
+   "clave": "ofimatica__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "ofimatica",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "ofimatica__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "ofimatica",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "programacion",
+   "clase": "materia",
+   "nombre": "Programación",
+   "orden": 30
+  },
+  {
+   "clave": "programacion__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "programacion",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "programacion__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "programacion",
+   "nivel": "fp",
+   "orden": 2
+  },
+  {
+   "clave": "programacion__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "programacion",
+   "nivel": "universidad",
+   "orden": 3
+  },
+  {
+   "clave": "tecnologia",
+   "clase": "materia",
+   "nombre": "Tecnología",
+   "orden": 31
+  },
+  {
+   "clave": "tecnologia__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "tecnologia",
+   "nivel": "secundaria",
+   "orden": 1
+  },
+  {
+   "clave": "arte_y_dibujo",
+   "clase": "materia",
+   "nombre": "Arte y dibujo",
+   "orden": 32
+  },
+  {
+   "clave": "arte_y_dibujo__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "arte_y_dibujo",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "arte_y_dibujo__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "arte_y_dibujo",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "arte_y_dibujo__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "arte_y_dibujo",
+   "nivel": "secundaria",
+   "orden": 3
+  },
+  {
+   "clave": "musica",
+   "clase": "materia",
+   "nombre": "Música",
+   "orden": 33
+  },
+  {
+   "clave": "musica__infantil",
+   "clase": "nivel",
+   "nombre": "Infantil",
+   "padre": "musica",
+   "nivel": "infantil",
+   "orden": 1
+  },
+  {
+   "clave": "musica__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "musica",
+   "nivel": "primaria",
+   "orden": 2
+  },
+  {
+   "clave": "musica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "musica",
+   "nivel": "secundaria",
+   "orden": 3
+  },
+  {
+   "clave": "educacion_fisica",
+   "clase": "materia",
+   "nombre": "Educación física",
+   "orden": 34
+  },
+  {
+   "clave": "educacion_fisica__primaria",
+   "clase": "nivel",
+   "nombre": "Primaria",
+   "padre": "educacion_fisica",
+   "nivel": "primaria",
+   "orden": 1
+  },
+  {
+   "clave": "educacion_fisica__secundaria",
+   "clase": "nivel",
+   "nombre": "Secundaria",
+   "padre": "educacion_fisica",
+   "nivel": "secundaria",
+   "orden": 2
+  },
+  {
+   "clave": "metodologia_de_la_investigacion",
+   "clase": "materia",
+   "nombre": "Metodología de la investigación",
+   "orden": 35
+  },
+  {
+   "clave": "metodologia_de_la_investigacion__bachillerato",
+   "clase": "nivel",
+   "nombre": "Bachillerato",
+   "padre": "metodologia_de_la_investigacion",
+   "nivel": "bachillerato",
+   "orden": 1
+  },
+  {
+   "clave": "metodologia_de_la_investigacion__universidad",
+   "clase": "nivel",
+   "nombre": "Universidad",
+   "padre": "metodologia_de_la_investigacion",
+   "nivel": "universidad",
+   "orden": 2
+  },
+  {
+   "clave": "peluqueria",
+   "clase": "materia",
+   "nombre": "Peluquería",
+   "orden": 36
+  },
+  {
+   "clave": "peluqueria__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "peluqueria",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "peluqueria__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "peluqueria",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "estetica",
+   "clase": "materia",
+   "nombre": "Estética",
+   "orden": 37
+  },
+  {
+   "clave": "estetica__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "estetica",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "estetica__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "estetica",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "cocina_y_gastronomia",
+   "clase": "materia",
+   "nombre": "Cocina y gastronomía",
+   "orden": 38
+  },
+  {
+   "clave": "cocina_y_gastronomia__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "cocina_y_gastronomia",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "cocina_y_gastronomia__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "cocina_y_gastronomia",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "electricidad",
+   "clase": "materia",
+   "nombre": "Electricidad",
+   "orden": 39
+  },
+  {
+   "clave": "electricidad__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "electricidad",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "electricidad__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "electricidad",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "fontaneria",
+   "clase": "materia",
+   "nombre": "Fontanería",
+   "orden": 40
+  },
+  {
+   "clave": "fontaneria__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "fontaneria",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "fontaneria__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "fontaneria",
+   "nivel": "profesional",
+   "orden": 2
+  },
+  {
+   "clave": "mecanica",
+   "clase": "materia",
+   "nombre": "Mecánica",
+   "orden": 41
+  },
+  {
+   "clave": "mecanica__fp",
+   "clase": "nivel",
+   "nombre": "Formación profesional",
+   "padre": "mecanica",
+   "nivel": "fp",
+   "orden": 1
+  },
+  {
+   "clave": "mecanica__profesional",
+   "clase": "nivel",
+   "nombre": "Profesional",
+   "padre": "mecanica",
+   "nivel": "profesional",
+   "orden": 2
+  }
+ ],
+ "ucs": [],
+ "relaciones": []
+}
