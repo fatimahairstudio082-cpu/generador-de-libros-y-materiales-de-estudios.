@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Prueba · edu_almacen</title>
+<style>body{margin:0;padding:16px;background:#fff;color:#222;font:14px/1.5 system-ui,sans-serif}</style>
+</head>
+<body>
+<h1 style="font-size:18px;margin:0 0 8px">edu_almacen.js · IndexedDB real</h1>
+<p style="margin:0 0 12px;color:#666">Usa una base de datos de prueba aparte y la borra al terminar.</p>
+<pre id="salida" style="white-space:pre-wrap;margin:0"></pre>
+<script>
+  // Base de datos aislada: la prueba nunca toca los datos reales de edu_sistema.
+  (function () {
+    var abrirReal = indexedDB.open.bind(indexedDB);
+    indexedDB.open = function (nombre, v) { return abrirReal(nombre === 'edu_sistema' ? 'edu_sistema_prueba' : nombre, v); };
+  })();
+</script>
+<script src="../nucleo/edu_base.js"></script>
+<script src="../nucleo/edu_esquemas.js"></script>
+<script src="../nucleo/edu_almacen.js"></script>
+<script src="prueba_edu_almacen_comun.js"></script>
+<script>
+  (function () {
+    var salida = document.getElementById('salida'), total = 0, fallos = 0;
+    function ok(c, n) { total++; if (!c) fallos++; salida.textContent += (c ? '✓ ' : '✗ ') + n + '\n'; }
+    EDU.almacen.abrir().then(function (modo) {
+      ok(modo === 'indexeddb', 'abre IndexedDB (' + modo + ')');
+      return PRUEBA_ALMACEN(EDU, ok);
+    }).then(function () {
+      salida.textContent += '\n' + (total - fallos) + '/' + total + ' pruebas correctas';
+      window.RESULTADO = { total: total, fallos: fallos };
+    }, function (e) {
+      salida.textContent += '✗ excepción: ' + (e && e.message);
+      window.RESULTADO = { total: total, fallos: fallos + 1, error: e && e.message };
+    });
+  })();
+</script>
+</body>
+</html>
