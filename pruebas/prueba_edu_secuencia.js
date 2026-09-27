@@ -79,6 +79,12 @@ A.abrir({ memoria: true }).then(function () {
   var sops = secCiclo.sintesis.objetivos.map(function (o) { return o.operacion; });
   ok(sops.join(',') === 'clasificar,secuenciar,relacionar,repasar', 'objetivos de síntesis: ' + sops.join(', '));
   ok(secCiclo.requisitosPrevios.length === 1 && secCiclo.requisitosPrevios[0].titulo === 'Estados del agua', 'requisito previo citado sin desarrollar: Estados del agua');
+  var indC = secCiclo.indeterminado.map(function (i) { return i.elegida.titulo + '/' + i.alternativas.map(function (a) { return a.titulo; }).join('/'); });
+  ok(indC.join(', ') === 'Evaporación/Transpiración, Escorrentía/Infiltración', 'CICLO · los datos no fijan 2 posiciones y se informan: ' + indC.join(', '));
+  var conVerbos = S.secuenciar(est, { verbos: { definir: 'Explicar qué es' } });
+  var ev2 = conVerbos.modulos.filter(function (m) { return m.titulo === 'Evaporación'; })[0];
+  ok(ev2.objetivos[0].verbo === 'Explicar qué es' && S.verificar(conVerbos, est).ok, 'verbos configurables con opciones.verbos');
+  try { S.secuenciar(est, { verbos: { inventada: 'x' } }); ok(false, 'debería fallar'); } catch (e) { ok(/Operación desconocida/.test(e.message), 'una operación desconocida en verbos → error claro'); }
   var s2 = S.secuenciar(est);
   ok(JSON.stringify(s2) === JSON.stringify(secCiclo), 'determinista: la misma entrada da la misma secuencia');
   // No se inventa texto: todo título de la secuencia viene de las piezas
@@ -100,6 +106,12 @@ A.abrir({ memoria: true }).then(function () {
   var t = titulos(sec);
   ok(t.indexOf('Estados del agua') >= 0 && t.indexOf('Estados del agua') < t.indexOf('Ciclo del agua'), 'RAMA · «Ciclo requiere Estados»: Estados va antes → ' + t.slice(0, 4).join(' → ') + '…');
   ok(sec.requisitosPrevios.length === 0, 'dentro de la rama ya no hay requisitos externos');
+  var ind = sec.modulos.filter(function (m) { return m.ordenIndeterminado; }).map(function (m) { return m.titulo; });
+  ok(sec.indeterminado.length > 0 && sec.informe.ordenIndeterminado === ind.length && ind.indexOf('Composición de las nubes') >= 0, 'orden no fijado por los datos → marcado como indeterminado: ' + ind.join(', '));
+  ok(sec.indeterminado[0].alternativas.length > 0 && sec.indeterminado[0].elegida.titulo, 'cada posición indeterminada dice qué se eligió y qué otras eran posibles');
+  var est = sec.modulos.filter(function (m) { return m.titulo === 'Estados del agua'; })[0];
+  var cic = sec.modulos.filter(function (m) { return m.titulo === 'Ciclo del agua'; })[0];
+  ok(sec.modulos.indexOf(est) < sec.modulos.indexOf(cic) && S.verificar(sec, ests).ok, 'lo indeterminado nunca rompe lo que sí fijan los datos (Estados sigue antes que Ciclo)');
   ok(S.verificar(sec, ests).ok, 'conservación con varias estructuras (piezas compartidas una sola vez)');
   return buscarUC('Revolución francesa').then(function (u) { return X.expandir(u.id); });
 }).then(function (est) {

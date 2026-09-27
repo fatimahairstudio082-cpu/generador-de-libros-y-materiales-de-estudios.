@@ -12,7 +12,8 @@
          2. jerarquía  — el todo antes que sus partes
          3. «antes de» — el orden temporal de los datos
          4. causa      — la causa antes que el efecto
-       Empates: el orden en que llegaron las unidades (determinista).
+       Empates: el orden en que llegaron las unidades (determinista). Esas
+       posiciones se marcan como indeterminadas: los datos no las fijan.
      · Cada pieza va a UN solo sitio. Si cita varias unidades, va a la última
        de ellas en la secuencia (cuando ya se conocen todas). Las piezas de
        conjunto (repaso, emparejar, ordenar, clasificar, visualizaciones de
@@ -26,7 +27,7 @@
      EDU.secuencia.verificar(secuencia, estructuras) → { ok, problemas }
      EDU.secuencia.aplicarAProyecto(proyectoId, secuencia) → Promise<proyecto>
      EDU.secuencia.verbos(nivel) / fases()
-   opciones: { profundidad, excluirClases:[…], fases:[…] } */
+   opciones: { profundidad, excluirClases:[…], fases:[…], verbos:{ operacion: 'Verbo' } } */
 (function (raiz) {
   'use strict';
   var EDU = raiz.EDU;
@@ -64,9 +65,16 @@
     repasar: { basico: 'Recordar', primaria: 'Repasar', medio: 'Sintetizar', superior: 'Sintetizar' }
   };
 
-  function verbos(nivel) {
+  /* extra: { operacion: 'Verbo' } sustituye verbos de la tabla para esta llamada.
+     Una operación que no existe es un error (evita erratas silenciosas). */
+  function verbos(nivel, extra) {
     var g = GRUPO[nivel] || 'primaria', r = {};
     OPERACIONES.forEach(function (op) { r[op] = VERBOS[op][g]; });
+    Object.keys(extra || {}).forEach(function (op) {
+      if (OPERACIONES.indexOf(op) < 0) throw new Error('Operación desconocida en verbos: «' + op + '»');
+      if (typeof extra[op] !== 'string' || !extra[op].trim()) throw new Error('El verbo de «' + op + '» debe ser un texto');
+      r[op] = extra[op].trim();
+    });
     return r;
   }
 
@@ -90,23 +98,28 @@
   }
 
   /* Orden de las unidades. Aristas «x antes que y» añadidas por prioridad;
-     una arista que cerraría un ciclo se descarta (y se avisa si es fuerte). */
+     una arista que cerraría un ciclo se descarta (y se avisa si es un requisito).
+     Cuando en un paso hay varias unidades posibles, los datos no deciden:
+     se toma la primera en orden de llegada y se anota como indeterminado. */
   function ordenar(unidades, piezas, avisos) {
-    var idx = {}, sale = {};
+    var idx = {}, sale = {}, ignorados = [];
     unidades.forEach(function (u, i) { idx[u.uc] = i; sale[u.uc] = []; });
     function alcanza(a, b) {
       var pila = [a], visto = {};
       while (pila.length) { var x = pila.pop(); if (x === b) return true; if (visto[x]) continue; visto[x] = true; pila.push.apply(pila, sale[x]); }
       return false;
     }
-    function arista(x, y, fuerte, motivo) {
+    function arista(x, y, fuerte, motivo, pieza) {
       if (x === y || idx[x] === undefined || idx[y] === undefined || sale[x].indexOf(y) >= 0) return;
-      if (alcanza(y, x)) { if (fuerte) avisos.push('Se ignora «' + motivo + '» porque contradice un orden anterior'); return; }
+      if (alcanza(y, x)) {
+        if (fuerte) { avisos.push('Se ignora «' + motivo + '» porque contradice un orden anterior'); if (pieza) ignorados.push(pieza); }
+        return;
+      }
       sale[x].push(y);
     }
     var rels = piezas.filter(function (p) { return p.clase === 'relacion' && p.datos.de && p.datos.a; });
     function titulo(id) { var u = unidades[idx[id]]; return u ? u.titulo : id; }
-    rels.filter(function (p) { return p.datos.tipo === 'requiere'; }).forEach(function (p) { arista(p.datos.a.uc, p.datos.de.uc, true, titulo(p.datos.de.uc) + ' requiere ' + titulo(p.datos.a.uc)); });
+    rels.filter(function (p) { return p.datos.tipo === 'requiere'; }).forEach(function (p) { arista(p.datos.a.uc, p.datos.de.uc, true, titulo(p.datos.de.uc) + ' requiere ' + titulo(p.datos.a.uc), p.id); });
     // La jerarquía es un orden por defecto: si un requisito explícito la contradice, cede sin aviso.
     unidades.forEach(function (u) { if (u.padre) arista(u.padre, u.uc, false); });
     rels.filter(function (p) { return p.datos.tipo === 'parte_de' || p.datos.tipo === 'es_un'; }).forEach(function (p) { arista(p.datos.a.uc, p.datos.de.uc, false); });
@@ -118,13 +131,18 @@
     unidades.forEach(function (u) { entra[u.uc] = 0; });
     unidades.forEach(function (u) { sale[u.uc].forEach(function (v) { entra[v]++; }); });
     var libres = unidades.filter(function (u) { return !entra[u.uc]; }).map(function (u) { return u.uc; }), res = [];
+    var indeterminado = [], estable = {};
     while (libres.length) {
       libres.sort(function (a, b) { return idx[a] - idx[b]; });
       var n = libres.shift();
+      if (libres.length) {
+        estable[n] = true;
+        indeterminado.push({ posicion: res.length + 1, elegida: { uc: n, titulo: titulo(n) }, alternativas: libres.map(function (x) { return { uc: x, titulo: titulo(x) }; }) });
+      }
       res.push(n);
       sale[n].forEach(function (v) { if (--entra[v] === 0) libres.push(v); });
     }
-    return { orden: res, aristas: sale };
+    return { orden: res, aristas: sale, indeterminado: indeterminado, estable: estable, ignorados: ignorados };
   }
 
   function unidadesDe(p, esUnidad, satelites) {
@@ -138,8 +156,8 @@
 
   /* ───────────────────────── Objetivos ───────────────────────── */
 
-  function objetivosDe(unidad, piezasMod, hijas, nivel) {
-    var v = verbos(nivel), res = {};
+  function objetivosDe(unidad, piezasMod, hijas, v) {
+    var res = {};
     function poner(op, pz) {
       if (!res[op]) res[op] = { operacion: op, verbo: v[op], objeto: { uc: unidad.uc, titulo: unidad.titulo }, desde: [] };
       if (res[op].desde.indexOf(pz) < 0) res[op].desde.push(pz);
@@ -163,8 +181,8 @@
     return lista;
   }
 
-  function objetivosSintesis(piezas, nivel) {
-    var v = verbos(nivel), res = [];
+  function objetivosSintesis(piezas, v) {
+    var res = [];
     var mapa = { ordenar: 'secuenciar', emparejar: 'relacionar', clasificar: 'clasificar' };
     piezas.forEach(function (p) {
       if (p.estado !== 'con_respaldo') return;
@@ -191,6 +209,7 @@
     if (Object.prototype.toString.call(estructuras) !== '[object Array]') estructuras = [estructuras];
     if (!estructuras.length) throw new Error('No hay estructuras que secuenciar');
     var nivel = estructuras[0].nivel;
+    var tablaVerbos = verbos(nivel, opciones.verbos);
     var fases = opciones.fases || FASES;
     var excluir = {};
     (opciones.excluirClases || []).forEach(function (c) { excluir[c] = true; });
@@ -263,7 +282,8 @@
         orden: i + 1, uc: id, titulo: u.titulo, profundidad: u.profundidad,
         ucs: ucs,
         fases: porFases(mias, fases),
-        objetivos: objetivosDe(u, mias, hijas, nivel),
+        objetivos: objetivosDe(u, mias, hijas, tablaVerbos),
+        ordenIndeterminado: !!ord.estable[id],
         pendientes: mias.filter(function (p) { return p.estado === 'pendiente'; }).length
       };
     });
@@ -274,10 +294,17 @@
       estructuras: estructuras.map(function (e) { return e.id; }),
       requisitosPrevios: previos,
       modulos: modulos,
-      sintesis: { fases: porFases(sintesis, fases), objetivos: objetivosSintesis(sintesis, nivel) },
+      sintesis: { fases: porFases(sintesis, fases), objetivos: objetivosSintesis(sintesis, tablaVerbos) },
       recortadas: recortadas,
       avisos: avisos,
-      informe: { modulos: modulos.length, piezas: piezas.length, recortadas: recortadas.length, pendientes: piezas.filter(function (p) { return p.estado === 'pendiente'; }).length }
+      requisitosIgnorados: ord.ignorados,
+      // Posiciones que los datos no fijan: se conserva el orden estable y se informa.
+      indeterminado: ord.indeterminado,
+      informe: {
+        modulos: modulos.length, piezas: piezas.length, recortadas: recortadas.length,
+        pendientes: piezas.filter(function (p) { return p.estado === 'pendiente'; }).length,
+        ordenIndeterminado: modulos.filter(function (m) { return m.ordenIndeterminado; }).length
+      }
     };
 
     var v = verificar(sec, estructuras);
@@ -306,7 +333,7 @@
     Object.keys(existe).forEach(function (id) {
       var p = existe[id];
       if (p.clase === 'relacion' && p.datos.tipo === 'requiere' && pos[p.datos.de.uc] !== undefined && pos[p.datos.a.uc] !== undefined && pos[p.datos.a.uc] > pos[p.datos.de.uc]) {
-        if (!sec.avisos.length) problemas.push({ pieza: id, problema: 'Un requisito queda después de quien lo necesita' });
+        if ((sec.requisitosIgnorados || []).indexOf(id) < 0) problemas.push({ pieza: id, problema: 'Un requisito queda después de quien lo necesita' });
       }
     });
     sec.modulos.forEach(function (m) {
@@ -345,6 +372,7 @@
     verificar: verificar,
     aplicarAProyecto: aplicarAProyecto,
     verbos: verbos,
+    operaciones: function () { return OPERACIONES.slice(); },
     fases: function () { return FASES.slice(); }
   };
 
