@@ -3,7 +3,7 @@
  "version": 1,
  "id": "paq_catalogo_materias",
  "titulo": "Catálogo universal de materias y niveles",
- "descripcion": "Estructura de la biblioteca: materias y niveles en los que se estudian. No contiene unidades: el contenido llega con los paquetes de cada tema, con los apuntes o con el texto pegado.",
+ "descripcion": "Estructura de la biblioteca: materias y niveles en los que se estudian. No contiene unidades: el contenido llega con los paquetes de cada tema, con los apuntes o con el texto pegado. Cada materia indica en «disenos» la categoría de diseños de láminas de FATIMA PRO que le corresponde.",
  "idioma": "es",
  "fuentes": [
   {
@@ -19,7 +19,8 @@
    "clave": "ciencias_naturales",
    "clase": "materia",
    "nombre": "Ciencias naturales",
-   "orden": 1
+   "orden": 1,
+   "disenos": "Ciencias"
   },
   {
    "clave": "ciencias_naturales__infantil",
@@ -41,7 +42,8 @@
    "clave": "biologia",
    "clase": "materia",
    "nombre": "Biología",
-   "orden": 2
+   "orden": 2,
+   "disenos": "Ciencias"
   },
   {
    "clave": "biologia__secundaria",
@@ -71,7 +73,8 @@
    "clave": "anatomia_y_fisiologia",
    "clase": "materia",
    "nombre": "Anatomía y fisiología",
-   "orden": 3
+   "orden": 3,
+   "disenos": "Ciencias"
   },
   {
    "clave": "anatomia_y_fisiologia__secundaria",
@@ -109,7 +112,8 @@
    "clave": "quimica",
    "clase": "materia",
    "nombre": "Química",
-   "orden": 4
+   "orden": 4,
+   "disenos": "Ciencias"
   },
   {
    "clave": "quimica__secundaria",
@@ -139,7 +143,8 @@
    "clave": "fisica",
    "clase": "materia",
    "nombre": "Física",
-   "orden": 5
+   "orden": 5,
+   "disenos": "Ciencias"
   },
   {
    "clave": "fisica__secundaria",
@@ -169,7 +174,8 @@
    "clave": "geologia",
    "clase": "materia",
    "nombre": "Geología",
-   "orden": 6
+   "orden": 6,
+   "disenos": "Ciencias"
   },
   {
    "clave": "geologia__secundaria",
@@ -199,7 +205,8 @@
    "clave": "matematicas",
    "clase": "materia",
    "nombre": "Matemáticas",
-   "orden": 7
+   "orden": 7,
+   "disenos": "Matemáticas"
   },
   {
    "clave": "matematicas__infantil",
@@ -245,7 +252,8 @@
    "clave": "estadistica",
    "clase": "materia",
    "nombre": "Estadística",
-   "orden": 8
+   "orden": 8,
+   "disenos": "Matemáticas"
   },
   {
    "clave": "estadistica__secundaria",
@@ -275,7 +283,8 @@
    "clave": "lengua_y_literatura",
    "clase": "materia",
    "nombre": "Lengua y literatura",
-   "orden": 9
+   "orden": 9,
+   "disenos": "Lengua y literatura"
   },
   {
    "clave": "lengua_y_literatura__primaria",
@@ -305,7 +314,8 @@
    "clave": "caligrafia_y_lectoescritura",
    "clase": "materia",
    "nombre": "Caligrafía y lectoescritura",
-   "orden": 10
+   "orden": 10,
+   "disenos": "Infantil y primaria"
   },
   {
    "clave": "caligrafia_y_lectoescritura__infantil",
@@ -327,7 +337,8 @@
    "clave": "ingles",
    "clase": "materia",
    "nombre": "Inglés",
-   "orden": 11
+   "orden": 11,
+   "disenos": "Lengua y literatura"
   },
   {
    "clave": "ingles__infantil",
@@ -381,7 +392,8 @@
    "clave": "historia",
    "clase": "materia",
    "nombre": "Historia",
-   "orden": 12
+   "orden": 12,
+   "disenos": "Historia y sociales"
   },
   {
    "clave": "historia__primaria",
@@ -419,7 +431,8 @@
    "clave": "geografia",
    "clase": "materia",
    "nombre": "Geografía",
-   "orden": 13
+   "orden": 13,
+   "disenos": "Historia y sociales"
   },
   {
    "clave": "geografia__primaria",
@@ -449,7 +462,8 @@
    "clave": "educacion_civica_y_ciudadana",
    "clase": "materia",
    "nombre": "Educación cívica y ciudadana",
-   "orden": 14
+   "orden": 14,
+   "disenos": "Historia y sociales"
   },
   {
    "clave": "educacion_civica_y_ciudadana__primaria",
@@ -471,7 +485,8 @@
    "clave": "filosofia",
    "clase": "materia",
    "nombre": "Filosofía",
-   "orden": 15
+   "orden": 15,
+   "disenos": "Lengua y humanidades"
   },
   {
    "clave": "filosofia__bachillerato",
@@ -493,7 +508,8 @@
    "clave": "psicologia",
    "clase": "materia",
    "nombre": "Psicología",
-   "orden": 16
+   "orden": 16,
+   "disenos": "Lengua y humanidades"
   },
   {
    "clave": "psicologia__bachillerato",
@@ -515,7 +531,8 @@
    "clave": "economia",
    "clase": "materia",
    "nombre": "Economía",
-   "orden": 17
+   "orden": 17,
+   "disenos": "Historia y sociales"
   },
   {
    "clave": "economia__secundaria",
@@ -545,7 +562,8 @@
    "clave": "derecho",
    "clase": "materia",
    "nombre": "Derecho",
-   "orden": 18
+   "orden": 18,
+   "disenos": "Historia y sociales"
   },
   {
    "clave": "derecho__universidad",
@@ -567,7 +585,8 @@
    "clave": "contabilidad",
    "clase": "materia",
    "nombre": "Contabilidad",
-   "orden": 19
+   "orden": 19,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "contabilidad__bachillerato",
@@ -605,7 +624,8 @@
    "clave": "administracion_de_empresas",
    "clase": "materia",
    "nombre": "Administración de empresas",
-   "orden": 20
+   "orden": 20,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "administracion_de_empresas__fp",
@@ -627,7 +647,8 @@
    "clave": "facturacion_y_gestion_administrativa",
    "clase": "materia",
    "nombre": "Facturación y gestión administrativa",
-   "orden": 21
+   "orden": 21,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "facturacion_y_gestion_administrativa__fp",
@@ -649,7 +670,8 @@
    "clave": "marketing",
    "clase": "materia",
    "nombre": "Marketing",
-   "orden": 22
+   "orden": 22,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "marketing__fp",
@@ -671,7 +693,8 @@
    "clave": "recursos_humanos",
    "clase": "materia",
    "nombre": "Recursos humanos",
-   "orden": 23
+   "orden": 23,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "recursos_humanos__fp",
@@ -693,7 +716,8 @@
    "clave": "enfermeria",
    "clase": "materia",
    "nombre": "Enfermería",
-   "orden": 24
+   "orden": 24,
+   "disenos": "Ciencias"
   },
   {
    "clave": "enfermeria__fp",
@@ -715,7 +739,8 @@
    "clave": "primeros_auxilios",
    "clase": "materia",
    "nombre": "Primeros auxilios",
-   "orden": 25
+   "orden": 25,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "primeros_auxilios__fp",
@@ -737,7 +762,8 @@
    "clave": "nutricion",
    "clase": "materia",
    "nombre": "Nutrición",
-   "orden": 26
+   "orden": 26,
+   "disenos": "Ciencias"
   },
   {
    "clave": "nutricion__fp",
@@ -759,7 +785,8 @@
    "clave": "farmacologia",
    "clase": "materia",
    "nombre": "Farmacología",
-   "orden": 27
+   "orden": 27,
+   "disenos": "Ciencias"
   },
   {
    "clave": "farmacologia__fp",
@@ -781,7 +808,8 @@
    "clave": "informatica",
    "clase": "materia",
    "nombre": "Informática",
-   "orden": 28
+   "orden": 28,
+   "disenos": "Estudio y método"
   },
   {
    "clave": "informatica__primaria",
@@ -819,7 +847,8 @@
    "clave": "ofimatica",
    "clase": "materia",
    "nombre": "Ofimática",
-   "orden": 29
+   "orden": 29,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "ofimatica__fp",
@@ -841,7 +870,8 @@
    "clave": "programacion",
    "clase": "materia",
    "nombre": "Programación",
-   "orden": 30
+   "orden": 30,
+   "disenos": "Estudio y método"
   },
   {
    "clave": "programacion__secundaria",
@@ -871,7 +901,8 @@
    "clave": "tecnologia",
    "clase": "materia",
    "nombre": "Tecnología",
-   "orden": 31
+   "orden": 31,
+   "disenos": "Estudio y método"
   },
   {
    "clave": "tecnologia__secundaria",
@@ -885,7 +916,8 @@
    "clave": "arte_y_dibujo",
    "clase": "materia",
    "nombre": "Arte y dibujo",
-   "orden": 32
+   "orden": 32,
+   "disenos": "Infantil y primaria"
   },
   {
    "clave": "arte_y_dibujo__infantil",
@@ -915,7 +947,8 @@
    "clave": "musica",
    "clase": "materia",
    "nombre": "Música",
-   "orden": 33
+   "orden": 33,
+   "disenos": "Infantil y primaria"
   },
   {
    "clave": "musica__infantil",
@@ -945,7 +978,8 @@
    "clave": "educacion_fisica",
    "clase": "materia",
    "nombre": "Educación física",
-   "orden": 34
+   "orden": 34,
+   "disenos": "Infantil y primaria"
   },
   {
    "clave": "educacion_fisica__primaria",
@@ -967,7 +1001,8 @@
    "clave": "metodologia_de_la_investigacion",
    "clase": "materia",
    "nombre": "Metodología de la investigación",
-   "orden": 35
+   "orden": 35,
+   "disenos": "Estudio y método"
   },
   {
    "clave": "metodologia_de_la_investigacion__bachillerato",
@@ -989,7 +1024,8 @@
    "clave": "peluqueria",
    "clase": "materia",
    "nombre": "Peluquería",
-   "orden": 36
+   "orden": 36,
+   "disenos": "Peluquería y estética"
   },
   {
    "clave": "peluqueria__fp",
@@ -1011,7 +1047,8 @@
    "clave": "estetica",
    "clase": "materia",
    "nombre": "Estética",
-   "orden": 37
+   "orden": 37,
+   "disenos": "Peluquería y estética"
   },
   {
    "clave": "estetica__fp",
@@ -1033,7 +1070,8 @@
    "clave": "cocina_y_gastronomia",
    "clase": "materia",
    "nombre": "Cocina y gastronomía",
-   "orden": 38
+   "orden": 38,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "cocina_y_gastronomia__fp",
@@ -1055,7 +1093,8 @@
    "clave": "electricidad",
    "clase": "materia",
    "nombre": "Electricidad",
-   "orden": 39
+   "orden": 39,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "electricidad__fp",
@@ -1077,7 +1116,8 @@
    "clave": "fontaneria",
    "clase": "materia",
    "nombre": "Fontanería",
-   "orden": 40
+   "orden": 40,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "fontaneria__fp",
@@ -1099,7 +1139,8 @@
    "clave": "mecanica",
    "clase": "materia",
    "nombre": "Mecánica",
-   "orden": 41
+   "orden": 41,
+   "disenos": "Formación profesional"
   },
   {
    "clave": "mecanica__fp",

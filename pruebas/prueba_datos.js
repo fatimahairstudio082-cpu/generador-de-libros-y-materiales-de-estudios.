@@ -27,17 +27,18 @@ var ind = JSON.parse(leer('datos/biblioteca/indice.json'));
 ok(ind.paquetes.every(function (f) { return fs.existsSync(path.join(__dirname, '..', 'datos/biblioteca', f)); }), 'los ' + ind.paquetes.length + ' paquetes del índice existen');
 var enDisco = fs.readdirSync(path.join(__dirname, '..', 'datos/biblioteca')).filter(function (f) { return /\.json$/.test(f) && f !== 'indice.json'; });
 ok(enDisco.every(function (f) { return ind.paquetes.indexOf(f) >= 0; }), 'ningún paquete en disco se ha quedado fuera del índice');
-ok(ind.paquetes[0] === 'catalogo_materias.json', 'el catálogo de materias se carga el primero');
+ok(ind.paquetes[ind.paquetes.length - 1] === 'catalogo_materias.json', 'el catálogo de materias se carga el último (su estructura y sus categorías de diseño prevalecen)');
 
 var paquetes = ind.paquetes.map(function (f) { return JSON.parse(leer('datos/biblioteca/' + f)); });
 ok(paquetes.every(function (p) { return p.fuentes.every(function (f) { return /Pendiente de revisión/.test(f.nota || ''); }); }), 'todo paquete declara que está pendiente de revisión por Fátima');
-var cat = paquetes[0], materias = cat.ramas.filter(function (r) { return r.clase === 'materia'; });
+var cat = paquetes[ind.paquetes.indexOf('catalogo_materias.json')], materias = cat.ramas.filter(function (r) { return r.clase === 'materia'; });
 ok(materias.length >= 40 && cat.ucs.length === 0, 'catálogo: ' + materias.length + ' materias, solo estructura (sin contenido inventado)');
+ok(materias.every(function (m) { return typeof m.disenos === 'string' && m.disenos.length; }), 'catálogo: cada materia indica su categoría de diseños de láminas');
 ok(new Set(materias.map(function (m) { return m.nombre; })).size === materias.length, 'catálogo: sin materias repetidas');
 var niveles = EDU.esquemas.catalogo('niveles');
 ok(cat.ramas.filter(function (r) { return r.clase === 'nivel'; }).every(function (r) { return niveles[r.nivel]; }), 'catálogo: todos los niveles son del sistema');
 var nombresCat = {}; materias.forEach(function (m) { nombresCat[m.nombre] = true; });
-ok(paquetes.slice(1).every(function (p) { return p.ramas.filter(function (r) { return r.clase === 'materia'; }).every(function (r) { return nombresCat[r.nombre]; }); }), 'cada paquete de contenido cuelga de una materia del catálogo');
+ok(paquetes.filter(function (p) { return p !== cat; }).every(function (p) { return p.ramas.filter(function (r) { return r.clase === 'materia'; }).every(function (r) { return nombresCat[r.nombre]; }); }), 'cada paquete de contenido cuelga de una materia del catálogo');
 ['Biología', 'Anatomía y fisiología', 'Contabilidad', 'Química', 'Física', 'Inglés', 'Enfermería', 'Peluquería'].forEach(function (m) { if (!nombresCat[m]) ok(false, 'falta la materia ' + m); });
 ok(['Biología', 'Anatomía y fisiología', 'Contabilidad', 'Química', 'Física'].every(function (m) { return paquetes.some(function (p) { return p.ramas.some(function (r) { return r.clase === 'materia' && r.nombre === m; }) && p.ucs.length >= 20; }); }), 'tanda 1 con contenido: biología, anatomía, contabilidad, química y física (≥20 unidades cada una)');
 
@@ -58,6 +59,7 @@ A.abrir({ memoria: true }).then(function () {
   ok(est.ucs >= 200, 'todo el índice carga: ' + est.ucs + ' unidades y ' + est.relaciones + ' relaciones');
   var mat = ramas.filter(function (x) { return x.clase === 'materia'; });
   ok(mat.length === materias.length, 'las materias de los paquetes se unen a las del catálogo (' + mat.length + ' en el árbol, sin duplicados)');
+  ok(mat.every(function (m) { return m.disenos; }), 'tras cargar todo, cada materia del árbol conserva su categoría de diseños');
   return paquetes.reduce(function (p, paq) { return p.then(function () { return B.cargarPaquete(paq); }); }, Promise.resolve()).then(function () { return B.estadisticas(); }).then(function (e2) {
     ok(JSON.stringify(e2) === JSON.stringify(est), 'recargar todo el índice no duplica nada');
   });

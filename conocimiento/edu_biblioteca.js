@@ -78,6 +78,7 @@
       if (!registrarClave('rama', 'ramas', r)) return;
       var padre = resolver('rama', 'rama', r.padre, 'ramas', r.clave);
       var o = E.crear('rama', { clase: r.clase, nombre: r.nombre, padre: padre, orden: typeof r.orden === 'number' ? r.orden : 0, nivel: r.nivel });
+      if (typeof r.disenos === 'string' && r.disenos) o.disenos = r.disenos;   // categoría de diseños de láminas afín (opcional)
       o.paquete = paq.id;
       mapa.rama[r.clave] = o.id;
       claveDe[o.id] = r.clave;

@@ -2,7 +2,6 @@
   "formato": "edu-indice",
   "version": 1,
   "paquetes": [
-    "catalogo_materias.json",
     "ciencias_primaria_agua.json",
     "matematicas_primaria_fracciones.json",
     "historia_secundaria_revolucion_francesa.json",
@@ -10,6 +9,7 @@
     "anatomia_secundaria_cuerpo_humano.json",
     "contabilidad_fp_fundamentos.json",
     "quimica_secundaria_atomo.json",
-    "fisica_secundaria_movimiento.json"
+    "fisica_secundaria_movimiento.json",
+    "catalogo_materias.json"
   ]
 }

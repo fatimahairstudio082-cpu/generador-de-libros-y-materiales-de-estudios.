@@ -171,7 +171,7 @@
         st.estructuras = [].concat.apply([], r[0]);
         st.sec = st.estructuras.length ? S.secuenciar(st.estructuras) : null;
         st.docs = r[1];
-        st.materia = r[2].length ? r[2][0].nombre : '';
+        st.materia = r[2].length ? r[2][0].nombre + ' ' + (r[2][0].disenos || '') : '';
         return Promise.all(st.docs.map(function (d) { return EDU.documento.auditar(d); }));
       }).then(function (auds) {
         st.auditoriasDocs = auds;
@@ -188,9 +188,9 @@
     if (st.objetivo.modo === 'proyecto') { st.disenos = {}; return generarProyecto(); }
     var op = st.nivel ? { nivel: st.nivel } : {};
     st.disenos = {};
-    // La materia (nombre de la rama raíz) solo sirve para elegir diseños afines del catálogo.
+    // La materia (nombre de la rama raíz y su categoría de diseños, si el catálogo la da) solo sirve para elegir diseños afines.
     var ramaMat = st.objetivo.modo === 'rama' ? st.objetivo.id : st.objetivo.rama;
-    var pMateria = (ramaMat ? B.ruta(ramaMat) : Promise.resolve([])).then(function (c) { st.materia = c.length ? c[0].nombre : ''; });
+    var pMateria = (ramaMat ? B.ruta(ramaMat) : Promise.resolve([])).then(function (c) { st.materia = c.length ? c[0].nombre + ' ' + (c[0].disenos || '') : ''; });
     var pedir = st.objetivo.modo === 'rama' ? X.expandirRama(st.objetivo.id, op) : X.expandir(st.objetivo.id, op).then(function (e) { return [e]; });
     return pedir.then(function (ests) {
       if (!ests.length) throw new Error('Esta rama no tiene unidades con las que trabajar.');
