@@ -53,6 +53,8 @@
   /* ───────────────────────── Elección de diseño ───────────────────────── */
 
   var VACIAS = { y: 1, e: 1, de: 1, del: 1, la: 1, las: 1, el: 1, los: 1, en: 1, a: 1 };
+  // Sin afinidad con la materia se prefieren las categorías neutras del catálogo, nunca las de otra especialidad.
+  var NEUTRAS = { 'Plantilla en blanco': 2, 'Estudio y método': 1 };
   function palabras(t) {
     return EDU.normalizar(t).split(/[^a-zñ0-9]+/).filter(function (w) { return w.length > 2 && !VACIAS[w]; });
   }
@@ -73,7 +75,7 @@
     var nivelNombre = op.nivel ? ((EDU.esquemas.catalogo('niveles')[op.nivel] || {}).nombre || op.nivel) : '';
     return catalogo().lista().filter(function (d) { return fams.indexOf(d.fam) >= 0; })
       .map(function (d) { return { id: d.id, nombre: d.nombre, familia: d.fam, categoria: d.cat, estructura: d.est, paleta: d.pal, formato: d.fmt, afinidad: afinidad(d.cat, [op.materia || '', nivelNombre]) }; })
-      .sort(function (a, b) { return (b.afinidad - a.afinidad) || (fams.indexOf(a.familia) - fams.indexOf(b.familia)); });
+      .sort(function (a, b) { return (b.afinidad - a.afinidad) || ((NEUTRAS[b.categoria] || 0) - (NEUTRAS[a.categoria] || 0)) || (fams.indexOf(a.familia) - fams.indexOf(b.familia)); });
   }
 
   /* ───────────────────────── Nodos desde los datos ───────────────────────── */

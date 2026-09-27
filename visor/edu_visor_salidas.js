@@ -22,6 +22,8 @@
     '<button type="button" class="boton secundario" data-previa="libro">Libro</button>' +
     '<button type="button" class="boton secundario" data-previa="examen">Examen</button>' +
     '<button type="button" class="boton secundario" data-previa="correccion">Corrección</button>' +
+    '<span class="salidas-titulo">Editar</span>' +
+    '<button type="button" class="boton secundario" data-editar="1">✏️ Editar texto</button>' +
     '<span class="salidas-estado" id="salidasEstado" aria-live="polite"></span>' +
     '<div class="previa" id="previa" hidden></div>';
 
@@ -118,6 +120,7 @@
     var st;
     try { st = listo(); } catch (e) { estado(e.message, true); return; }
     if (bot.hasAttribute('data-previa')) { previa(bot.getAttribute('data-previa'), st); return; }
+    if (bot.hasAttribute('data-editar')) { editar(st); return; }
     var que = bot.getAttribute('data-salida');
     bot.disabled = true;
     estado('Preparando…');
@@ -127,6 +130,34 @@
     }).catch(function (e) { estado('No se ha podido crear: ' + (e && e.message || e), true); })
       .then(function () { bot.disabled = false; });
   });
+
+  /* Editar: el material pasa a «Crear» como texto de la usuaria (apartados con «##» y párrafos).
+     Allí se corrige, se amplía o se dicta, y al crear el trabajo es SU texto, literal, en todas las salidas. */
+  function textoEditable(red) {
+    var l = [];
+    function seccion(s) {
+      if (!s.bloques.length) return;
+      l.push('', '## ' + s.titulo);
+      s.bloques.forEach(function (b) {
+        if (b.tipo === 'pregunta' || b.tipo === 'pendiente' || b.tipo === 'repaso' || b.tipo === 'visualizacion') return;
+        if (b.tipo === 'pasos') { l.push(b.frases[0].texto); b.frases.slice(1).forEach(function (a, i) { l.push((i + 1) + '. ' + a.texto); }); return; }
+        if (b.frases && b.frases.length) l.push(b.frases.map(function (a) { return a.texto; }).join(' '));
+      });
+    }
+    red.secciones.forEach(seccion);
+    seccion(red.sintesis);
+    return l.join('\n').trim();
+  }
+  function editar(st) {
+    $('crTitulo').value = titulo(st);
+    $('crUsarBanco').checked = false; $('crRama').disabled = true;
+    $('crUsarPegado').checked = true; $('bloquePegado').hidden = false;
+    $('crTexto').value = textoEditable(st.red);
+    V.pestana('Crear');
+    $('crTexto').focus(); $('crTexto').setSelectionRange(0, 0);
+    $('crTexto').scrollIntoView({ block: 'center' });
+    estado('');
+  }
 
   // Vista previa en la propia página (sirve también donde las descargas están bloqueadas).
   function previa(que, st) {
