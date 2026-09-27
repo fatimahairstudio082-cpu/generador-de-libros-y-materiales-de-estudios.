@@ -33,7 +33,8 @@
     objetivo: null,          // { modo:'uc'|'rama', id, titulo }
     nivel: '', semilla: 1,
     estructuras: null, sec: null, red: null, auditoria: null,
-    anterior: null, marcar: false, afs: [], ultimaImportacion: null
+    anterior: null, marcar: false, afs: [], ultimaImportacion: null,
+    materia: '', disenos: {}, animacion: null   // Motor Visual: diseño elegido por pieza
   };
 
   function pref(k, v) { try { return v === undefined ? A.pref(k) : A.pref(k, v); } catch (e) { return null; } }
@@ -157,12 +158,16 @@
     if (!st.objetivo) return Promise.resolve();
     $('documento').innerHTML = '<p class="vacio">Generando…</p>';
     var op = st.nivel ? { nivel: st.nivel } : {};
+    st.disenos = {};
+    // La materia (nombre de la rama raíz) solo sirve para elegir diseños afines del catálogo.
+    var ramaMat = st.objetivo.modo === 'rama' ? st.objetivo.id : st.objetivo.rama;
+    var pMateria = (ramaMat ? B.ruta(ramaMat) : Promise.resolve([])).then(function (c) { st.materia = c.length ? c[0].nombre : ''; });
     var pedir = st.objetivo.modo === 'rama' ? X.expandirRama(st.objetivo.id, op) : X.expandir(st.objetivo.id, op).then(function (e) { return [e]; });
     return pedir.then(function (ests) {
       if (!ests.length) throw new Error('Esta rama no tiene unidades con las que trabajar.');
       st.estructuras = ests;
       st.sec = S.secuenciar(ests);
-      regenerar();
+      return pMateria.then(regenerar);
     }).catch(mostrarError);
   }
 
@@ -248,7 +253,9 @@
         case 'ejemplo': return '<p class="ejemplo">' + frases(b) + '</p>';
         case 'pasos': return '<p>' + af(b.frases[0]) + '</p><div class="pasos">' + b.frases.slice(1).map(function (a) { return '<div>' + af(a) + '</div>'; }).join('') + '</div>';
         case 'repaso': return '<h3>' + esc(b.frases[0].texto.replace(/:$/, '')) + '</h3><ul class="repaso">' + b.frases.slice(1).map(function (a) { return '<li>' + af(a) + '</li>'; }).join('') + '</ul>';
-        case 'visualizacion': return '<div class="esquema">' + af(b.frases[0]) + ' Forma: ' + esc(b.forma) + '. Se dibujará con el Motor Visual (fase 2), con las familias ' + esc(b.familias.join(', ')) + '.</div>';
+        case 'visualizacion':
+          if (EDU.visual && EDU.visual.disponible()) return '<figure class="lamina" data-pieza="' + esc(b.pieza) + '" data-contexto="' + esc(contexto) + '"><canvas aria-label="' + esc(b.frases[0].texto) + '"></canvas><figcaption>' + af(b.frases[0]) + '</figcaption></figure>';
+          return '<div class="esquema">' + af(b.frases[0]) + ' Forma: ' + esc(b.forma) + '. Faltan los motores de láminas para dibujarlo.</div>';
         default: return '<p>' + frases(b) + '</p>';
       }
     }
@@ -258,19 +265,84 @@
       else if (b.opciones) ops = '<div class="opciones">' + b.opciones.map(function (a) { return af(a); }).join('') + '</div>';
       return '<div class="pregunta">' + af(b.enunciado) + ops + '<details><summary>Ver respuesta</summary><div>' + [].concat(b.respuesta).map(function (a) { return af(a); }).join(' ') + '</div></details></div>';
     }
-    var html = '';
+    var html = '', contexto = '';
     if (red.requisitos) html += '<p class="requisitos">' + af(red.requisitos) + '</p>';
     red.secciones.forEach(function (s) {
       html += '<h2><span class="num">' + s.orden + '</span>' + esc(s.titulo) + (s.ordenIndeterminado ? '<span class="etiqueta" title="Los datos no fijan la posición de esta sección">orden no fijado</span>' : '') + '</h2>';
       if (s.objetivos.length) html += '<ul class="objetivos">' + s.objetivos.map(function (a) { return '<li>' + af(a) + '</li>'; }).join('') + '</ul>';
+      contexto = s.titulo;
       html += bloques(s.bloques);
     });
     if (red.sintesis.bloques.length || red.sintesis.objetivos.length) {
       html += '<h2>' + esc(red.sintesis.titulo) + '</h2>';
       if (red.sintesis.objetivos.length) html += '<ul class="objetivos">' + red.sintesis.objetivos.map(function (a) { return '<li>' + af(a) + '</li>'; }).join('') + '</ul>';
+      contexto = red.secciones.length ? red.secciones[0].titulo : '';
       html += bloques(red.sintesis.bloques);
     }
     $('documento').innerHTML = html;
+    pintarLaminas();
+  }
+
+  /* ───────────────────────── Láminas (motores de FATIMA PRO) ───────────────────────── */
+
+  function piezaPorId(id) {
+    for (var i = 0; i < st.estructuras.length; i++) {
+      var p = st.estructuras[i].piezas.filter(function (x) { return x.id === id; })[0];
+      if (p) return p;
+    }
+    return null;
+  }
+
+  function pintarLaminas() {
+    if (!EDU.visual || !EDU.visual.disponible()) return;
+    var nivel = st.red ? st.red.nivel : '';
+    $('documento').querySelectorAll('figure.lamina').forEach(function (fig) {
+      var p = piezaPorId(fig.getAttribute('data-pieza'));
+      if (!p) return;
+      var contexto = fig.getAttribute('data-contexto') || '';
+      var canvas = fig.querySelector('canvas');
+      var lista = EDU.visual.disenos(p.datos.forma, { materia: st.materia, nivel: nivel }).slice(0, 60);
+      var barra = document.createElement('div');
+      barra.className = 'controles-lamina';
+      barra.innerHTML = '<label>Diseño <select>' + lista.map(function (d) { return '<option value="' + esc(d.id) + '">' + esc(d.categoria + ' · ' + d.nombre) + '</option>'; }).join('') + '</select></label>' +
+        '<button type="button" class="cerrar" data-accion="animar">▶ Animar</button><button type="button" class="cerrar" data-accion="png">Descargar imagen</button><span class="nota-lamina"></span>';
+      fig.appendChild(barra);
+      var sel = barra.querySelector('select');
+      function dibujar(prog) {
+        var lam = EDU.visual.lamina(p, { titulo: contexto, materia: st.materia, nivel: nivel, semilla: st.semilla, diseno: st.disenos[p.id] });
+        var v = EDU.visual.verificar(lam, p);
+        barra.querySelector('.nota-lamina').textContent = v.ok ? '✓ solo datos verificados' : '✗ ' + v.problemas.length + ' textos sin respaldo';
+        sel.value = lam.diseno;
+        EDU.visual.pintar(canvas, lam, { prog: prog, escala: 0.5 });
+        return lam;
+      }
+      try { dibujar(1); } catch (e) { barra.querySelector('.nota-lamina').textContent = 'No se ha podido dibujar: ' + e.message; return; }
+      sel.addEventListener('change', function () { st.disenos[p.id] = sel.value; dibujar(1); });
+      barra.querySelector('[data-accion="animar"]').addEventListener('click', function () {
+        var lam = dibujar(0), dur = EDU.visual.duracion(lam) * 1000, t0 = null;
+        if (st.animacion) cancelAnimationFrame(st.animacion);
+        function paso(t) {
+          if (t0 === null) t0 = t;
+          var prog = Math.min(1, (t - t0) / dur);
+          EDU.visual.pintar(canvas, lam, { prog: prog, escala: 0.5 });
+          if (prog < 1) st.animacion = requestAnimationFrame(paso);
+        }
+        st.animacion = requestAnimationFrame(paso);
+      });
+      barra.querySelector('[data-accion="png"]').addEventListener('click', function () {
+        var lam = EDU.visual.lamina(p, { titulo: contexto, materia: st.materia, nivel: nivel, semilla: st.semilla, diseno: st.disenos[p.id] });
+        var grande = document.createElement('canvas');
+        EDU.visual.pintar(grande, lam, { prog: 1, escala: 1 });
+        grande.toBlob(function (blob) {
+          if (!blob) return;
+          var a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = EDU.slug(lam.titulo || 'lamina') + '.png';
+          document.body.appendChild(a); a.click(); a.remove();
+          setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        }, 'image/png');
+      });
+    });
   }
 
   /* ───────────────────────── Origen de una frase ───────────────────────── */

@@ -96,6 +96,13 @@
   .pregunta details summary { cursor: pointer; color: var(--acento); font-size: 13px; font-weight: 500; }
   .pregunta details div { margin-top: 6px; display: grid; gap: 2px; }
   .pendiente { font: 14px/1.5 var(--ui); background: var(--rotulador-suave); border-left: 3px solid var(--rotulador); padding: 6px 10px; margin: 0 0 12px; border-radius: 0 4px 4px 0; }
+  .lamina { margin: 0 0 16px; font: 13px/1.5 var(--ui); }
+  .lamina canvas { display: block; width: 100%; height: auto; max-width: 100%; border-radius: 6px; border: 1px solid var(--linea); background: var(--papel); }
+  .lamina figcaption { color: var(--grafito); margin-top: 6px; }
+  .controles-lamina { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; margin-top: 6px; }
+  .controles-lamina select { background: var(--hoja); border: 1px solid var(--linea); border-radius: 5px; padding: 3px 6px; max-width: 100%; }
+  .controles-lamina label { display: flex; align-items: center; gap: 6px; min-width: 0; max-width: 100%; }
+  .nota-lamina { color: var(--bien); font-size: 12px; }
   .esquema { font: 13px/1.5 var(--ui); color: var(--grafito); border: 1px dashed var(--linea); border-radius: 6px; padding: 10px 12px; margin: 0 0 12px; }
   .repaso { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 6px; font-size: 16px; }
   .requisitos { font: 15px/1.5 var(--ui); color: var(--grafito); border-bottom: 1px solid var(--linea); padding-bottom: 14px; margin-bottom: 20px; }
@@ -197,6 +204,10 @@
   </footer>
 </div>
 
+<!-- Motores heredados de FATIMA PRO (copias intactas, ver heredados/ORIGEN.md) -->
+<script src="heredados/b6_folleto_motor.js"></script>
+<script src="heredados/b6_laminas_motor.js"></script>
+<script src="heredados/b6_laminas_disenos.js"></script>
 <script src="nucleo/edu_base.js"></script>
 <script src="nucleo/edu_esquemas.js"></script>
 <script src="nucleo/edu_almacen.js"></script>
@@ -207,6 +218,7 @@
 <script src="redaccion/edu_lengua_es.js"></script>
 <script src="redaccion/edu_redactor.js"></script>
 <script src="variacion/edu_variacion.js"></script>
+<script src="compat/edu_visual.js"></script>
 <script src="visor/edu_visor.js"></script>
 </body>
 </html>

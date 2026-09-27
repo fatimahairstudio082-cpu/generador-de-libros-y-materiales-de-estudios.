@@ -22,6 +22,8 @@ Pruebas (Node, sin dependencias):
 | Expansión | `expansion/edu_expansor.js` (UC → estructura educativa) · `edu_secuencia.js` (orden, módulos, objetivos) |
 | Redacción | `redaccion/edu_lengua_es.js` (gramática, intercambiable por idioma) · `edu_redactor.js` (texto con trazabilidad) |
 | Variación | `variacion/edu_variacion.js` (versiones con los mismos hechos) |
+| Motores heredados | `heredados/*.js`: copias intactas de FATIMA PRO (láminas con 300 diseños, folleto, examen, voz, vídeo 3D, bandeja, doc-page). Certificado en `heredados/ORIGEN.md` |
+| Adaptadores | `compat/edu_visual.js` (Motor Visual: estilo del diseño de FATIMA PRO + contenido solo de los datos, con `verificar()`) |
 | Pantalla | `index.html` + `visor/edu_visor.js` |
 
 Orden de carga: el de los `<script>` de `index.html`. Cada módulo se registra con
