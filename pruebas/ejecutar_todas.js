@@ -10,6 +10,7 @@ var orden = ['base', 'esquemas', 'almacen', 'biblioteca', 'importador', 'expanso
 var archivos = orden.map(function (n) { return 'prueba_edu_' + n + '.js'; }).filter(function (f) { return fs.existsSync(path.join(dir, f)); });
 archivos.push('prueba_heredados.js');
 if (fs.existsSync(path.join(dir, 'prueba_edu_visual.js'))) archivos.push('prueba_edu_visual.js');
+if (fs.existsSync(path.join(dir, 'prueba_edu_asistente.js'))) archivos.push('prueba_edu_asistente.js');
 archivos.push('prueba_integral.js');
 
 var fallidas = 0, correctas = 0, conjuntos = 0;

@@ -32,6 +32,7 @@
     --bien: #6cc39a; --bien-suave: #1a3328; --mal: #e38a83; --mal-suave: #3d2220; --foco: #86aedb;
   }
   * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
   html, body { height: 100%; }
   body { margin: 0; background: var(--papel); color: var(--tinta); font: 15px/1.5 var(--ui); padding-inline: 16px; }
   button, select, input, textarea { font: inherit; color: inherit; }
@@ -129,6 +130,24 @@
   .tabla td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--grafito); }
   .errores { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
   .errores li { background: var(--mal-suave); color: var(--mal); border-radius: 5px; padding: 5px 10px; font-size: 13px; }
+  .crear { display: grid; gap: 16px; }
+  .crear-form { display: grid; gap: 16px; }
+  .crear-form fieldset { border: 1px solid var(--linea); border-radius: 8px; background: var(--hoja); padding: 12px 14px; margin: 0; display: grid; gap: 10px; min-width: 0; }
+  .crear-form legend { font: 600 12px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito); padding: 0 4px; }
+  .crear-form .rejilla { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .crear-form label { display: grid; gap: 4px; font-size: 13px; color: var(--grafito); min-width: 0; }
+  .crear-form label.opcion { display: flex; align-items: center; gap: 8px; color: var(--tinta); font-size: 14px; }
+  .crear-form input, .crear-form select, .crear-form textarea { background: var(--papel); border: 1px solid var(--linea); border-radius: 5px; padding: 6px 8px; color: var(--tinta); min-width: 0; max-width: 100%; }
+  .crear-form textarea { min-height: 200px; resize: vertical; font: 14px/1.55 var(--lectura); width: 100%; }
+  .hojas { display: flex; gap: 8px; align-items: center; }
+  .hojas input[type="range"] { flex: 1; padding: 0; }
+  .hojas input[type="number"] { width: 5.5em; }
+  .pegado { display: grid; gap: 8px; }
+  .tipos { display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+  .tipo-trabajo { display: grid; gap: 2px; text-align: left; background: var(--papel); border: 1px solid var(--linea); border-radius: 7px; padding: 8px 10px; cursor: pointer; }
+  .tipo-trabajo strong { font-size: 14px; }
+  .tipo-trabajo span { font-size: 12px; color: var(--grafito); }
+  .tipo-trabajo[aria-checked="true"] { border-color: var(--acento); background: var(--acento-suave); box-shadow: 0 0 0 1px var(--acento); }
   .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--grafito); border-top: 1px solid var(--linea); padding-top: 12px; }
   .vacio { color: var(--grafito); font-style: italic; }
   @media (max-width: 900px) {
@@ -162,9 +181,45 @@
 
   <main class="principal">
     <div class="pestanas" role="tablist">
+      <button type="button" role="tab" id="tabCrear" aria-selected="false" aria-controls="vistaCrear">Crear</button>
       <button type="button" role="tab" id="tabMaterial" aria-selected="true" aria-controls="vistaMaterial">Material</button>
       <button type="button" role="tab" id="tabApuntes" aria-selected="false" aria-controls="vistaApuntes">Mis apuntes</button>
     </div>
+
+    <section id="vistaCrear" role="tabpanel" aria-labelledby="tabCrear" class="crear" hidden>
+      <form id="formCrear" class="crear-form" novalidate>
+        <fieldset>
+          <legend>¿Qué quieres crear?</legend>
+          <div class="tipos" id="tiposTrabajo" role="radiogroup" aria-label="Tipo de trabajo"></div>
+        </fieldset>
+        <fieldset class="rejilla">
+          <legend>El trabajo</legend>
+          <label for="crTitulo">Título <input id="crTitulo" required placeholder="Por ejemplo: Energías renovables"></label>
+          <label for="crNivel">Nivel <select id="crNivel"></select></label>
+          <label for="crHojas">Hojas <span class="hojas"><input type="range" id="crHojasRango" min="10" max="300" step="5" value="40" aria-label="Número de hojas"><input type="number" id="crHojas" min="1" max="500" value="40"></span></label>
+          <label for="crPapel">Papel <select id="crPapel"><option value="a4">A4</option><option value="carta">Carta</option></select></label>
+          <label for="crPaleta">Plantilla y color <select id="crPaleta"></select></label>
+        </fieldset>
+        <fieldset>
+          <legend>¿De dónde sale el contenido?</legend>
+          <label class="opcion"><input type="checkbox" id="crUsarBanco" checked> Un tema del banco de conocimiento</label>
+          <select id="crRama" aria-label="Tema del banco"></select>
+          <label class="opcion"><input type="checkbox" id="crUsarPegado"> Texto que he investigado (pégalo tal cual)</label>
+          <div id="bloquePegado" hidden class="pegado">
+            <label for="crUrl">Dirección de la fuente (opcional) <input id="crUrl" type="url" placeholder="https://…"></label>
+            <textarea id="crTexto" aria-label="Texto pegado" placeholder="Pega aquí el texto. Las líneas cortas sin punto final se toman como apartados y cada párrafo se guarda entero."></textarea>
+          </div>
+        </fieldset>
+        <div class="barra">
+          <button type="submit" class="boton" id="btnCrear">Crear trabajo</button>
+          <span id="crEstado" class="ayuda" aria-live="polite"></span>
+        </div>
+      </form>
+      <section class="panel">
+        <h2>Mis trabajos</h2>
+        <ul class="unidades" id="listaTrabajos"><li class="vacio">Todavía no hay trabajos.</li></ul>
+      </section>
+    </section>
 
     <section id="vistaMaterial" role="tabpanel" aria-labelledby="tabMaterial" class="principal">
       <div class="barra">
@@ -176,6 +231,7 @@
         <button type="button" class="boton secundario" id="btnMarcar" aria-pressed="false">Marcar cambios</button>
       </div>
       <div class="indicadores" id="indicadores"></div>
+      <p class="aviso" id="avisoHojas" hidden></p>
       <ul class="errores" id="problemas" hidden></ul>
       <article class="hoja"><div class="documento" id="documento"><p class="vacio">Preparando el material…</p></div></article>
     </section>
@@ -219,6 +275,10 @@
 <script src="redaccion/edu_redactor.js"></script>
 <script src="variacion/edu_variacion.js"></script>
 <script src="compat/edu_visual.js"></script>
+<script src="conocimiento/edu_pegado.js"></script>
+<script src="proyecto/edu_proyecto.js"></script>
+<script src="redaccion/edu_documento.js"></script>
 <script src="visor/edu_visor.js"></script>
+<script src="visor/edu_visor_crear.js"></script>
 </body>
 </html>

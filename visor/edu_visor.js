@@ -84,11 +84,12 @@
   }
 
   function pestana(cual) {
-    var mat = cual === 'Material';
-    $('tabMaterial').setAttribute('aria-selected', String(mat));
-    $('tabApuntes').setAttribute('aria-selected', String(!mat));
-    $('vistaMaterial').hidden = !mat;
-    $('vistaApuntes').hidden = mat;
+    ['Crear', 'Material', 'Apuntes'].forEach(function (n) {
+      var tab = $('tab' + n), vista = $('vista' + n);
+      if (!tab || !vista) return;
+      tab.setAttribute('aria-selected', String(n === cual));
+      vista.hidden = n !== cual;
+    });
     cerrarOrigen();
   }
 
@@ -154,9 +155,36 @@
     return { semilla: st.semilla, objetivos: $('chkObjetivos').checked, preguntas: $('chkPreguntas').checked, pendientes: $('chkPendientes').checked };
   }
 
+  /* Trabajo creado con el asistente: temas del banco (se expanden) + textos de
+     autor pegados (se reproducen literales con EDU.documento). */
+  function generarProyecto() {
+    return EDU.proyecto.obtener(st.objetivo.id).then(function (pro) {
+      if (!pro) throw new Error('No se encuentra el trabajo.');
+      st.proyecto = pro;
+      var nivel = st.nivel || pro.nivel;
+      return Promise.all([
+        Promise.all(pro.ramas.map(function (r) { return X.expandirRama(r, { nivel: nivel }); })),
+        Promise.all(pro.ucs.map(function (u) { return EDU.documento.redactar(u); })),
+        pro.ramas.length ? B.ruta(pro.ramas[0]) : Promise.resolve([])
+      ]).then(function (r) {
+        st.estructuras = [].concat.apply([], r[0]);
+        st.sec = st.estructuras.length ? S.secuenciar(st.estructuras) : null;
+        st.docs = r[1];
+        st.materia = r[2].length ? r[2][0].nombre : '';
+        return Promise.all(st.docs.map(function (d) { return EDU.documento.auditar(d); }));
+      }).then(function (auds) {
+        st.auditoriasDocs = auds;
+        if (!st.sec && !st.docs.length) throw new Error('El trabajo todavía no tiene contenido: añade un tema del banco o pega un texto.');
+        regenerar();
+      });
+    }).catch(mostrarError);
+  }
+
   function generar() {
     if (!st.objetivo) return Promise.resolve();
     $('documento').innerHTML = '<p class="vacio">Generando…</p>';
+    st.proyecto = null; st.docs = []; st.auditoriasDocs = [];
+    if (st.objetivo.modo === 'proyecto') { st.disenos = {}; return generarProyecto(); }
     var op = st.nivel ? { nivel: st.nivel } : {};
     st.disenos = {};
     // La materia (nombre de la rama raíz) solo sirve para elegir diseños afines del catálogo.
@@ -171,11 +199,28 @@
     }).catch(mostrarError);
   }
 
+  function redaccionVacia() {
+    return { secciones: [], sintesis: { titulo: 'Síntesis', objetivos: [], bloques: [] }, requisitos: null, indeterminado: [], omitidas: [], estructuras: [], nivel: st.proyecto ? st.proyecto.nivel : '', semilla: st.semilla };
+  }
+
+  // Auditoría conjunta: la del redactor (banco) y la de cada texto de autor.
+  function auditoriaConjunta(redBanco) {
+    var au = st.sec ? R.auditar(redBanco, st.estructuras) : { ok: true, problemas: [] };
+    (st.auditoriasDocs || []).forEach(function (d) { au = { ok: au.ok && d.ok, problemas: au.problemas.concat(d.problemas) }; });
+    return au;
+  }
+
+  function combinarDocs(red) {
+    (st.docs || []).forEach(function (d) { red = EDU.documento.combinar(red, d); });
+    return red;
+  }
+
   function regenerar() {
-    if (!st.sec) return;
+    if (!st.sec && !(st.docs && st.docs.length)) return;
     try {
-      st.red = R.redactar(st.sec, st.estructuras, opcionesRedactor());
-      st.auditoria = R.auditar(st.red, st.estructuras);
+      var base = st.sec ? R.redactar(st.sec, st.estructuras, opcionesRedactor()) : redaccionVacia();
+      st.auditoria = auditoriaConjunta(base);
+      st.red = combinarDocs(base);
       pintarIndicadores();
       pintarDocumento();
     } catch (e) { mostrarError(e); }
@@ -187,8 +232,8 @@
       var o = V.otraVersion(st.sec, st.estructuras, st.semilla, { redactor: opcionesRedactor() });
       st.anterior = st.red;
       st.semilla = o.semilla;
-      st.red = o.redaccion;
-      st.auditoria = R.auditar(st.red, st.estructuras);
+      st.auditoria = auditoriaConjunta(o.redaccion);
+      st.red = combinarDocs(o.redaccion);
       st.comparacion = o.comparacion;
       pintarIndicadores();
       pintarDocumento();
@@ -208,8 +253,13 @@
     html += '<span class="chip">' + hechos + ' hechos · ' + R.afirmaciones(st.red).length + ' frases</span>';
     html += '<span class="chip pend">' + pend + ' huecos pendientes</span>';
     html += '<span class="chip">Versión ' + st.semilla + '</span>';
+    if (st.proyecto && st.proyecto.trabajo) {
+      var tipo = EDU.proyecto.tipos()[st.proyecto.trabajo.tipo] || {};
+      var cobH = EDU.proyecto.cobertura(st.proyecto, EDU.proyecto.estimarHojas(st.red, { papel: st.proyecto.trabajo.papel }));
+      html += '<span class="chip ' + (cobH.faltan ? 'pend' : 'bien') + '" title="' + esc(cobH.mensaje) + '">' + esc(tipo.nombre || '') + ' · unas ' + cobH.estimadas + ' de ' + cobH.objetivo + ' hojas</span>';
+    }
     if (st.comparacion && st.anterior) html += '<span class="chip">' + (st.comparacion.mismosHechos ? 'Mismos hechos · ' : 'HECHOS DISTINTOS · ') + st.comparacion.porcentaje + '% de frases cambiadas</span>';
-    if (st.sec.indeterminado.length) html += '<span class="chip" title="Posiciones que los datos no fijan; se conserva el orden estable">' + st.sec.indeterminado.length + ' posiciones sin orden fijado por los datos</span>';
+    if (st.sec && st.sec.indeterminado.length) html += '<span class="chip" title="Posiciones que los datos no fijan; se conserva el orden estable">' + st.sec.indeterminado.length + ' posiciones sin orden fijado por los datos</span>';
     $('indicadores').innerHTML = html;
     var lista = $('problemas');
     lista.hidden = true;
@@ -217,6 +267,13 @@
     var chip = $('chipProblemas');
     if (chip) chip.addEventListener('click', function () { lista.hidden = !lista.hidden; });
     $('btnMarcar').disabled = !st.anterior;
+    $('btnOtra').disabled = !st.sec;
+    var aviso = $('avisoHojas');
+    if (aviso) {
+      var c2 = st.proyecto && st.proyecto.trabajo ? EDU.proyecto.cobertura(st.proyecto, EDU.proyecto.estimarHojas(st.red, { papel: st.proyecto.trabajo.papel })) : null;
+      aviso.hidden = !c2 || !c2.faltan;
+      if (c2) aviso.textContent = c2.mensaje;
+    }
   }
 
   /* ───────────────────────── Documento ───────────────────────── */
@@ -286,6 +343,8 @@
   /* ───────────────────────── Láminas (motores de FATIMA PRO) ───────────────────────── */
 
   function piezaPorId(id) {
+    var extra = (st.red && st.red.piezasExtra || []).filter(function (x) { return x.id === id; })[0];
+    if (extra) return extra;
     for (var i = 0; i < st.estructuras.length; i++) {
       var p = st.estructuras[i].piezas.filter(function (x) { return x.id === id; })[0];
       if (p) return p;
@@ -453,6 +512,9 @@
       return B.buscar('Ciclo del agua').then(function (l) { var u = l[0]; if (u) return seleccionar({ modo: 'uc', id: u.id, titulo: u.titulo, rama: u.rama }); });
     }).catch(mostrarError);
   }
+
+  // Lo que necesita el asistente (visor/edu_visor_crear.js) para abrir un trabajo.
+  window.EDU_VISOR = { seleccionar: seleccionar, pestana: pestana, pintarArbol: pintarArbol };
 
   arrancar();
 })();
