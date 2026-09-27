@@ -361,10 +361,10 @@
       if (!p) return;
       var contexto = fig.getAttribute('data-contexto') || '';
       var canvas = fig.querySelector('canvas');
-      var lista = EDU.visual.disenos(p.datos.forma, { materia: st.materia, nivel: nivel }).slice(0, 60);
+      var lista = EDU.visual.disenos(p.datos.forma, { materia: st.materia, nivel: nivel, afines: true }).slice(0, 60);
       var barra = document.createElement('div');
       barra.className = 'controles-lamina';
-      barra.innerHTML = '<label>Diseño <select>' + lista.map(function (d) { return '<option value="' + esc(d.id) + '">' + esc(d.categoria + ' · ' + d.nombre) + '</option>'; }).join('') + '</select></label>' +
+      barra.innerHTML = '<label>Diseño <select>' + lista.map(function (d, i) { return '<option value="' + esc(d.id) + '">' + esc((i + 1) + '. Estilo ' + d.estilo + ' · ' + d.categoria) + '</option>'; }).join('') + '</select></label>' +
         '<button type="button" class="cerrar" data-accion="animar">▶ Animar</button><button type="button" class="cerrar" data-accion="png">Descargar imagen</button><span class="nota-lamina"></span>';
       fig.appendChild(barra);
       var sel = barra.querySelector('select');

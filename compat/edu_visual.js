@@ -73,9 +73,15 @@
     op = op || {};
     var fams = op.familia ? [op.familia] : familias(forma);
     var nivelNombre = op.nivel ? ((EDU.esquemas.catalogo('niveles')[op.nivel] || {}).nombre || op.nivel) : '';
-    return catalogo().lista().filter(function (d) { return fams.indexOf(d.fam) >= 0; })
-      .map(function (d) { return { id: d.id, nombre: d.nombre, familia: d.fam, categoria: d.cat, estructura: d.est, paleta: d.pal, formato: d.fmt, afinidad: afinidad(d.cat, [op.materia || '', nivelNombre]) }; })
+    var lista = catalogo().lista().filter(function (d) { return fams.indexOf(d.fam) >= 0; })
+      .map(function (d) { return { id: d.id, nombre: d.nombre, estilo: String(d.nombre).split(' · ').pop(), familia: d.fam, categoria: d.cat, estructura: d.est, paleta: d.pal, formato: d.fmt, afinidad: afinidad(d.cat, [op.materia || '', nivelNombre]) }; })
       .sort(function (a, b) { return (b.afinidad - a.afinidad) || ((NEUTRAS[b.categoria] || 0) - (NEUTRAS[a.categoria] || 0)) || (fams.indexOf(a.familia) - fams.indexOf(b.familia)); });
+    // afines: solo los diseños del área de la materia y los neutros (nunca los de otra especialidad).
+    if (op.afines) {
+      var afines = lista.filter(function (d) { return d.afinidad > 0 || NEUTRAS[d.categoria]; });
+      if (afines.length) lista = afines;
+    }
+    return lista;
   }
 
   /* ───────────────────────── Nodos desde los datos ───────────────────────── */
