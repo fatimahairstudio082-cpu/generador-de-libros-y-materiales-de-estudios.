@@ -27,11 +27,11 @@
   /* Tipos de trabajo. «listo» indica si su salida descargable ya está conectada;
      mientras no lo esté, el trabajo se prepara y se ve en pantalla. */
   var TIPOS = {
-    libro: { nombre: 'Libro', desc: 'Libro de estudio paginado, imprimible', formatos: ['PDF', 'HTML'], listo: false },
-    ebook: { nombre: 'Libro electrónico', desc: 'eBook para leer en pantalla', formatos: ['EPUB', 'HTML'], listo: false },
+    libro: { nombre: 'Libro', desc: 'Libro de estudio paginado, imprimible', formatos: ['PDF', 'HTML'], listo: true },
+    ebook: { nombre: 'Libro electrónico', desc: 'eBook para leer en pantalla', formatos: ['EPUB', 'HTML'], listo: true },
     curso: { nombre: 'Curso virtual', desc: 'Curso por módulos, navegable e imprimible', formatos: ['HTML', 'SCORM', 'PDF'], listo: false },
     guia: { nombre: 'Guía paso a paso', desc: 'Explicación paso a paso con ejemplos', formatos: ['PDF', 'HTML'], listo: false },
-    examen: { nombre: 'Examen', desc: 'Examen con hoja de corrección', formatos: ['PDF', 'PNG'], listo: false },
+    examen: { nombre: 'Examen', desc: 'Examen con hoja de corrección', formatos: ['PDF'], listo: true },
     presentacion: { nombre: 'Presentación', desc: 'Diapositivas con los diseños del catálogo', formatos: ['PDF', 'PPTX', 'PNG'], listo: false },
     video: { nombre: 'Vídeo explicativo', desc: 'Láminas animadas con voz', formatos: ['WebM'], listo: false },
     fichas: { nombre: 'Fichas y láminas', desc: 'Fichas de estudio, mapas y esquemas', formatos: ['PNG', 'PDF'], listo: false },

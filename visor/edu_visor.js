@@ -63,7 +63,8 @@
       $('avisoMemoria').hidden = modo === 'indexeddb';
       return B.estadisticas();
     }).then(function (stt) {
-      return stt.ucs ? null : B.cargarIndice();
+      // Siempre: añade los paquetes nuevos del índice (recargar no duplica nada). Sin red, sigue con lo guardado.
+      return B.cargarIndice().catch(function (e) { if (!stt.ucs) throw e; });
     }).then(function () {
       return pintarArbol();
     }).then(function () {
