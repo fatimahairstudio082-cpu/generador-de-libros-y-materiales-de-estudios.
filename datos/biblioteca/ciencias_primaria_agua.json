@@ -1,0 +1,86 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_ciencias_primaria_agua",
+  "titulo": "Ciencias naturales · Primaria · El agua",
+  "descripcion": "Paquete de prueba: el ciclo del agua y los estados del agua.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "prueba",
+      "clase": "propia",
+      "titulo": "Paquete de prueba del sistema · contenido escolar básico",
+      "licencia": "propia",
+      "nota": "Contenido de referencia para probar el sistema. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    { "clave": "mat", "clase": "materia", "nombre": "Ciencias naturales" },
+    { "clave": "niv", "clase": "nivel", "nombre": "Primaria", "padre": "mat", "nivel": "primaria" },
+    { "clave": "tema", "clase": "tema", "nombre": "El agua", "padre": "niv" },
+    { "clave": "ciclo", "clase": "subtema", "nombre": "El ciclo del agua", "padre": "tema", "orden": 1 },
+    { "clave": "estados", "clase": "subtema", "nombre": "Los estados del agua", "padre": "tema", "orden": 2 }
+  ],
+  "ucs": [
+    { "clave": "estados_agua", "tipo": "concepto", "titulo": "Estados del agua", "rama": "estados", "texto": "El agua puede encontrarse en la naturaleza en tres estados: sólido, líquido y gaseoso." },
+    { "clave": "solido", "tipo": "concepto", "titulo": "Estado sólido", "rama": "estados", "texto": "El agua en estado sólido es el hielo y la nieve." },
+    { "clave": "liquido", "tipo": "concepto", "titulo": "Estado líquido", "rama": "estados", "texto": "El agua en estado líquido es la que forma los mares, los ríos, los lagos y la lluvia." },
+    { "clave": "gaseoso", "tipo": "concepto", "titulo": "Estado gaseoso", "rama": "estados", "texto": "El agua en estado gaseoso es el vapor de agua, que no se ve." },
+    { "clave": "temperaturas", "tipo": "dato", "titulo": "Temperaturas de cambio del agua", "rama": "estados", "texto": "El agua pura se congela a 0 °C y hierve a 100 °C al nivel del mar." },
+
+    { "clave": "ciclo", "tipo": "concepto", "titulo": "Ciclo del agua", "rama": "ciclo", "texto": "Recorrido continuo que realiza el agua en la naturaleza, pasando por distintos lugares y estados." },
+    { "clave": "sol", "tipo": "concepto", "titulo": "Energía del Sol", "rama": "ciclo", "texto": "El calor del Sol es el motor del ciclo del agua." },
+    { "clave": "evaporacion", "tipo": "concepto", "titulo": "Evaporación", "rama": "ciclo", "texto": "Paso del agua del estado líquido al gaseoso. El calor del Sol evapora el agua de los mares, los ríos y los lagos." },
+    { "clave": "transpiracion", "tipo": "concepto", "titulo": "Transpiración", "rama": "ciclo", "texto": "Vapor de agua que las plantas liberan a la atmósfera a través de sus hojas." },
+    { "clave": "condensacion", "tipo": "concepto", "titulo": "Condensación", "rama": "ciclo", "texto": "Paso del vapor de agua al estado líquido. Al subir, el vapor se enfría y forma gotas muy pequeñas que dan lugar a las nubes." },
+    { "clave": "nubes", "tipo": "dato", "titulo": "Composición de las nubes", "rama": "ciclo", "texto": "Las nubes están formadas por gotas de agua muy pequeñas o por cristales de hielo." },
+    { "clave": "precipitacion", "tipo": "concepto", "titulo": "Precipitación", "rama": "ciclo", "texto": "Caída del agua de las nubes a la superficie terrestre en forma de lluvia, nieve o granizo." },
+    { "clave": "escorrentia", "tipo": "concepto", "titulo": "Escorrentía", "rama": "ciclo", "texto": "Agua que corre por la superficie del terreno y llega a los ríos, los lagos y los mares." },
+    { "clave": "infiltracion", "tipo": "concepto", "titulo": "Infiltración", "rama": "ciclo", "texto": "Agua que penetra en el suelo y forma las aguas subterráneas." },
+
+    { "clave": "ej_lluvia", "tipo": "ejemplo", "titulo": "La lluvia", "rama": "ciclo", "texto": "La lluvia es precipitación en forma de agua líquida." },
+    { "clave": "ej_nieve", "tipo": "ejemplo", "titulo": "La nieve", "rama": "ciclo", "texto": "La nieve es precipitación en forma de cristales de hielo." },
+    { "clave": "ej_granizo", "tipo": "ejemplo", "titulo": "El granizo", "rama": "ciclo", "texto": "El granizo es precipitación en forma de bolitas de hielo." },
+    { "clave": "ej_charco", "tipo": "ejemplo", "titulo": "Un charco que se seca", "rama": "ciclo", "texto": "Un charco desaparece en un día de sol porque su agua se evapora." },
+    { "clave": "ej_vaso", "tipo": "ejemplo", "titulo": "Gotas en un vaso frío", "rama": "ciclo", "texto": "En el exterior de un vaso con agua muy fría aparecen gotas: el vapor del aire se condensa al tocar el vaso." },
+
+    { "clave": "obs_evaporacion", "tipo": "procedimiento", "titulo": "Observar la evaporación", "rama": "ciclo",
+      "texto": "Actividad para comprobar que el calor evapora el agua.",
+      "campos": { "pasos": [
+        "Echar un poco de agua en un plato.",
+        "Marcar con un rotulador el nivel del agua.",
+        "Dejar el plato al sol.",
+        "Al día siguiente, comparar el nivel del agua con la marca: ha bajado porque parte del agua se ha evaporado."
+      ] } }
+  ],
+  "relaciones": [
+    { "tipo": "es_un", "de": "solido", "a": "estados_agua" },
+    { "tipo": "es_un", "de": "liquido", "a": "estados_agua" },
+    { "tipo": "es_un", "de": "gaseoso", "a": "estados_agua" },
+    { "tipo": "propiedad_de", "de": "temperaturas", "a": "estados_agua" },
+
+    { "tipo": "requiere", "de": "ciclo", "a": "estados_agua" },
+    { "tipo": "parte_de", "de": "evaporacion", "a": "ciclo" },
+    { "tipo": "parte_de", "de": "transpiracion", "a": "ciclo" },
+    { "tipo": "parte_de", "de": "condensacion", "a": "ciclo" },
+    { "tipo": "parte_de", "de": "precipitacion", "a": "ciclo" },
+    { "tipo": "parte_de", "de": "escorrentia", "a": "ciclo" },
+    { "tipo": "parte_de", "de": "infiltracion", "a": "ciclo" },
+
+    { "tipo": "causa", "de": "sol", "a": "evaporacion" },
+    { "tipo": "antes_de", "de": "evaporacion", "a": "condensacion" },
+    { "tipo": "antes_de", "de": "transpiracion", "a": "condensacion" },
+    { "tipo": "antes_de", "de": "condensacion", "a": "precipitacion" },
+    { "tipo": "antes_de", "de": "precipitacion", "a": "escorrentia" },
+    { "tipo": "antes_de", "de": "precipitacion", "a": "infiltracion" },
+    { "tipo": "contrasta_con", "de": "evaporacion", "a": "condensacion" },
+    { "tipo": "relacionado", "de": "nubes", "a": "condensacion" },
+
+    { "tipo": "ejemplo_de", "de": "ej_lluvia", "a": "precipitacion" },
+    { "tipo": "ejemplo_de", "de": "ej_nieve", "a": "precipitacion" },
+    { "tipo": "ejemplo_de", "de": "ej_granizo", "a": "precipitacion" },
+    { "tipo": "ejemplo_de", "de": "ej_charco", "a": "evaporacion" },
+    { "tipo": "ejemplo_de", "de": "ej_vaso", "a": "condensacion" },
+    { "tipo": "relacionado", "de": "obs_evaporacion", "a": "evaporacion" }
+  ]
+}

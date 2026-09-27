@@ -1,0 +1,9 @@
+{
+  "formato": "edu-indice",
+  "version": 1,
+  "paquetes": [
+    "ciencias_primaria_agua.json",
+    "matematicas_primaria_fracciones.json",
+    "historia_secundaria_revolucion_francesa.json"
+  ]
+}

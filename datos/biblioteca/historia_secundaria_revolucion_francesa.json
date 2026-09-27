@@ -1,0 +1,89 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_historia_secundaria_revolucion_francesa",
+  "titulo": "Historia · Secundaria · La Revolución francesa",
+  "descripcion": "Paquete de prueba: el Antiguo Régimen, las causas y las etapas de la Revolución francesa (1789-1799).",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "prueba",
+      "clase": "propia",
+      "titulo": "Paquete de prueba del sistema · contenido escolar básico",
+      "licencia": "propia",
+      "nota": "Contenido de referencia para probar el sistema. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    { "clave": "mat", "clase": "materia", "nombre": "Historia" },
+    { "clave": "niv", "clase": "nivel", "nombre": "Secundaria", "padre": "mat", "nivel": "secundaria" },
+    { "clave": "tema", "clase": "tema", "nombre": "La Revolución francesa", "padre": "niv" },
+    { "clave": "ar", "clase": "subtema", "nombre": "El Antiguo Régimen", "padre": "tema", "orden": 1 },
+    { "clave": "causas", "clase": "subtema", "nombre": "Causas de la Revolución", "padre": "tema", "orden": 2 },
+    { "clave": "etapas", "clase": "subtema", "nombre": "Etapas de la Revolución", "padre": "tema", "orden": 3 }
+  ],
+  "ucs": [
+    { "clave": "antiguo_regimen", "tipo": "concepto", "titulo": "Antiguo Régimen", "rama": "ar", "texto": "Sistema político, social y económico anterior a la Revolución: monarquía absoluta, sociedad estamental y economía mayoritariamente agraria." },
+    { "clave": "absolutismo", "tipo": "concepto", "titulo": "Monarquía absoluta", "rama": "ar", "texto": "Forma de gobierno en la que el rey concentra todos los poderes." },
+    { "clave": "estamentos", "tipo": "concepto", "titulo": "Sociedad estamental", "rama": "ar", "texto": "Organización de la sociedad en grupos cerrados llamados estamentos: el clero, la nobleza y el tercer estado." },
+    { "clave": "privilegiados", "tipo": "concepto", "titulo": "Estamentos privilegiados", "rama": "ar", "texto": "El clero y la nobleza, que tenían privilegios como no pagar la mayoría de los impuestos." },
+    { "clave": "tercer_estado", "tipo": "concepto", "titulo": "Tercer estado", "rama": "ar", "texto": "Estamento no privilegiado, formado por la burguesía, los campesinos y los artesanos. Pagaba los impuestos." },
+
+    { "clave": "ilustracion", "tipo": "concepto", "titulo": "Ilustración", "rama": "causas", "texto": "Movimiento intelectual del siglo XVIII que defendía la razón, la igualdad ante la ley y la división de poderes." },
+    { "clave": "crisis", "tipo": "concepto", "titulo": "Crisis económica y de la Hacienda real", "rama": "causas", "texto": "A finales de la década de 1780 la Hacienda real estaba muy endeudada y las malas cosechas encarecieron el pan." },
+    { "clave": "burguesia", "tipo": "concepto", "titulo": "Descontento de la burguesía", "rama": "causas", "texto": "La burguesía tenía riqueza pero no poder político, y quería acabar con los privilegios." },
+
+    { "clave": "revolucion", "tipo": "concepto", "titulo": "Revolución francesa", "rama": "etapas", "texto": "Proceso revolucionario que tuvo lugar en Francia entre 1789 y 1799 y acabó con el Antiguo Régimen." },
+    { "clave": "luis_xvi", "tipo": "concepto", "titulo": "Luis XVI", "rama": "etapas", "texto": "Rey de Francia al comienzo de la Revolución." },
+    { "clave": "robespierre", "tipo": "concepto", "titulo": "Maximilien Robespierre", "rama": "etapas", "texto": "Líder de los jacobinos durante el periodo del Terror." },
+    { "clave": "napoleon", "tipo": "concepto", "titulo": "Napoleón Bonaparte", "rama": "etapas", "texto": "General que tomó el poder con un golpe de Estado en 1799." },
+    { "clave": "f_estados", "tipo": "fecha", "titulo": "Reunión de los Estados Generales", "rama": "etapas", "texto": "Luis XVI convocó a los representantes de los tres estamentos.", "campos": { "fecha": "mayo de 1789" } },
+    { "clave": "f_asamblea", "tipo": "fecha", "titulo": "Proclamación de la Asamblea Nacional", "rama": "etapas", "texto": "Los representantes del tercer estado se proclamaron Asamblea Nacional.", "campos": { "fecha": "junio de 1789" } },
+    { "clave": "f_bastilla", "tipo": "fecha", "titulo": "Toma de la Bastilla", "rama": "etapas", "texto": "El pueblo de París asaltó la fortaleza-prisión de la Bastilla.", "campos": { "fecha": "14 de julio de 1789" } },
+    { "clave": "f_declaracion", "tipo": "fecha", "titulo": "Declaración de los Derechos del Hombre y del Ciudadano", "rama": "etapas", "texto": "La Asamblea aprobó una declaración de derechos basada en la libertad y la igualdad ante la ley.", "campos": { "fecha": "agosto de 1789" } },
+    { "clave": "f_republica", "tipo": "fecha", "titulo": "Proclamación de la República", "rama": "etapas", "texto": "Se abolió la monarquía y se proclamó la República.", "campos": { "fecha": "septiembre de 1792" } },
+    { "clave": "f_ejecucion", "tipo": "fecha", "titulo": "Ejecución de Luis XVI", "rama": "etapas", "texto": "El rey fue juzgado y ejecutado.", "campos": { "fecha": "enero de 1793" } },
+    { "clave": "f_terror", "tipo": "fecha", "titulo": "El Terror", "rama": "etapas", "texto": "Periodo de gobierno de los jacobinos, con una dura represión contra los considerados enemigos de la Revolución.", "campos": { "fecha": "1793-1794" } },
+    { "clave": "f_directorio", "tipo": "fecha", "titulo": "El Directorio", "rama": "etapas", "texto": "Gobierno moderado dirigido por cinco directores.", "campos": { "fecha": "1795-1799" } },
+    { "clave": "f_golpe", "tipo": "fecha", "titulo": "Golpe de Estado de Napoleón", "rama": "etapas", "texto": "Napoleón Bonaparte tomó el poder y puso fin a la Revolución.", "campos": { "fecha": "noviembre de 1799" } }
+  ],
+  "relaciones": [
+    { "tipo": "parte_de", "de": "absolutismo", "a": "antiguo_regimen" },
+    { "tipo": "parte_de", "de": "estamentos", "a": "antiguo_regimen" },
+    { "tipo": "parte_de", "de": "privilegiados", "a": "estamentos" },
+    { "tipo": "parte_de", "de": "tercer_estado", "a": "estamentos" },
+    { "tipo": "contrasta_con", "de": "privilegiados", "a": "tercer_estado" },
+
+    { "tipo": "requiere", "de": "revolucion", "a": "antiguo_regimen" },
+    { "tipo": "causa", "de": "ilustracion", "a": "revolucion" },
+    { "tipo": "causa", "de": "crisis", "a": "revolucion" },
+    { "tipo": "causa", "de": "burguesia", "a": "revolucion" },
+    { "tipo": "relacionado", "de": "burguesia", "a": "tercer_estado" },
+    { "tipo": "contrasta_con", "de": "ilustracion", "a": "absolutismo" },
+
+    { "tipo": "parte_de", "de": "f_estados", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_asamblea", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_bastilla", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_declaracion", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_republica", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_ejecucion", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_terror", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_directorio", "a": "revolucion" },
+    { "tipo": "parte_de", "de": "f_golpe", "a": "revolucion" },
+
+    { "tipo": "antes_de", "de": "f_estados", "a": "f_asamblea" },
+    { "tipo": "antes_de", "de": "f_asamblea", "a": "f_bastilla" },
+    { "tipo": "antes_de", "de": "f_bastilla", "a": "f_declaracion" },
+    { "tipo": "antes_de", "de": "f_declaracion", "a": "f_republica" },
+    { "tipo": "antes_de", "de": "f_republica", "a": "f_ejecucion" },
+    { "tipo": "antes_de", "de": "f_ejecucion", "a": "f_terror" },
+    { "tipo": "antes_de", "de": "f_terror", "a": "f_directorio" },
+    { "tipo": "antes_de", "de": "f_directorio", "a": "f_golpe" },
+
+    { "tipo": "causa", "de": "crisis", "a": "f_estados" },
+    { "tipo": "relacionado", "de": "luis_xvi", "a": "f_estados" },
+    { "tipo": "relacionado", "de": "luis_xvi", "a": "f_ejecucion" },
+    { "tipo": "relacionado", "de": "robespierre", "a": "f_terror" },
+    { "tipo": "relacionado", "de": "napoleon", "a": "f_golpe" }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "formato": "edu-paquete",
+  "version": 1,
+  "id": "paq_matematicas_primaria_fracciones",
+  "titulo": "Matemáticas · Primaria · Las fracciones",
+  "descripcion": "Paquete de prueba: concepto de fracción, tipos, equivalencia y operaciones básicas.",
+  "idioma": "es",
+  "fuentes": [
+    {
+      "clave": "prueba",
+      "clase": "propia",
+      "titulo": "Paquete de prueba del sistema · contenido escolar básico",
+      "licencia": "propia",
+      "nota": "Contenido de referencia para probar el sistema. Pendiente de revisión y aprobación por Fátima."
+    }
+  ],
+  "ramas": [
+    { "clave": "mat", "clase": "materia", "nombre": "Matemáticas" },
+    { "clave": "niv", "clase": "nivel", "nombre": "Primaria", "padre": "mat", "nivel": "primaria" },
+    { "clave": "tema", "clase": "tema", "nombre": "Las fracciones", "padre": "niv" },
+    { "clave": "concepto", "clase": "subtema", "nombre": "Concepto de fracción", "padre": "tema", "orden": 1 },
+    { "clave": "equiv", "clase": "subtema", "nombre": "Fracciones equivalentes", "padre": "tema", "orden": 2 },
+    { "clave": "oper", "clase": "subtema", "nombre": "Operaciones con fracciones", "padre": "tema", "orden": 3 }
+  ],
+  "ucs": [
+    { "clave": "fraccion", "tipo": "concepto", "titulo": "Fracción", "rama": "concepto", "texto": "Expresión que indica las partes que se toman de una unidad dividida en partes iguales." },
+    { "clave": "numerador", "tipo": "concepto", "titulo": "Numerador", "rama": "concepto", "texto": "Número que se escribe arriba en la fracción. Indica cuántas partes se toman." },
+    { "clave": "denominador", "tipo": "concepto", "titulo": "Denominador", "rama": "concepto", "texto": "Número que se escribe abajo en la fracción. Indica en cuántas partes iguales se divide la unidad." },
+    { "clave": "forma", "tipo": "formula", "titulo": "Forma de una fracción", "rama": "concepto", "texto": "a es el numerador y b es el denominador. El denominador no puede ser 0.", "campos": { "expresion": "a/b" } },
+    { "clave": "propia", "tipo": "concepto", "titulo": "Fracción propia", "rama": "concepto", "texto": "Fracción cuyo numerador es menor que el denominador. Es menor que la unidad." },
+    { "clave": "impropia", "tipo": "concepto", "titulo": "Fracción impropia", "rama": "concepto", "texto": "Fracción cuyo numerador es mayor que el denominador. Es mayor que la unidad." },
+    { "clave": "unidad", "tipo": "dato", "titulo": "Fracción igual a la unidad", "rama": "concepto", "texto": "Si el numerador y el denominador son iguales, la fracción es igual a la unidad." },
+    { "clave": "ej_pizza", "tipo": "ejemplo", "titulo": "Una pizza en ocho partes", "rama": "concepto", "texto": "Si una pizza se divide en 8 partes iguales y se comen 3, se ha comido 3/8 de la pizza." },
+
+    { "clave": "equivalentes", "tipo": "concepto", "titulo": "Fracciones equivalentes", "rama": "equiv", "texto": "Fracciones que representan la misma cantidad." },
+    { "clave": "irreducible", "tipo": "concepto", "titulo": "Fracción irreducible", "rama": "equiv", "texto": "Fracción que no se puede simplificar más: su numerador y su denominador no tienen más divisor común que el 1." },
+    { "clave": "p_equivalente", "tipo": "procedimiento", "titulo": "Obtener una fracción equivalente", "rama": "equiv",
+      "campos": { "pasos": [
+        "Elegir un número distinto de cero.",
+        "Multiplicar el numerador por ese número.",
+        "Multiplicar el denominador por el mismo número."
+      ] } },
+    { "clave": "p_simplificar", "tipo": "procedimiento", "titulo": "Simplificar una fracción", "rama": "equiv",
+      "campos": { "pasos": [
+        "Buscar un divisor común del numerador y del denominador.",
+        "Dividir el numerador y el denominador entre ese divisor.",
+        "Repetir hasta que el único divisor común sea el 1."
+      ] } },
+    { "clave": "ej_equiv", "tipo": "ejemplo", "titulo": "Un medio y dos cuartos", "rama": "equiv", "texto": "1/2 y 2/4 son fracciones equivalentes: al multiplicar por 2 el numerador y el denominador de 1/2 se obtiene 2/4." },
+    { "clave": "ej_simpl", "tipo": "ejemplo", "titulo": "Simplificar seis octavos", "rama": "equiv", "texto": "6/8 se simplifica dividiendo entre 2 el numerador y el denominador: 6/8 = 3/4, que es irreducible." },
+
+    { "clave": "p_suma", "tipo": "procedimiento", "titulo": "Sumar fracciones con igual denominador", "rama": "oper",
+      "campos": { "pasos": [
+        "Comprobar que las fracciones tienen el mismo denominador.",
+        "Sumar los numeradores.",
+        "Mantener el mismo denominador.",
+        "Simplificar el resultado si se puede."
+      ] } },
+    { "clave": "p_resta", "tipo": "procedimiento", "titulo": "Restar fracciones con igual denominador", "rama": "oper",
+      "campos": { "pasos": [
+        "Comprobar que las fracciones tienen el mismo denominador.",
+        "Restar los numeradores.",
+        "Mantener el mismo denominador.",
+        "Simplificar el resultado si se puede."
+      ] } },
+    { "clave": "p_cantidad", "tipo": "procedimiento", "titulo": "Calcular la fracción de una cantidad", "rama": "oper",
+      "campos": { "pasos": [
+        "Dividir la cantidad entre el denominador.",
+        "Multiplicar el resultado por el numerador."
+      ] } },
+    { "clave": "ej_suma", "tipo": "ejemplo", "titulo": "Suma de séptimos", "rama": "oper", "texto": "2/7 + 3/7 = 5/7." },
+    { "clave": "ej_resta", "tipo": "ejemplo", "titulo": "Resta de novenos", "rama": "oper", "texto": "7/9 − 4/9 = 3/9, que simplificada es 1/3." },
+    { "clave": "ej_cantidad", "tipo": "ejemplo", "titulo": "Dos tercios de doce", "rama": "oper", "texto": "2/3 de 12 es 8: 12 ÷ 3 = 4 y 4 × 2 = 8." }
+  ],
+  "relaciones": [
+    { "tipo": "parte_de", "de": "numerador", "a": "fraccion" },
+    { "tipo": "parte_de", "de": "denominador", "a": "fraccion" },
+    { "tipo": "relacionado", "de": "forma", "a": "fraccion" },
+    { "tipo": "es_un", "de": "propia", "a": "fraccion" },
+    { "tipo": "es_un", "de": "impropia", "a": "fraccion" },
+    { "tipo": "contrasta_con", "de": "propia", "a": "impropia" },
+    { "tipo": "propiedad_de", "de": "unidad", "a": "fraccion" },
+    { "tipo": "ejemplo_de", "de": "ej_pizza", "a": "fraccion" },
+
+    { "tipo": "requiere", "de": "equivalentes", "a": "fraccion" },
+    { "tipo": "es_un", "de": "irreducible", "a": "fraccion" },
+    { "tipo": "relacionado", "de": "p_equivalente", "a": "equivalentes" },
+    { "tipo": "relacionado", "de": "p_simplificar", "a": "equivalentes" },
+    { "tipo": "relacionado", "de": "p_simplificar", "a": "irreducible" },
+    { "tipo": "ejemplo_de", "de": "ej_equiv", "a": "equivalentes" },
+    { "tipo": "ejemplo_de", "de": "ej_simpl", "a": "p_simplificar" },
+
+    { "tipo": "requiere", "de": "p_suma", "a": "fraccion" },
+    { "tipo": "requiere", "de": "p_resta", "a": "fraccion" },
+    { "tipo": "requiere", "de": "p_suma", "a": "p_simplificar" },
+    { "tipo": "requiere", "de": "p_resta", "a": "p_simplificar" },
+    { "tipo": "contrasta_con", "de": "p_suma", "a": "p_resta" },
+    { "tipo": "requiere", "de": "p_cantidad", "a": "fraccion" },
+    { "tipo": "ejemplo_de", "de": "ej_suma", "a": "p_suma" },
+    { "tipo": "ejemplo_de", "de": "ej_resta", "a": "p_resta" },
+    { "tipo": "ejemplo_de", "de": "ej_cantidad", "a": "p_cantidad" }
+  ]
+}
