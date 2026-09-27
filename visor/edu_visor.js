@@ -514,7 +514,7 @@
   }
 
   // Lo que necesita el asistente (visor/edu_visor_crear.js) para abrir un trabajo.
-  window.EDU_VISOR = { seleccionar: seleccionar, pestana: pestana, pintarArbol: pintarArbol };
+  window.EDU_VISOR = { seleccionar: seleccionar, pestana: pestana, pintarArbol: pintarArbol, estado: function () { return st; }, piezaPorId: piezaPorId };
 
   arrancar();
 })();

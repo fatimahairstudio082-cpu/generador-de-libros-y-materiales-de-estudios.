@@ -23,9 +23,10 @@ Pruebas (Node, sin dependencias):
 | Redacción | `redaccion/edu_lengua_es.js` (gramática, intercambiable por idioma) · `edu_redactor.js` (texto con trazabilidad) |
 | Variación | `variacion/edu_variacion.js` (versiones con los mismos hechos) |
 | Motores heredados | `heredados/*.js`: copias intactas de FATIMA PRO (láminas con 300 diseños, folleto, examen, voz, vídeo 3D, bandeja, doc-page). Certificado en `heredados/ORIGEN.md` |
-| Adaptadores | `compat/edu_visual.js` (Motor Visual: estilo del diseño de FATIMA PRO + contenido solo de los datos, con `verificar()`) |
+| Adaptadores | `compat/edu_visual.js` (Motor Visual: estilo del diseño de FATIMA PRO + contenido solo de los datos, con `verificar()`) · `compat/edu_examen.js` (examen y corrección con `b6_examen`; opciones solo de los datos, con `verificar()`) |
+| Salidas | `salidas/edu_exportar.js` (PDF, ZIP, descarga) · `salidas/edu_libro.js` (un modelo de lectura → libro PDF, EPUB 3 y HTML; textos solo de la redacción). Librerías locales en `vendor/` (jsPDF, JSZip, DejaVu Serif; ver `vendor/LEEME.md`) |
 | Asistente | `conocimiento/edu_pegado.js` (texto pegado de internet → UC literales con fuente y dirección) · `proyecto/edu_proyecto.js` (tipos de trabajo, hojas 10–300, papel, plantilla; estimación honesta de hojas) · `redaccion/edu_documento.js` (texto de autor en su orden y literal, con auditoría propia; combinable con el banco) |
-| Pantalla | `index.html` + `visor/edu_visor.js` + `visor/edu_visor_crear.js` (pestaña «Crear») |
+| Pantalla | `index.html` + `visor/edu_visor.js` + `visor/edu_visor_crear.js` (pestaña «Crear») + `visor/edu_visor_salidas.js` (Descargar / Vista previa) |
 
 Orden de carga: el de los `<script>` de `index.html`. Cada módulo se registra con
 `EDU.registrar(nombre, api, { requiere })` y se protege contra la doble carga.

@@ -150,6 +150,16 @@
   .tipo-trabajo[aria-checked="true"] { border-color: var(--acento); background: var(--acento-suave); box-shadow: 0 0 0 1px var(--acento); }
   .pie { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--grafito); border-top: 1px solid var(--linea); padding-top: 12px; }
   .vacio { color: var(--grafito); font-style: italic; }
+  .salidas { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; background: var(--hoja); border: 1px solid var(--linea); border-radius: 8px; padding: 8px 10px; }
+  .salidas .boton { padding: 5px 10px; font-size: 13px; }
+  .salidas-titulo { font: 600 11px/1.3 var(--ui); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grafito); }
+  .salidas-estado { flex-basis: 100%; font-size: 12px; color: var(--grafito); min-height: 1em; }
+  .salidas-estado.mal { color: var(--mal); }
+  .previa { flex-basis: 100%; border-top: 1px solid var(--linea); padding-top: 8px; }
+  .previa-barra { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; }
+  .previa iframe { width: 100%; height: 70vh; border: 1px solid var(--linea); border-radius: 6px; background: #fff; }
+  .previa-hojas { display: flex; flex-direction: column; gap: 10px; max-height: 75vh; overflow: auto; }
+  .previa-hojas canvas { width: 100%; max-width: 794px; height: auto; border: 1px solid var(--linea); margin: 0 auto; }
   @media (max-width: 900px) {
     .marco { grid-template-columns: minmax(0, 1fr); }
     .lateral { position: static; max-height: none; order: 2; }
@@ -230,6 +240,7 @@
         <button type="button" class="boton" id="btnOtra">Otra versión</button>
         <button type="button" class="boton secundario" id="btnMarcar" aria-pressed="false">Marcar cambios</button>
       </div>
+      <div class="salidas" id="salidas"></div>
       <div class="indicadores" id="indicadores"></div>
       <p class="aviso" id="avisoHojas" hidden></p>
       <ul class="errores" id="problemas" hidden></ul>
@@ -280,5 +291,10 @@
 <script src="redaccion/edu_documento.js"></script>
 <script src="visor/edu_visor.js"></script>
 <script src="visor/edu_visor_crear.js"></script>
+<script src="heredados/b6_examen.js"></script>
+<script src="compat/edu_examen.js"></script>
+<script src="salidas/edu_exportar.js"></script>
+<script src="salidas/edu_libro.js"></script>
+<script src="visor/edu_visor_salidas.js"></script>
 </body>
 </html>
